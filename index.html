@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legion Pathways — Build Your Path. Scale Your Skill.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1A2B54;
+    --navy-dark: #111d3a;
+    --navy-light: #243569;
+    --red: #BD322E;
+    --red-dark: #9e2a27;
+    --cream: #F7F5F0;
+    --white: #ffffff;
+    --grey: #8a8a9a;
+    --light: #f0eee9;
+    --border: rgba(26,43,84,0.1);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--navy);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(247,245,240,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 32px rgba(26,43,84,0.08); }
+
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 32px;
+    height: 72px; display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .logo { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
+  .logo-main { font-family: var(--font-display); font-size: 20px; font-weight: 900; color: var(--navy); }
+
+  .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
+  .nav-links a {
+    font-size: 14px; font-weight: 500; color: var(--navy); text-decoration: none;
+    padding: 8px 16px; border-radius: 6px; transition: background 0.2s, color 0.2s; letter-spacing: 0.2px;
+  }
+  .nav-links a:hover { background: var(--navy); color: var(--white); }
+  .nav-links a.active { color: var(--red); }
+  .nav-cta { background: var(--navy) !important; color: var(--white) !important; border-radius: 6px !important; }
+  .nav-cta:hover { background: var(--navy-dark) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s var(--ease); }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none; position: fixed; top: 72px; left: 0; right: 0;
+    background: var(--cream); border-bottom: 1px solid var(--border);
+    padding: 16px 32px 24px; z-index: 999; flex-direction: column; gap: 4px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 16px; font-weight: 500; color: var(--navy); text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--red); }
+
+  /* PAGES */
+  .page { display: none; padding-top: 72px; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero { min-height: calc(100vh - 72px); display: flex; align-items: center; position: relative; overflow: hidden; background: var(--navy); }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 80% 50%, rgba(189,50,46,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(36,53,105,0.8) 0%, transparent 70%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-inner {
+    position: relative; max-width: 1200px; margin: 0 auto; padding: 20px 32px 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 28px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--red); }
+  .hero-motto { font-family: var(--font-display); font-size: clamp(42px, 6vw, 72px); font-weight: 900; color: var(--white); line-height: 1.05; letter-spacing: -2px; margin-bottom: 12px; }
+  .hero-motto span { color: var(--red); }
+  .hero-headline { font-size: clamp(16px, 2vw, 20px); font-weight: 300; color: rgba(255,255,255,0.7); margin-bottom: 40px; max-width: 480px; line-height: 1.7; }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--red); color: var(--white); padding: 16px 32px; border-radius: 6px;
+    font-size: 15px; font-weight: 600; text-decoration: none; border: 2px solid var(--red);
+    cursor: pointer; transition: all 0.25s var(--ease); display: inline-flex; align-items: center; gap: 8px;
+    letter-spacing: 0.2px; font-family: var(--font-body);
+  }
+  .btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(189,50,46,0.35); }
+
+  .btn-secondary {
+    background: transparent; color: var(--white); padding: 16px 32px; border-radius: 6px;
+    font-size: 15px; font-weight: 500; text-decoration: none; border: 2px solid rgba(255,255,255,0.25);
+    cursor: pointer; transition: all 0.25s var(--ease); display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-body);
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
+
+  .hero-visual { display: flex; justify-content: flex-end; align-items: center; }
+  .pipeline-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 32px; width: 100%; max-width: 380px; backdrop-filter: blur(8px);
+  }
+  .pipeline-card-title { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 24px; }
+  .pipeline-steps { display: flex; flex-direction: column; }
+  .pipeline-step { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .pipeline-step:last-child { border-bottom: none; }
+  .step-badge { width: 32px; height: 32px; border-radius: 8px; background: rgba(189,50,46,0.15); border: 1px solid rgba(189,50,46,0.35); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 13px; font-weight: 700; color: var(--red); }
+  .pipeline-step.active .step-badge { background: var(--red); color: var(--white); border-color: var(--red); }
+  .step-label { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+  .step-desc { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+  /* SECTIONS */
+  section { padding: 100px 32px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  .section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .section-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--red); }
+  .section-title { font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: var(--navy); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; }
+  .section-subtitle { font-size: 17px; font-weight: 300; color: var(--grey); max-width: 560px; line-height: 1.7; }
+
+  /* WHAT WE DO */
+  .what-we-do { background: var(--white); }
+  .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 30px; }
+  .what-text p { font-size: 16px; font-weight: 300; color: #555; line-height: 1.8; margin-bottom: 20px; }
+  .what-text strong { color: var(--navy); font-weight: 600; }
+  .what-visual { display: flex; flex-direction: column; gap: 12px; }
+
+  .flow-item { display: flex; align-items: center; gap: 20px; background: var(--cream); border-radius: 12px; padding: 20px 24px; border-left: 3px solid transparent; transition: border-color 0.3s, transform 0.3s; }
+  .flow-item:hover { border-color: var(--red); transform: translateX(4px); }
+  .flow-item:nth-child(1) { border-color: var(--red); }
+  .flow-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--navy); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .flow-icon svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  .flow-label { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+  .flow-sublabel { font-size: 13px; color: var(--grey); }
+  .flow-arrow { margin-left: auto; color: var(--grey); display: flex; align-items: center; }
+  .flow-arrow svg { width: 18px; height: 18px; stroke: var(--grey); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* VALUE PROPS */
+  .value-props { background: var(--cream); }
+  .props-header { max-width: 600px; margin-bottom: 60px; }
+  .props-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border-radius: 16px; overflow: hidden; }
+  .prop-card { background: var(--white); padding: 48px 40px; transition: background 0.3s; }
+  .prop-card:hover { background: var(--navy); }
+  .prop-card:hover .prop-number { color: #ffffff; }
+  .prop-card:hover .prop-title { color: var(--white); }
+  .prop-card:hover .prop-text { color: #ffffff; }
+  .prop-card:hover .prop-icon { background: rgba(189,50,46,0.2); border-color: rgba(189,50,46,0.4); }
+  .prop-card:hover .prop-icon svg { stroke: var(--red); }
+  .prop-number { font-family: var(--font-display); font-size: 64px; font-weight: 900; color: #182c4f; line-height: 1; margin-bottom: 24px; transition: color 0.3s; letter-spacing: -2px; }
+  .prop-icon { width: 48px; height: 48px; border-radius: 12px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; transition: background 0.3s, border-color 0.3s; }
+  .prop-icon svg { width: 22px; height: 22px; stroke: var(--navy); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s; }
+  .prop-title { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 12px; transition: color 0.3s; line-height: 1.2; }
+  .prop-text { font-size: 14px; font-weight: 300; color: var(--grey); line-height: 1.7; transition: color 0.3s; }
+
+  /* PROCESS */
+  .process { background: var(--navy); position: relative; overflow: hidden; }
+  .process::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(189,50,46,0.08) 0%, transparent 60%); }
+  .process .section-title { color: var(--white); }
+  .process .section-subtitle { color: rgba(255,255,255,0.5); max-width: 520px; }
+  .process-header { margin-bottom: 64px; }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+  .process-steps::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 1px; background: rgba(255,255,255,0.1); z-index: 0; }
+  .process-step { text-align: center; padding: 0 24px; position: relative; z-index: 1; }
+  .process-num { width: 56px; height: 56px; border-radius: 50%; border: 1px solid rgba(189,50,46,0.5); background: var(--navy); display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; font-family: var(--font-display); font-size: 20px; font-weight: 900; color: var(--red); }
+  .process-step-title { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+  .process-step-text { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+  /* CTA BANNER */
+  .cta-banner { background: var(--red); padding: 80px 32px; text-align: center; position: relative; overflow: hidden; }
+  .cta-banner::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 20px); }
+  .cta-banner .container { position: relative; }
+  .cta-banner h2 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 56px); font-weight: 900; color: var(--white); letter-spacing: -1.5px; margin-bottom: 16px; line-height: 1.05; }
+  .cta-banner p { font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .cta-banner .btn-primary { background: var(--white); color: var(--red); border-color: var(--white); }
+  .cta-banner .btn-primary:hover { background: var(--cream); border-color: var(--cream); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+
+  /* ABOUT */
+  .about-hero { background: var(--navy); padding: 100px 32px 80px; position: relative; overflow: hidden; }
+  .about-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; }
+  .about-hero-inner { position: relative; max-width: 1200px; margin: 0 auto; }
+  .about-hero .section-title { color: var(--white); max-width: 700px; }
+  .about-hero .section-subtitle { color: rgba(255,255,255,0.55); max-width: 600px; margin-top: 20px; }
+  .about-hero .section-eyebrow { margin-bottom: 20px; }
+
+  .about-body { background: var(--white); }
+  .about-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 80px; }
+  .about-body p { font-size: 16px; font-weight: 300; color: #555; line-height: 1.8; margin-bottom: 20px; }
+  .about-body p strong { color: var(--navy); font-weight: 600; }
+
+  .model-box { background: var(--cream); border-radius: 16px; padding: 40px; }
+  .model-box-title { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 24px; }
+  .model-item { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 14px; font-weight: 500; color: var(--navy); }
+  .model-item:last-child { border-bottom: none; }
+  .model-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+
+  /* SERVICES */
+  .services { background: var(--cream); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border-radius: 16px; overflow: hidden; margin-top: 60px; }
+  .service-card { background: var(--white); padding: 40px 36px; transition: background 0.3s; }
+  .service-card:hover { background: var(--navy); }
+  .service-card:hover .service-title { color: var(--white); }
+  .service-card:hover .service-text { color: rgba(255,255,255,0.55); }
+  .service-card:hover .service-icon-wrap { background: rgba(189,50,46,0.2); border-color: rgba(189,50,46,0.4); }
+  .service-card:hover .service-icon-wrap svg { stroke: var(--red); }
+  .service-icon-wrap { width: 52px; height: 52px; border-radius: 12px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; transition: background 0.3s, border-color 0.3s; }
+  .service-icon-wrap svg { width: 22px; height: 22px; stroke: var(--navy); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s; }
+  .service-title { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 12px; transition: color 0.3s; line-height: 1.2; }
+  .service-text { font-size: 14px; font-weight: 300; color: var(--grey); line-height: 1.7; transition: color 0.3s; }
+
+  /* CONTACT */
+  .contact-hero { background: var(--navy); padding: 100px 32px 80px; position: relative; overflow: hidden; }
+  .contact-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; }
+  .contact-hero-inner { position: relative; max-width: 1200px; margin: 0 auto; }
+  .contact-hero .section-title { color: var(--white); }
+  .contact-hero .section-subtitle { color: rgba(255,255,255,0.5); margin-top: 20px; }
+
+  .contact-body { background: var(--white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
+  .contact-info-title { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 32px; }
+  .contact-item { display: flex; align-items: flex-start; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border); }
+  .contact-item:last-child { border-bottom: none; }
+  .contact-item-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-item-icon svg { width: 20px; height: 20px; stroke: var(--navy); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  .contact-item-label { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey); margin-bottom: 4px; }
+  .contact-item-value { font-size: 15px; font-weight: 500; color: var(--navy); line-height: 1.5; }
+  .contact-item-value a { color: var(--navy); text-decoration: none; transition: color 0.2s; }
+  .contact-item-value a:hover { color: var(--red); }
+
+  /* FORM */
+  .contact-form-wrap { background: var(--cream); border-radius: 20px; padding: 48px; }
+  .form-title { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 32px; letter-spacing: -0.5px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--navy); margin-bottom: 8px; opacity: 0.7; }
+  .form-group input, .form-group textarea { width: 100%; padding: 14px 18px; border: 1.5px solid rgba(26,43,84,0.12); border-radius: 8px; font-family: var(--font-body); font-size: 15px; color: var(--navy); background: var(--white); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(26,43,84,0.08); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-submit { width: 100%; background: var(--navy); color: var(--white); padding: 16px 32px; border-radius: 8px; font-family: var(--font-body); font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; margin-top: 8px; letter-spacing: 0.2px; }
+  .form-submit:hover { background: var(--navy-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(26,43,84,0.2); }
+  .form-success { display: none; background: #edf7f0; border: 1.5px solid #34b36a; border-radius: 12px; padding: 24px 28px; margin-top: 20px; align-items: flex-start; gap: 16px; }
+  .form-success.visible { display: flex; }
+  .success-icon { display: flex; align-items: center; flex-shrink: 0; }
+  .success-icon svg { width: 24px; height: 24px; stroke: #1a6636; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .success-text { font-size: 15px; font-weight: 500; color: #1a6636; line-height: 1.5; }
+
+  /* FOOTER */
+  footer { background: var(--navy-dark); padding: 64px 32px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 32px; }
+  .footer-brand .logo-main { font-size: 22px; color: var(--white); }
+  .footer-brand p { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.4); margin-top: 16px; max-width: 280px; line-height: 1.7; }
+  .footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; cursor: pointer; }
+  .footer-col ul li a:hover { color: var(--white); }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.25); }
+  .footer-bottom-right { display: flex; align-items: center; gap: 6px; }
+  .footer-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
+  .footer-tagline { font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-visual { justify-content: center; }
+    .pipeline-card { max-width: 100%; }
+    .what-grid { grid-template-columns: 1fr; gap: 48px; }
+    .props-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .process-steps::before { display: none; }
+    .about-two-col { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-form-wrap { padding: 32px 24px; }
+    .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 64px 24px; }
+    .nav-inner { padding: 0 24px; }
+    .hero-buttons { flex-direction: column; }
+    .btn-primary, .btn-secondary { justify-content: center; }
+    .process-steps { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { animation: fadeUp 0.7s var(--ease) both; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a class="logo" href="#" onclick="showPage('home'); return false;">
+      <span class="logo-main"><img src="https://lh3.googleusercontent.com/rd-d/ALs6j_EO_ioESeV7B2nCrFQeFf8l-4rts739odRdTtnYTcxF0Q-ZuWAmfHSEYzv5CAqp3qxd0ooASX-CSlBJGihaN5S1mQbJciHFuGERgzHdGUjpBTqvLnGJuY3J1krX1fVj14myh4vnklELgLgsSJYaMdWZY6J8H9igrSuhaLwtGiFg-g73iQsLlMvWFWPsOx_TTjmSgAoIxgH7HoOf_rYH2bTyDE1mI6-Y6mFt_FtU5qcqTJZW2clELanXQLXIX_q9FAp41UOhTv33ZI-HUM3pVykDrBpD7uNHoXnbtCTF881CQUHKp2hJFImxKPtvAVj2R2yNbEUR6GTQaimgoqzNzHSUE1JmQ7iqMNH3nKyL5eUtFYnNPdJlaI2BtK5rw8SdFaezHYmQ4GvErdpIpKn6BvsNwZ8u6E_biFGIzqaXNCd8J_PYYinVWQfM_y11u3e8fiiSEBcPFixP9JvRpdFKnPFAWyIorjbK6N4ku18ooLo1OMPMCnly_g4gMntOVi_hAFm6AvOq46wF2-zar98lANb1nesLEwqS59aw54oqFEX9AchQfniVFbEfljxOnVWq4GGxPxXm8Y_wtFm-DjjY4m2dDOkzz-_Bug-qGDrGXIDlWR-3dABqHXOoK6s8gDPl8qR5rounuQnojDtZTI3zOxtxit2I_oBDzu61MHQalRaZlFDInldprPlP23cxpVVoqfG_tdjgAAbYM-Mojv58NySo0R969bMnIml9nmSulmqxPh-dIfeBZA_mDzOb-ZYKvf1w087keH8O5mCxYmDieJlMvVG7d0ZJqrROvsP09SJO5Av-cA4PMcfT3hUAbnHXkena78j6SpLVYv8Ovzi0rmKj15bCSBIVZMmNoIiA1_miOWdE7zgFVtnmlotcKoeb54eghlRJQd5i4F5R94I1de_R9-AOPzrIxDBBeZ0J8k-p6BPiTqZ2yx-QneVWD7Hmsb5xATKmpvZkGFFP7dry8eHmfZwSbX3Cs7AwM7-zCaoYDGWBe8Vr1PmBSS6-gj8yonQoIHwvUi1Lr_w7V2KYTYbVFbXL_Uqx_1w3Kod96jESs43dVkSbYS4n8R_iYErZPJ_x8ZiJddQBnpi-U0DXfpDtbpY_t6qORmNnDHlUyTxqUv_ZBTxjoMnCAUaRYMYDy0CDZR8Pb_JdDw2Ao-53V1oYYMw2Mp6SPO7m2nqpiobq-KZ8RQ=w2880-h1566?auditContext=prefetch" width="200px" alt=""></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home'); return false;" id="nav-home" class="active">Home</a></li>
+      <li><a href="#" onclick="showPage('about'); return false;" id="nav-about">About Us</a></li>
+      <li><a href="#" onclick="showPage('contact'); return false;" id="nav-contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="showPage('home'); toggleMenu(); return false;">Home</a>
+  <a href="#" onclick="showPage('about'); toggleMenu(); return false;">About Us</a>
+  <a href="#" onclick="showPage('contact'); toggleMenu(); return false;">Contact</a>
+</div>
+
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow fade-up">System-Driven Growth</div>
+        <h1 class="hero-motto fade-up delay-1">Build Your<br>Path. Scale<br><span>Your Skill.</span></h1>
+        <p class="hero-headline fade-up delay-2">We connect skilled professionals with the clients they deserve &mdash; by building the acquisition systems, pipelines, and operations they never have to manage.</p>
+        <div class="hero-buttons fade-up delay-3">
+          <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Get Started &rarr;</a>
+          <a href="#" class="btn-secondary" onclick="showPage('about'); return false;">Get to Know Us</a>
+        </div>
+      </div>
+      <div class="hero-visual fade-up delay-4">
+        <div class="pipeline-card">
+          <div class="pipeline-card-title">Acquisition Pipeline</div>
+          <div class="pipeline-steps">
+            <div class="pipeline-step active">
+              <div class="step-badge">1</div>
+              <div>
+                <div class="step-label">Traffic Generation</div>
+                <div class="step-desc">Multichannel audience acquisition</div>
+              </div>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-badge">2</div>
+              <div>
+                <div class="step-label">Funnel Building</div>
+                <div class="step-desc">Structured conversion pathways</div>
+              </div>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-badge">3</div>
+              <div>
+                <div class="step-label">Session Conversion</div>
+                <div class="step-desc">Group sessions &amp; live webinars</div>
+              </div>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-badge">4</div>
+              <div>
+                <div class="step-label">Follow-Up System</div>
+                <div class="step-desc">Retention &amp; re-engagement flows</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="what-we-do">
+    <div class="container">
+      <div class="section-eyebrow">What We Do</div>
+      <h2 class="section-title">We run the machine.<br>You deliver the skill.</h2>
+      <div class="what-grid">
+        <div class="what-text">
+          <p>Legion Pathways is a <strong>system-driven growth company</strong>. We partner with skilled professionals &mdash; tutors, coaches, consultants &mdash; and build the entire client acquisition infrastructure on their behalf.</p>
+          <p>From the first impression to the signed-up client, we operate every step of the pipeline. Our partners focus entirely on what they do best: <strong>delivering world-class outcomes</strong> for the people they serve.</p>
+          <p>No marketing headaches. No admin overhead. No guesswork. Just a structured system that brings the right clients, consistently.</p>
+        </div>
+        <div class="what-visual">
+          <div class="flow-item">
+            <div class="flow-icon">
+              <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="white" stroke="none"/></svg>
+            </div>
+            <div>
+              <div class="flow-label">We Attract Audiences</div>
+              <div class="flow-sublabel">Paid &amp; organic traffic strategies</div>
+            </div>
+            <div class="flow-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-icon">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <div class="flow-label">We Build the Funnel</div>
+              <div class="flow-sublabel">Landing pages, offers, sequences</div>
+            </div>
+            <div class="flow-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="white" stroke="none"/></svg>
+            </div>
+            <div>
+              <div class="flow-label">We Convert Prospects</div>
+              <div class="flow-sublabel">Group sessions &amp; webinar events</div>
+            </div>
+            <div class="flow-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-icon">
+              <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            </div>
+            <div>
+              <div class="flow-label">We Retain Clients</div>
+              <div class="flow-sublabel">Follow-up systems &amp; re-engagement</div>
+            </div>
+            <div class="flow-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="value-props">
+    <div class="container">
+      <div class="props-header">
+        <div class="section-eyebrow">Why Legion Pathways</div>
+        <h2 class="section-title">Built for professionals who are ready to scale.</h2>
+      </div>
+      <div class="props-grid">
+        <div class="prop-card">
+          <div class="prop-number">01</div>
+          <div class="prop-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          </div>
+          <div class="prop-title">Fully Managed Pipeline</div>
+          <p class="prop-text">Every step of client acquisition is handled for you &mdash; from traffic to conversion. A complete operational system runs in the background so you can focus forward.</p>
+        </div>
+        <div class="prop-card">
+          <div class="prop-number">02</div>
+          <div class="prop-icon">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="prop-title">Structured for Scale</div>
+          <p class="prop-text">Our systems aren&rsquo;t built for one-off results. They are designed to compound &mdash; growing your client base predictably and sustainably month over month.</p>
+        </div>
+        <div class="prop-card">
+          <div class="prop-number">03</div>
+          <div class="prop-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="prop-title">You Stay in Your Lane</div>
+          <p class="prop-text">Your expertise is the product. We exist so you never have to spend time on marketing, operations, or follow-up. Just show up and deliver your best work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <div class="process-header">
+        <div class="section-eyebrow">How It Works</div>
+        <h2 class="section-title">Four steps.<br>One system.</h2>
+        <p class="section-subtitle">Legion Pathways operates a proven four-stage pipeline that turns cold audiences into paying, loyal clients for our partners.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-num">I</div>
+          <div class="process-step-title">Traffic Generation</div>
+          <p class="process-step-text">We build multichannel campaigns that place your service in front of the right audience &mdash; consistently and at scale.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">II</div>
+          <div class="process-step-title">Funnel Architecture</div>
+          <p class="process-step-text">Every touchpoint is engineered. Landing pages, offers, and messaging sequences that guide prospects to take action.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">III</div>
+          <div class="process-step-title">Session Conversion</div>
+          <p class="process-step-text">Group classes and webinars serve as high-converting live environments where prospects become paying clients.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">IV</div>
+          <div class="process-step-title">Follow-Up Systems</div>
+          <p class="process-step-text">Automated and manual follow-up sequences ensure no lead is left behind and retention stays strong.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to stop doing<br>everything yourself?</h2>
+      <p>Let us build the system. You bring the skill. Together, we scale.</p>
+      <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Start the Conversation &rarr;</a>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ABOUT -->
+<div id="page-about" class="page">
+
+  <div class="about-hero">
+    <div class="about-hero-inner">
+      <div class="section-eyebrow">About Legion Pathways</div>
+      <h1 class="section-title">We are the system behind your success.</h1>
+      <p class="section-subtitle">Legion Pathways is not a marketing agency, a course provider, or an events company. We are an end-to-end acquisition and growth infrastructure built for skilled professionals.</p>
+    </div>
+  </div>
+
+  <section class="about-body">
+    <div class="container">
+      <div class="about-two-col">
+        <div>
+          <div class="section-eyebrow">Our Model</div>
+          <h2 class="section-title" style="font-size: clamp(28px,3.5vw,42px); margin-bottom: 28px;">Connecting talent to clients &mdash; systematically.</h2>
+          <p>Legion Pathways was built on one observation: <strong>exceptional professionals struggle to grow not because of their skills, but because of everything around their skills.</strong></p>
+          <p>Marketing, operations, follow-up, positioning &mdash; these demand an entirely different expertise. Most professionals shouldn&rsquo;t have to master them. They should be delivering results for clients.</p>
+          <p>So we built the infrastructure that does exactly that. We partner with skilled professionals in any field, build their full client acquisition pipeline, run the operations, and let them do what they&rsquo;re best at.</p>
+          <p>Our current work includes running structured group learning sessions with a French tutor &mdash; handling all marketing, scheduling, and participant management so they can focus entirely on teaching.</p>
+        </div>
+        <div>
+          <div class="model-box">
+            <div class="model-box-title">The Legion Model</div>
+            <div class="model-item"><div class="model-dot"></div>We build and operate acquisition pipelines</div>
+            <div class="model-item"><div class="model-dot"></div>We generate traffic through multichannel strategies</div>
+            <div class="model-item"><div class="model-dot"></div>We engineer funnels that convert</div>
+            <div class="model-item"><div class="model-dot"></div>We run session-based conversion events</div>
+            <div class="model-item"><div class="model-dot"></div>We manage all follow-up and retention systems</div>
+            <div class="model-item"><div class="model-dot"></div>Our partners focus only on service delivery</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="container">
+      <div class="section-eyebrow">What We Offer</div>
+      <h2 class="section-title">Services built for<br>scale and clarity.</h2>
+      <p class="section-subtitle" style="margin-top: 16px;">A suite of focused services designed to grow your reach, strengthen your brand, and deliver results across every channel.</p>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="service-title">Skilled Learning Sessions</div>
+          <p class="service-text">Structured group classes and sessions designed around your expertise. We handle logistics, attendance, and delivery infrastructure &mdash; you simply teach.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="service-title">Marketing Consultation</div>
+          <p class="service-text">Strategic positioning and campaign planning tailored to your audience. From message to channel, we identify exactly where and how to reach the people you serve.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="service-title">Digital Footprint</div>
+          <p class="service-text">We build and optimize your digital presence &mdash; websites, landing pages, social profiles &mdash; to ensure every touchpoint works hard for your brand.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="service-title">IT Consultation</div>
+          <p class="service-text">Technology should enable growth, not complicate it. We advise on tools, platforms, and systems that make your operations efficient and scalable.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="service-title">Brand Buildup</div>
+          <p class="service-text">From identity to voice, we develop the brand assets and narrative that position you as the authority in your field and attract the right clients consistently.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="service-title">Event Management</div>
+          <p class="service-text">End-to-end coordination of webinars, workshops, and live events &mdash; promotional campaigns, registrations, communications, and post-event follow-up all included.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Let&rsquo;s build your<br>pipeline together.</h2>
+      <p>Reach out and tell us about your skill. We&rsquo;ll build the rest.</p>
+      <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Get in Touch &rarr;</a>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- CONTACT -->
+<div id="page-contact" class="page">
+
+  <div class="contact-hero">
+    <div class="contact-hero-inner">
+      <div class="section-eyebrow">Get in Touch</div>
+      <h1 class="section-title">Let&rsquo;s start building.</h1>
+      <p class="section-subtitle">Whether you&rsquo;re a skilled professional ready to scale, or an organisation looking to grow through systems &mdash; we want to hear from you.</p>
+    </div>
+  </div>
+
+  <section class="contact-body">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-title">Contact Information</div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Enquiries</div>
+              <div class="contact-item-value"><a href="/cdn-cgi/l/email-protection#c9aca7b8bca0bbb089a5acaea0a6a7b9a8bda1bea8b0bae7aaa6a4"><span class="__cf_email__" data-cfemail="a1c4cfd0d4c8d3d8e1cdc4c6c8cecfd1c0d5c9d6c0d8d28fc2cecc">info@legionpathways.com</span></a></div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.44a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-value">+1-437-933-1376</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Response Time</div>
+              <div class="contact-item-value">We aim to respond within 24&ndash;48 hours on business days.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <div class="form-title">Send us a message</div>
+          <form id="contactForm" onsubmit="handleMailto(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="c-name">Full Name</label>
+                <input type="text" id="c-name" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label for="c-email">Email Address</label>
+                <input type="email" id="c-email" placeholder="you@example.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="c-phone">Phone Number</label>
+              <input type="tel" id="c-phone" placeholder="+1 (000) 000-0000">
+            </div>
+            <div class="form-group">
+              <label for="c-message">Your Message</label>
+              <textarea id="c-message" placeholder="Tell us about yourself and what you're looking to build..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message &rarr;</button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="success-text">We&rsquo;ve received your message. We will get back to you shortly.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+      <span class="logo-main"><img src="https://lh3.googleusercontent.com/rd-d/ALs6j_EYkGJLtRcfOTCStGHipGUREZA5xsRQ2DiEiQubZ_VRN7P0GUZr79FnFoSZwMOZ3kxpGcnIiN19u4c6EnT6jFRuWv5Fk4-mn5ske407t1Ja6aYgj8tQrtxLJSpw0OyL5pmT58RdG8vhGAxwrVCCgqPPPmyjhOFaG84htPt_LHd5UYLyz5hv5KO5yE0KwpJJQ5xggaYNpbFfV-NGrxI4PaWoon3QeMcAt_dDN2KAt-rotht7tI6Pxy-ZNAyG5aqPDZkO8KNr45o5lGQNq4uFzlCRSy9EXuC9OFUS23Y9qO5qSYV9hy5xj1VaoYJanqYyD0q413bMC3tVpOfzF21bjMh5avq4JRgT0Hp5yL72nhuYaWCbQSQ_aQyRSijI1_5Vu8MFx0aMFkiKFgmEP6e6sgnmER1OZN7nkdaVBHZB1GpC2FMkNbF7LH5rv-kh0SQ9tVT-9sLu9stTNAC0_RKYYPLNDJuZg-ypgQSgGMvTnJPXJXAm-l4ZW2CkFYgMZVDkADghOb5mEKzo1yDshEFSmYatY9HfV8SoBkz4DNaklre9KI1QVJLTGmDd4F-3jHgigU2NqUL8W3SguZHPTHDEiwlfB13Fh52stEhW0VQJqg68hpHNcoRuRqCeGmG7kJ8o_i36WP6ubnNqObHgy2hmM0XdoxARW9PZ4r5Qk4n9KNeVIIRbEW5O0isAGB6gzY6yMknLqD9t3ZqAtaUyZg1bWluTvLFentcGQQe5GJvP3S2MXz4ATUGkOfh_CdkM8wSgTFM5hnuKPSj3rh8pubQevzE4HhlPxO1enascPNl5v4wOpWfkVg_fnQ0Zk6VMaEORk6-b6ERoBBkhFcmB21OGGoCi1KC61XsxE5Voy1WsMumkaTpeU-VuA7TwZt32IJaa2Df09e5OpBw29NfcHstdWspfuSX079W2JarZOZN6yl9E6_x25Ry28IsNsSflDVXsAWlKJEamMwVFR2CQ05hs3pplDGlytjHPTlsnzCIU4IQOetkHi3Ev0xbyHWBLjTDDAxFpk5EWOeRkS51I0hU_4zZmabKde1hKiV0CFy7seFXdxdvxRSiKI9GNIq_jjKMOy5sd5DFCCelii23KB-fbSUwzryEnNuF_nigczgpdz7vXHm9F5pFov-2kpT3qoJ3KcXHa8cCRWr7s5x39iPJZwsbYRN017YR3FEYSNDdtY2qTYON1jlM=w2880-h1566?auditContext=prefetch" width="200px" alt=""></span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a onclick="showPage('about')">About Us</a></li>
+          <li><a onclick="showPage('about')">Our Services</a></li>
+          <li><a onclick="showPage('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@legionpathways.com"><span class="__cf_email__">info@legionpathways.com</span></a></li>
+          <li><a>+1-437-933-1376</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Legion Pathways. All rights reserved.</p>
+      <div class="footer-bottom-right">
+        <div class="footer-dot"></div>
+        <span class="footer-tagline">Build Your Path. Scale Your Skill.</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    const navEl = document.getElementById('nav-' + page);
+    if (navEl) navEl.classList.add('active');
+    window.scrollTo(0, 0);
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu.classList.contains('open')) toggleMenu();
+  }
+
+  function toggleMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  }
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('mainNav');
+    if (window.scrollY > 10) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  function handleMailto(event) {
+    event.preventDefault();
+    const name    = document.getElementById('c-name').value.trim();
+    const email   = document.getElementById('c-email').value.trim();
+    const phone   = document.getElementById('c-phone').value.trim();
+    const message = document.getElementById('c-message').value.trim();
+
+    const subject = encodeURIComponent('Enquiry from ' + name);
+    const body    = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      (phone ? 'Phone: ' + phone + '\n' : '') +
+      '\nMessage:\n' + message
+    );
+
+    window.location.href = 'mailto:hello@legionpathways.com?subject=' + subject + '&body=' + body;
+
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'flex';
+  }
+</script>
