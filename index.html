@@ -4,15 +4,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#26102B">
-<title>Legion Pathways | AI systems for DTC brands</title>
-<meta name="description" content="We install practical AI systems into DTC e-commerce brands — lower CAC, more creative output, and automated backend workflows connected to Shopify, Meta and Klaviyo.">
+<title>CRO &amp; UX Optimization for E-Commerce Brands | Legion Pathways</title>
+<meta name="description" content="We run UX audits and A/B tests that fix checkout and mobile drop-off, turning more of your existing traffic into revenue.">
+<link rel="canonical" href="https://legionpathways.com/">
+ 
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Legion Pathways">
+<meta property="og:title" content="CRO &amp; UX Optimization for E-Commerce Brands | Legion Pathways">
+<meta property="og:description" content="We run UX audits and A/B tests that fix checkout and mobile drop-off, turning more of your existing traffic into revenue.">
+<meta property="og:url" content="https://legionpathways.com/">
+<meta property="og:image" content="https://i.ibb.co/xKhgkm2z/1.png">
+ 
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CRO &amp; UX Optimization for E-Commerce Brands | Legion Pathways">
+<meta name="twitter:description" content="We run UX audits and A/B tests that fix checkout and mobile drop-off, turning more of your existing traffic into revenue.">
+<meta name="twitter:image" content="https://i.ibb.co/xKhgkm2z/1.png">
+ 
+<!-- Favicon (inline SVG monogram, no external file required) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2326102B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23FBA82C' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
+ 
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Legion Pathways",
+  "description": "Conversion rate optimization and UX testing for DTC e-commerce brands.",
+  "url": "https://legionpathways.com/",
+  "email": "info@legionpathways.com",
+  "telephone": "+1-437-933-1376",
+  "areaServed": "Worldwide",
+  "knowsAbout": ["Conversion rate optimization", "UX audits", "A/B testing", "Checkout optimization", "Mobile UX", "Analytics tracking"],
+  "employee": {
+    "@type": "Person",
+    "name": "Nitesh Poudel",
+    "jobTitle": "Conversion Rate Optimization",
+    "sameAs": "https://www.linkedin.com/in/nitesh-poudel/"
+  }
+}
+</script>
+ 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script defer src="https://cloud.umami.is/script.js" data-website-id="30128e53-3d4b-4d13-b169-b03a432cb5a5"></script>
+ 
+<!-- Analytics (GA4) — replace G-XXXXXXXXXX with the site's real Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+ 
  <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   :root {
     /* sampled from the brand gradient */
     --pink: #FB85C6;
@@ -22,7 +72,7 @@
     --orange: #FA871A;
     --flame: #F9671F;
     --flame-ink: #C22E6E;   /* accent that holds contrast on light backgrounds */
-
+ 
     --ink: #26102B;         /* deep aubergine — the new structural dark */
     --ink-deep: #1A0A1E;
     --cream: #FDF4EC;
@@ -31,18 +81,18 @@
     --body-text: #5A4a58;
     --light: #F7EBE0;
     --border: rgba(38,16,43,0.1);
-
+ 
     --grad: linear-gradient(90deg, #FB85C6 0%, #F794AF 22%, #F99D87 42%, #FBA82C 66%, #FA871A 82%, #F9671F 100%);
     --grad-diag: linear-gradient(118deg, #FB85C6 0%, #F99D87 34%, #FBA82C 62%, #F9671F 100%);
-
+ 
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
   }
-
+ 
   html { scroll-behavior: smooth; }
-
+ 
   body {
     font-family: var(--font-body);
     background: var(--cream);
@@ -50,12 +100,12 @@
     line-height: 1.6;
     overflow-x: hidden;
   }
-
+ 
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
     outline: 2px solid var(--flame-ink);
     outline-offset: 3px;
   }
-
+ 
   /* NAV */
   nav {
     position: fixed;
@@ -71,16 +121,16 @@
   }
   nav::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--grad); opacity: 0.9; }
   nav.scrolled { box-shadow: 0 4px 32px rgba(38,16,43,0.08); }
-
+ 
   .nav-inner {
     max-width: 1200px; margin: 0 auto; padding: 0 32px;
     height: 72px; display: flex; align-items: center; justify-content: space-between;
   }
-
+ 
   .logo { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
   .logo-main { font-family: var(--font-display); font-size: 20px; font-weight: 900; color: var(--ink); }
   .logo img { display: block; }
-
+ 
   .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
   .nav-links a {
     font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none;
@@ -90,7 +140,7 @@
   .nav-links a.active { color: var(--flame-ink); }
   .nav-cta { background: var(--grad) !important; color: var(--ink) !important; font-weight: 700 !important; border-radius: 6px !important; }
   .nav-cta:hover { filter: saturate(1.15) brightness(1.04); }
-
+ 
   .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
   .hamburger span {
     display: block; width: 24px; height: 2px; background: var(--ink) !important;
@@ -99,7 +149,7 @@
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
+ 
   .mobile-menu {
     display: none; position: fixed; top: 72px; left: 0; right: 0;
     background: var(--cream); border-bottom: 1px solid var(--border);
@@ -109,11 +159,11 @@
   .mobile-menu a { font-size: 16px; font-weight: 500; color: var(--ink); text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
   .mobile-menu a:last-child { border-bottom: none; }
   .mobile-menu a:hover { color: var(--flame-ink); }
-
+ 
   /* PAGES */
   .page { display: none; padding-top: 72px; }
   .page.active { display: block; }
-
+ 
   /* HERO */
   .hero { min-height: calc(100vh - 72px); display: flex; align-items: flex-start; position: relative; overflow: hidden; background: var(--ink); }
   .hero-bg {
@@ -141,11 +191,11 @@
   @supports not (background-clip: text) { .hero-motto span { color: var(--pink); -webkit-text-fill-color: currentColor; } }
   .hero-headline { font-size: clamp(16px, 2vw, 19px); font-weight: 300; color: rgba(255,255,255,0.7); margin-bottom: 26px; max-width: 500px; line-height: 1.7; }
   .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-
+ 
   .hero-stack { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
   .hero-stack-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-right: 4px; }
   .stack-chip { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.5px; color: rgba(255,255,255,0.75); border: 1px solid rgba(251,133,198,0.28); border-radius: 4px; padding: 5px 10px; }
-
+ 
   .btn-primary {
     background: var(--grad); background-size: 200% 100%; background-position: 0 0;
     color: var(--ink); padding: 18px 32px; border-radius: 6px;
@@ -155,7 +205,7 @@
     letter-spacing: 0.2px; font-family: var(--font-body);
   }
   .btn-primary:hover { background-position: 100% 0; transform: translateY(-1px); box-shadow: 0 10px 28px rgba(249,103,31,0.32); }
-
+ 
   .btn-secondary {
     background: transparent; color: var(--white); padding: 16px 32px; border-radius: 6px;
     font-size: 15px; font-weight: 500; text-decoration: none; border: 2px solid rgba(255,255,255,0.25);
@@ -163,8 +213,8 @@
     font-family: var(--font-body);
   }
   .btn-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
-
-  /* HERO SIGNATURE PANEL — the leak report */
+ 
+  /* HERO SIGNATURE PANEL — the audit report */
   .hero-visual { display: flex; justify-content: flex-end; align-items: center; }
   .leak-card {
     background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
@@ -174,7 +224,7 @@
   .leak-card-title { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.45); }
   .leak-live { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.3); }
   .leak-live::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--pink); animation: pulse 2.4s infinite; }
-
+ 
   .leak-row { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
   .leak-row:last-child { border-bottom: none; padding-bottom: 0; }
   .leak-row-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 9px; }
@@ -186,26 +236,26 @@
   
   .leak-foot { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.6; }
   .leak-foot strong { color: var(--white); font-weight: 700; }
-
+ 
   @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
-
+ 
   /* SECTIONS */
   section { padding: 100px 32px; }
   .container { max-width: 1200px; margin: 0 auto; }
-
+ 
   .section-eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--flame); margin-bottom: 16px; display: flex; align-items: center; }
   .section-eyebrow { color: var(--flame-ink); }
   .process .section-eyebrow, .about-hero .section-eyebrow, .contact-hero .section-eyebrow { color: var(--pink); }
   .section-title { font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: var(--ink); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; }
   .section-subtitle { font-size: 17px; font-weight: 300; color: var(--grey); max-width: 560px; line-height: 1.7; }
-
+ 
   /* WHAT WE DO */
   .what-we-do { background: var(--white); }
   .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 30px; }
   .what-text p { font-size: 16px; font-weight: 300; color: var(--body-text); line-height: 1.8; margin-bottom: 20px; }
   .what-text strong { color: var(--ink); font-weight: 600; }
   .what-visual { display: flex; flex-direction: column; gap: 12px; }
-
+ 
   .flow-item { display: flex; align-items: center; gap: 20px; background: var(--cream); border-radius: 12px; padding: 20px 24px; border-left: 3px solid transparent; transition: border-color 0.3s, transform 0.3s; }
   .flow-item:hover { border-left-color: var(--amber); transform: translateX(4px); }
   .flow-item:nth-child(1) { border-left-color: var(--flame); }
@@ -218,7 +268,7 @@
   .flow-sublabel { font-size: 13px; color: var(--grey); }
   .flow-arrow { margin-left: auto; color: var(--grey); display: flex; align-items: center; }
   .flow-arrow svg { width: 18px; height: 18px; stroke: var(--grey); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
-
+ 
   /* VALUE PROPS */
   .value-props { background: var(--cream); }
   .props-header { max-width: 640px; margin-bottom: 60px; }
@@ -235,7 +285,7 @@
   .prop-icon svg { width: 22px; height: 22px; stroke: var(--ink); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s; }
   .prop-title { font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 12px; transition: color 0.3s; line-height: 1.25; }
   .prop-text { font-size: 14px; font-weight: 300; color: var(--grey); line-height: 1.7; transition: color 0.3s; }
-
+ 
   /* PROCESS */
   .process { background: var(--ink); position: relative; overflow: hidden; }
   .process::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(251,133,198,0.10) 0%, transparent 60%); }
@@ -251,7 +301,7 @@
   .process-step-text { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.6; }
   .process-note { margin-top: 56px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.5px; color: rgba(255,255,255,0.4); text-align: center; }
   .process-note strong { color: var(--white); font-weight: 500; }
-
+ 
   /* CTA BANNER */
   .cta-banner { background: var(--grad-diag); padding: 80px 32px; text-align: center; position: relative; overflow: hidden; }
   .cta-banner::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, rgba(38,16,43,0.05) 0px, rgba(38,16,43,0.05) 1px, transparent 1px, transparent 22px); }
@@ -261,7 +311,7 @@
   .cta-banner .btn-primary { background: var(--ink); color: var(--cream); }
   .cta-banner .btn-primary:hover { background: var(--ink-deep); box-shadow: 0 10px 30px rgba(38,16,43,0.28); }
   .cta-code { display: inline-block; font-family: var(--font-mono); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(38,16,43,0.62); border: 1px dashed rgba(38,16,43,0.28); border-radius: 6px; padding: 8px 14px; margin-top: 28px; }
-
+ 
   /* ABOUT */
   .about-hero { background: var(--ink); padding: 100px 32px 80px; position: relative; overflow: hidden; }
   .about-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; }
@@ -269,18 +319,18 @@
   .about-hero .section-title { color: var(--white); max-width: 760px; }
   .about-hero .section-subtitle { color: rgba(255,255,255,0.55); max-width: 620px; margin-top: 20px; }
   .about-hero .section-eyebrow { margin-bottom: 20px; }
-
+ 
   .about-body { background: var(--white); }
   .about-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
   .about-body p { font-size: 16px; font-weight: 300; color: var(--body-text); line-height: 1.8; margin-bottom: 20px; }
   .about-body p strong { color: var(--ink); font-weight: 600; }
-
+ 
   .model-box { background: var(--cream); border-radius: 16px; padding: 40px; }
   .model-box-title { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--flame-ink); margin-bottom: 24px; }
   .model-item { display: flex; align-items: flex-start; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.5; }
   .model-item:last-child { border-bottom: none; }
   .model-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--grad); background-size: 300px 100%; flex-shrink: 0; margin-top: 7px; }
-
+ 
   /* SERVICES */
   .services { background: var(--cream); }
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border-radius: 16px; overflow: hidden; margin-top: 60px; }
@@ -294,14 +344,14 @@
   .service-icon-wrap svg { width: 22px; height: 22px; stroke: var(--ink); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s; }
   .service-title { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 12px; transition: color 0.3s; line-height: 1.25; }
   .service-text { font-size: 14px; font-weight: 300; color: var(--grey); line-height: 1.7; transition: color 0.3s; }
-
+ 
   /* CONTACT */
   .contact-hero { background: var(--ink); padding: 100px 32px 80px; position: relative; overflow: hidden; }
   .contact-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; }
   .contact-hero-inner { position: relative; max-width: 1200px; margin: 0 auto; }
   .contact-hero .section-title { color: var(--white); }
   .contact-hero .section-subtitle { color: rgba(255,255,255,0.5); margin-top: 20px; }
-
+ 
   .contact-body { background: var(--white); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
   .contact-info-title { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--flame-ink); margin-bottom: 32px; }
@@ -313,13 +363,13 @@
   .contact-item-value { font-size: 15px; font-weight: 500; color: var(--ink); line-height: 1.5; }
   .contact-item-value a { color: var(--ink); text-decoration: none; transition: color 0.2s; }
   .contact-item-value a:hover { color: var(--flame-ink); }
-
+ 
   .audit-list { margin-top: 40px; background: var(--cream); border-radius: 16px; padding: 32px; }
   .audit-list h3 { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 16px; }
   .audit-list ul { list-style: none; }
   .audit-list li { font-size: 14px; font-weight: 300; color: var(--body-text); line-height: 1.6; padding: 9px 0 9px 24px; position: relative; }
   .audit-list li::before { content: '→'; position: absolute; left: 0; color: var(--flame-ink); font-weight: 600; }
-
+ 
   /* FORM */
   .contact-form-wrap { background: var(--cream); border-radius: 20px; padding: 48px; }
   .form-title { font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.5px; }
@@ -337,7 +387,7 @@
   .success-icon { display: flex; align-items: center; flex-shrink: 0; }
   .success-icon svg { width: 24px; height: 24px; stroke: #8A3A10; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
   .success-text { font-size: 15px; font-weight: 500; color: #8A3A10; line-height: 1.5; }
-
+ 
   /* FOOTER */
   footer { background: var(--ink-deep); padding: 64px 32px 32px; }
   .footer-inner { max-width: 1200px; margin: 0 auto; }
@@ -354,7 +404,7 @@
   .footer-bottom-right { display: flex; align-items: center; gap: 6px; }
   .footer-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
   .footer-tagline { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.25); }
-
+ 
   /* RESPONSIVE */
   @media (max-width: 900px) {
     .nav-links, .nav-cta { display: none; }
@@ -387,7 +437,7 @@
     .about-hero, .contact-hero { padding: 72px 24px 56px; }
     .cta-banner { padding: 64px 24px; }
   }
-
+ 
   /* ANIMATIONS */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
   .fade-up { animation: fadeUp 0.7s var(--ease) both; }
@@ -395,7 +445,7 @@
   .delay-2 { animation-delay: 0.2s; }
   .delay-3 { animation-delay: 0.3s; }
   .delay-4 { animation-delay: 0.4s; }
-
+ 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
@@ -404,7 +454,7 @@
 </style>
 </head>
 <body>
-
+ 
 <nav id="mainNav">
   <div class="nav-inner">
     <a class="logo" href="#" onclick="showPage('home'); return false;">
@@ -413,108 +463,108 @@
     <ul class="nav-links">
       <li><a href="#" onclick="showPage('home'); return false;" id="nav-home" class="active">Home</a></li>
       <li><a href="#" onclick="showPage('about'); return false;" id="nav-about">About Us</a></li>
-      <li><a href="#" onclick="showPage('contact'); return false;" id="nav-contact" class="nav-cta">Get an AI audit</a></li>
+      <li><a href="#" onclick="showPage('contact'); return false;" id="nav-contact" class="nav-cta">Get a UX audit</a></li>
     </ul>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
-
+ 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#" onclick="showPage('home'); return false;">Home</a>
   <a href="#" onclick="showPage('about'); return false;">About Us</a>
-  <a href="#" onclick="showPage('contact'); return false;">Get an AI audit</a>
+  <a href="#" onclick="showPage('contact'); return false;">Get a UX audit</a>
 </div>
-
-
+ 
+ 
 <!-- HOME -->
 <div id="page-home" class="page active">
-
+ 
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-eyebrow fade-up">AI systems for DTC brands</div>
-        <h1 class="hero-motto fade-up delay-1">Your playbook<br>is a year old.<br><span>Your margin<br>knows it.</span></h1>
-        <p class="hero-headline fade-up delay-2">We install practical AI systems into modern e-commerce brands &mdash; lower CAC, more creative output, and the messy backend work running on its own.</p>
+        <div class="hero-eyebrow fade-up">CRO &amp; UX for e-commerce brands</div>
+        <h1 class="hero-motto fade-up delay-1">Your traffic<br>is paid for.<br><span>Your revenue<br>is leaking.</span></h1>
+        <p class="hero-headline fade-up delay-2">We run UX audits and A/B tests that find exactly where buyers drop off, then fix it &mdash; so more of the traffic you're already paying for turns into revenue.</p>
         <div class="hero-buttons fade-up delay-3">
-          <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Get your AI audit &rarr;</a>
+          <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Get your free UX audit &rarr;</a>
           <a href="#how-it-works" class="btn-secondary">See how it works</a>
         </div>
         <div class="hero-stack fade-up delay-3">
-          <span class="hero-stack-label">Connects to</span>
+          <span class="hero-stack-label">Works with</span>
           <span class="stack-chip">Shopify</span>
-          <span class="stack-chip">Meta</span>
-          <span class="stack-chip">Klaviyo</span>
+          <span class="stack-chip">GA4</span>
+          <span class="stack-chip">Hotjar</span>
           <span class="stack-chip">+ your stack</span>
         </div>
       </div>
-
+ 
       <div class="hero-visual fade-up delay-4">
         <div class="leak-card" id="leakCard">
           <div class="leak-card-head">
-            <div class="leak-card-title">Manual leak report</div>
+            <div class="leak-card-title">Conversion audit</div>
             <div class="leak-live">Sample</div>
           </div>
-
+ 
           <div class="leak-row done">
             <div class="leak-row-top">
-              <span class="leak-name">Ad creative variations</span>
-              <span class="leak-status">Automated</span>
+              <span class="leak-name">Product page &rarr; Add to cart</span>
+              <span class="leak-status">Fixed</span>
             </div>
             <div class="leak-bar"><span class="leak-fill" data-fill="100%"></span></div>
           </div>
-
+ 
           <div class="leak-row done">
             <div class="leak-row-top">
-              <span class="leak-name">Product copy &amp; PDP updates</span>
-              <span class="leak-status">Automated</span>
+              <span class="leak-name">Cart &rarr; Checkout start</span>
+              <span class="leak-status">Fixed</span>
             </div>
             <div class="leak-bar"><span class="leak-fill" data-fill="100%"></span></div>
           </div>
-
+ 
           <div class="leak-row">
             <div class="leak-row-top">
-              <span class="leak-name">Klaviyo flow briefs</span>
-              <span class="leak-status">In build</span>
+              <span class="leak-name">Checkout form fields</span>
+              <span class="leak-status">Testing</span>
             </div>
-            <div class="leak-bar"><span class="leak-fill" data-fill="62%"></span></div>
+            <div class="leak-bar"><span class="leak-fill" data-fill="58%"></span></div>
           </div>
-
+ 
           <div class="leak-row">
             <div class="leak-row-top">
-              <span class="leak-name">Support &amp; returns triage</span>
-              <span class="leak-status">In build</span>
+              <span class="leak-name">Mobile checkout flow</span>
+              <span class="leak-status">Testing</span>
             </div>
-            <div class="leak-bar"><span class="leak-fill" data-fill="45%"></span></div>
+            <div class="leak-bar"><span class="leak-fill" data-fill="40%"></span></div>
           </div>
-
+ 
           <div class="leak-row">
             <div class="leak-row-top">
-              <span class="leak-name">Weekly performance reporting</span>
+              <span class="leak-name">Shipping &amp; payment step</span>
               <span class="leak-status">Mapped</span>
             </div>
-            <div class="leak-bar"><span class="leak-fill" data-fill="20%"></span></div>
+            <div class="leak-bar"><span class="leak-fill" data-fill="18%"></span></div>
           </div>
-
-          <div class="leak-foot">Illustrative build board. <strong>Your audit maps your own.</strong></div>
+ 
+          <div class="leak-foot">Illustrative audit board. <strong>Your audit maps your own funnel.</strong></div>
         </div>
       </div>
     </div>
   </section>
-
+ 
   <section class="what-we-do">
     <div class="container">
       <div class="section-eyebrow">What we do</div>
-      <h2 class="section-title">We install the systems.<br>You keep the margin.</h2>
+      <h2 class="section-title">We fix the leaks between<br>click and purchase.</h2>
       <div class="what-grid">
         <div class="what-text">
-          <p>Legion Pathways builds <strong>practical AI systems for DTC brands</strong> &mdash; not strategy decks, not pilots that die in a Notion doc. Working software wired into the tools your team already opens every morning.</p>
-          <p>Most brands are running last year's playbook with this year's ad costs. The work that eats the week &mdash; creative variations, product copy, email briefs, support triage, reporting &mdash; is exactly the work a well-built system should be doing.</p>
-          <p>We also <strong>source experienced AI operators and technical consultants</strong>, so you get systems built without hiring for a role you can't yet define or vetting freelancers you can't yet assess.</p>
-          <p>We track what's actually working with AI. We find the people who can build it. You get the systems.</p>
+          <p>Legion Pathways runs <strong>conversion rate optimization and UX programs for DTC e-commerce brands</strong> &mdash; not one-off redesigns, working tests that show a lift before you commit to the change.</p>
+          <p>Most brands spend more on ads every year while the buying experience quietly leaks visitors &mdash; slow product pages, cluttered navigation, checkout forms that ask for too much. That's the part after the click, and it's where we work.</p>
+          <p>We also <strong>connect you with vetted CRO and UX specialists</strong> when a fix needs hands-on build work, so you're not hiring for a role you can't yet define or briefing a freelancer from scratch.</p>
+          <p>We audit the funnel, test the fix, and hand you the lift in data &mdash; not a deck.</p>
         </div>
         <div class="what-visual">
           <div class="flow-item">
@@ -522,38 +572,38 @@
               <svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
             </div>
             <div>
-              <div class="flow-label">Lower CAC</div>
-              <div class="flow-sublabel">Faster testing, sharper targeting, less waste</div>
+              <div class="flow-label">Higher revenue per visitor</div>
+              <div class="flow-sublabel">Same traffic, more of it converts</div>
             </div>
             <div class="flow-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
           </div>
           <div class="flow-item">
             <div class="flow-icon">
-              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="14" height="14" rx="2"/><path d="M8 3h12a2 2 0 0 1 2 2v12"/></svg>
+              <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             </div>
             <div>
-              <div class="flow-label">More creative output</div>
-              <div class="flow-sublabel">Ad, email and PDP variations at volume</div>
+              <div class="flow-label">Fewer checkout drop-offs</div>
+              <div class="flow-sublabel">Shorter forms, clearer steps</div>
             </div>
             <div class="flow-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
           </div>
           <div class="flow-item">
             <div class="flow-icon">
-              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </div>
             <div>
-              <div class="flow-label">Automated backend work</div>
-              <div class="flow-sublabel">Ops, support triage, reporting, data cleanup</div>
+              <div class="flow-label">Validated with A/B tests</div>
+              <div class="flow-sublabel">Every change proven before it scales</div>
             </div>
             <div class="flow-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
           </div>
           <div class="flow-item">
             <div class="flow-icon">
-              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="1.5"/><rect x="14" y="14" width="8" height="8" rx="1.5"/><path d="M10 6h4a4 4 0 0 1 4 4v4"/></svg>
+              <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
             </div>
             <div>
-              <div class="flow-label">Connected to your stack</div>
-              <div class="flow-sublabel">Shopify, Meta, Klaviyo and the rest</div>
+              <div class="flow-label">Built for mobile traffic</div>
+              <div class="flow-sublabel">Where most e-com sessions start</div>
             </div>
             <div class="flow-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
           </div>
@@ -561,211 +611,211 @@
       </div>
     </div>
   </section>
-
+ 
   <section class="value-props">
     <div class="container">
       <div class="props-header">
         <div class="section-eyebrow">What you get</div>
-        <h2 class="section-title">Three things, delivered as working systems.</h2>
+        <h2 class="section-title">Three things, delivered as proof, not promises.</h2>
       </div>
       <div class="props-grid">
         <div class="prop-card">
-          <div class="prop-tag">Use cases</div>
+          <div class="prop-tag">Findings</div>
           <div class="prop-icon">
             <svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
           </div>
-          <div class="prop-title">Actionable use cases</div>
-          <p class="prop-text">Real examples of how DTC brands use AI to cut 40+ hours of manual work each week &mdash; with the prompt, the tool, and the workflow behind each one, not just the headline.</p>
+          <div class="prop-title">A clear audit</div>
+          <p class="prop-text">A written map of exactly where buyers drop off across your site &mdash; by page, by device, by step &mdash; ranked by revenue impact, not guesswork.</p>
         </div>
         <div class="prop-card">
-          <div class="prop-tag">Integration</div>
+          <div class="prop-tag">Testing</div>
           <div class="prop-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2v6"/><path d="M12 16v6"/><circle cx="12" cy="12" r="4"/><path d="M4.9 4.9l3.2 3.2"/><path d="M15.9 15.9l3.2 3.2"/></svg>
           </div>
-          <div class="prop-title">Expert integration</div>
-          <p class="prop-text">Done-for-you systems connecting AI tools to Shopify, Meta, Klaviyo and whatever else you're already running. Built by operators who've shipped this before, sourced and managed by us.</p>
+          <div class="prop-title">A running test program</div>
+          <p class="prop-text">Structured A/B tests on the pages and flows that matter most, with a clear read on what actually moved conversion before anything scales.</p>
         </div>
         <div class="prop-card">
-          <div class="prop-tag">Products</div>
+          <div class="prop-tag">Fixes</div>
           <div class="prop-icon">
             <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.3 7 12 12 20.7 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
           </div>
-          <div class="prop-title">Plug-and-play products</div>
-          <p class="prop-text">Custom workflows and automation templates you can deploy as-is. Your team starts from a working build instead of a blank canvas and three weeks of trial and error.</p>
+          <div class="prop-title">Plug-and-play UX fixes</div>
+          <p class="prop-text">Checkout, navigation, and mobile improvements your team can ship directly &mdash; documented, prioritized, and built to be maintained without us.</p>
         </div>
       </div>
     </div>
   </section>
-
+ 
   <section class="process" id="how-it-works">
     <div class="container">
       <div class="process-header">
         <div class="section-eyebrow">How it works</div>
-        <h2 class="section-title">Find the leaks.<br>Then plug them.</h2>
-        <p class="section-subtitle">Four stages from first call to a system your team owns. No retainer for work that never ships.</p>
+        <h2 class="section-title">Audit. Test.<br>Scale what works.</h2>
+        <p class="section-subtitle">Four stages from first look at your site to a conversion lift you can measure. No redesign for the sake of a redesign.</p>
       </div>
       <div class="process-steps">
         <div class="process-step">
           <div class="process-num">01</div>
-          <div class="process-step-title">AI audit</div>
-          <p class="process-step-text">We walk your operation and find where the hours actually go &mdash; creative, ops, support, reporting. You get a written map of every manual leak.</p>
+          <div class="process-step-title">Audit</div>
+          <p class="process-step-text">We map your site architecture, user behavior, and conversion bottlenecks across the buyer journey &mdash; from landing page to checkout.</p>
         </div>
         <div class="process-step">
           <div class="process-num">02</div>
-          <div class="process-step-title">Prioritise</div>
-          <p class="process-step-text">Not everything is worth automating. We rank the leaks by hours returned and revenue impact, then agree on what gets built first.</p>
+          <div class="process-step-title">Hypothesize</div>
+          <p class="process-step-text">Not every idea is worth testing. We form high-impact hypotheses for layout, design, and flow, ranked by expected lift.</p>
         </div>
         <div class="process-step">
           <div class="process-num">03</div>
-          <div class="process-step-title">Build &amp; connect</div>
-          <p class="process-step-text">Our operators build the workflows and wire them into Shopify, Meta, Klaviyo and your internal tools. You review working systems, not slides.</p>
+          <div class="process-step-title">Test</div>
+          <p class="process-step-text">We run structured A/B tests across key landing and product pages, and read the results against a clear baseline &mdash; not a hunch.</p>
         </div>
         <div class="process-step">
           <div class="process-num">04</div>
-          <div class="process-step-title">Hand over</div>
-          <p class="process-step-text">Your team gets documentation, training, and ownership. We stay on for tuning as tools change &mdash; only if you want us there.</p>
+          <div class="process-step-title">Scale</div>
+          <p class="process-step-text">Winning iterations roll out sitewide. Your team gets the build and the reasoning behind it, ready to maintain without us.</p>
         </div>
       </div>
-      <p class="process-note">Stage one is free. <strong>The audit is yours whether or not you build with us.</strong></p>
+      <p class="process-note">Stage one is free. <strong>The audit is yours whether or not you test with us.</strong></p>
     </div>
   </section>
-
+ 
   <section class="cta-banner">
     <div class="container">
-      <h2>Want to find the manual<br>leaks in your brand?</h2>
-      <p>Tell us what your week looks like. We'll show you what a system could be doing instead.</p>
-      <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Request your AI audit &rarr;</a>
-      <div class="cta-code">Or DM our page &ldquo;AI AUDIT&rdquo;</div>
+      <h2>Want to see where your<br>funnel is leaking?</h2>
+      <p>Tell us about your traffic and where visitors seem to disappear. We'll show you what the data says.</p>
+      <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Get your free UX audit &rarr;</a>
+      <div class="cta-code">Or DM our page &ldquo;UX AUDIT&rdquo;</div>
     </div>
   </section>
-
+ 
 </div>
-
-
+ 
+ 
 <!-- ABOUT -->
 <div id="page-about" class="page">
-
+ 
   <div class="about-hero">
     <div class="about-hero-inner">
       <div class="section-eyebrow">About Legion Pathways</div>
-      <h1 class="section-title">We track what works. We find who can build it.</h1>
-      <p class="section-subtitle">Legion Pathways is not an AI agency selling strategy, and not a tool reseller. We are an implementation partner for DTC brands &mdash; systems installed, operators sourced, results owned by you.</p>
+      <h2 class="section-title">We test what works. We don't guess.</h2>
+      <p class="section-subtitle">Legion Pathways is a conversion rate optimization and UX partner for DTC e-commerce brands &mdash; audits, structured testing, and fixes you own, not a redesign pitch.</p>
     </div>
   </div>
-
+ 
   <section class="about-body">
     <div class="container">
       <div class="about-two-col">
         <div>
           <div class="section-eyebrow">Our model</div>
-          <h2 class="section-title" style="font-size: clamp(28px,3.5vw,42px); margin-bottom: 28px;">The gap isn't ambition. It's implementation.</h2>
-          <p>Almost every DTC founder we speak to already knows AI should be doing more in their business. <strong>What's missing is the person who can actually build it into their stack</strong> &mdash; and the judgement to know which of this week's tools will still matter next quarter.</p>
-          <p>So we do both. We test what's genuinely working across e-commerce operations and throw out what doesn't survive contact with a real store. Then we match the work to operators and technical consultants who have shipped it before.</p>
-          <p>You don't manage the build, vet the freelancers, or learn a new platform to review progress. <strong>You approve the priorities and receive working systems.</strong></p>
-          <p>Everything we install is documented and handed over. If we disappear tomorrow, your systems keep running &mdash; that's the standard we build to.</p>
+          <h2 class="section-title" style="font-size: clamp(28px,3.5vw,42px); margin-bottom: 28px;">The gap isn't traffic. It's what happens after the click.</h2>
+          <p>Almost every e-commerce brand we talk to has already spent on ads, SEO, or influencers to get people to the site. <strong>What's missing is the discipline to test what happens once they land</strong> &mdash; and the judgement to know which change is worth shipping.</p>
+          <p>So we run both sides. We audit the funnel to find where visitors actually drop off, then validate every fix with a structured A/B test before it goes live sitewide.</p>
+          <p>You don't run the tests, read the statistics, or learn a new testing platform to review results. <strong>You approve the priorities and see the lift in the numbers.</strong></p>
+          <p>Everything we build &mdash; test plans, winning variants, documentation &mdash; is handed over. If we stop working together tomorrow, your site keeps the gains.</p>
         </div>
         <div>
           <div class="model-box">
             <div class="model-box-title">How we work</div>
-            <div class="model-item"><div class="model-dot"></div>We audit your operation and map the manual work</div>
-            <div class="model-item"><div class="model-dot"></div>We rank opportunities by hours returned and revenue impact</div>
-            <div class="model-item"><div class="model-dot"></div>We source vetted AI operators and technical consultants</div>
-            <div class="model-item"><div class="model-dot"></div>We build workflows into Shopify, Meta, Klaviyo and your stack</div>
-            <div class="model-item"><div class="model-dot"></div>We document everything and train your team to run it</div>
-            <div class="model-item"><div class="model-dot"></div>You own the systems, the accounts, and the output</div>
+            <div class="model-item"><div class="model-dot"></div>We audit site architecture, user behavior, and conversion bottlenecks</div>
+            <div class="model-item"><div class="model-dot"></div>We form high-impact hypotheses for layout, design, and flow</div>
+            <div class="model-item"><div class="model-dot"></div>We run structured A/B tests across key landing and product pages</div>
+            <div class="model-item"><div class="model-dot"></div>We scale winning iterations to lift revenue per visitor</div>
+            <div class="model-item"><div class="model-dot"></div>We document every test and hand over what we learned</div>
+            <div class="model-item"><div class="model-dot"></div>You own the site, the data, and the results</div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
+ 
   <section class="services">
     <div class="container">
       <div class="section-eyebrow">What we offer</div>
-      <h2 class="section-title">Six ways we plug<br>the leaks.</h2>
-      <p class="section-subtitle" style="margin-top: 16px;">Start with one, or run the whole programme. Each engagement ends with something your team can operate without us.</p>
+      <h2 class="section-title">Six ways we lift<br>conversion.</h2>
+      <p class="section-subtitle" style="margin-top: 16px;">Start with one, or run the whole program. Each engagement ends with a fix your team can maintain without us.</p>
       <div class="services-grid">
-
+ 
         <div class="service-card">
           <div class="service-icon-wrap">
             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
           </div>
-          <div class="service-title">AI opportunity audit</div>
-          <p class="service-text">A structured review of where manual hours disappear across creative, ops, support and reporting &mdash; delivered as a ranked, written map of what to automate first.</p>
+          <div class="service-title">UI/UX audits</div>
+          <p class="service-text">A structured review of your buyer journey that pinpoints exact drop-off points across landing, product, and checkout pages.</p>
         </div>
-
+ 
         <div class="service-card">
           <div class="service-icon-wrap">
-            <svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2v6"/><path d="M12 16v6"/><circle cx="12" cy="12" r="4"/><path d="M4.9 4.9l3.2 3.2"/><path d="M15.9 15.9l3.2 3.2"/></svg>
           </div>
-          <div class="service-title">Paid media &amp; CAC systems</div>
-          <p class="service-text">Faster creative iteration, automated testing cycles and cleaner performance signals, so your Meta spend stops paying for guesswork.</p>
+          <div class="service-title">A/B testing frameworks</div>
+          <p class="service-text">A running test program that validates every layout and design change with data before it ships to all your traffic.</p>
         </div>
-
+ 
         <div class="service-card">
           <div class="service-icon-wrap">
             <svg viewBox="0 0 24 24"><rect x="2" y="7" width="14" height="14" rx="2"/><path d="M8 3h12a2 2 0 0 1 2 2v12"/></svg>
           </div>
-          <div class="service-title">Creative production engines</div>
-          <p class="service-text">Systems that turn one brief into dozens of on-brand ad, email and PDP variations &mdash; with your voice and guardrails built into the workflow.</p>
+          <div class="service-title">Navigation &amp; page layout</div>
+          <p class="service-text">Simplifying the path to purchase &mdash; clearer navigation, page structure, and information hierarchy that reduces friction.</p>
         </div>
-
+ 
         <div class="service-card">
           <div class="service-icon-wrap">
-            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="1.5"/><rect x="14" y="14" width="8" height="8" rx="1.5"/><path d="M10 6h4a4 4 0 0 1 4 4v4"/></svg>
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
           </div>
-          <div class="service-title">Stack integration</div>
-          <p class="service-text">The connective work most teams stall on: Shopify, Meta, Klaviyo, helpdesk, 3PL and internal tools talking to each other and to your AI workflows.</p>
+          <div class="service-title">Checkout optimization</div>
+          <p class="service-text">Frictionless checkout flows that remove unnecessary form fields and steps between cart and confirmed order.</p>
         </div>
-
+ 
         <div class="service-card">
           <div class="service-icon-wrap">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
           </div>
-          <div class="service-title">Operator sourcing</div>
-          <p class="service-text">Access to vetted AI operators and technical consultants for a defined build, managed by us. No job posting, no unvetted freelancers, no long-term headcount.</p>
+          <div class="service-title">Mobile UX enhancements</div>
+          <p class="service-text">Improvements built for the device most of your traffic actually arrives on, so mobile sessions convert at the same rate as desktop.</p>
         </div>
-
+ 
         <div class="service-card">
           <div class="service-icon-wrap">
-            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.3 7 12 12 20.7 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
           </div>
-          <div class="service-title">Workflow templates</div>
-          <p class="service-text">Plug-and-play automations your team can deploy the same week &mdash; documented, adjustable, and yours to keep after the engagement ends.</p>
+          <div class="service-title">Analytics &amp; tracking setup</div>
+          <p class="service-text">GA4 and event tracking wired up properly, so every test and audit is backed by data you can trust and act on.</p>
         </div>
-
+ 
       </div>
     </div>
   </section>
-
+ 
   <section class="cta-banner">
     <div class="container">
       <h2>Start with the audit.<br>Decide after.</h2>
-      <p>One conversation about how your week runs. You'll leave with a map of the manual work either way.</p>
+      <p>One look at your funnel and where visitors drop off. You'll leave with a map either way.</p>
       <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Book the audit &rarr;</a>
     </div>
   </section>
-
+ 
 </div>
-
-
+ 
+ 
 <!-- CONTACT -->
 <div id="page-contact" class="page">
-
+ 
   <div class="contact-hero">
     <div class="contact-hero-inner">
       <div class="section-eyebrow">Get in touch</div>
-      <h1 class="section-title">Request your AI audit.</h1>
-      <p class="section-subtitle">Tell us about your brand and where the week goes. We'll come back with the manual leaks we can see and what it would take to close them.</p>
+      <h2 class="section-title">Request your free UX audit.</h2>
+      <p class="section-subtitle">Tell us about your store and where you think visitors are dropping off. We'll come back with what the data shows and what a fix would take.</p>
     </div>
   </div>
-
+ 
   <section class="contact-body">
     <div class="container">
       <div class="contact-grid">
         <div>
           <div class="contact-info-title">Contact information</div>
-
+ 
           <div class="contact-item">
             <div class="contact-item-icon">
               <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -775,7 +825,7 @@
               <div class="contact-item-value"><a href="mailto:info@legionpathways.com">info@legionpathways.com</a></div>
             </div>
           </div>
-
+ 
           <div class="contact-item">
             <div class="contact-item-icon">
               <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.44a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -785,7 +835,7 @@
               <div class="contact-item-value"><a href="tel:+14379331376">+1-437-933-1376</a></div>
             </div>
           </div>
-
+ 
           <div class="contact-item">
             <div class="contact-item-icon">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -795,21 +845,21 @@
               <div class="contact-item-value">We reply within 24&ndash;48 hours on business days.</div>
             </div>
           </div>
-
+ 
           <div class="audit-list">
             <h3>What the audit covers</h3>
             <ul>
-              <li>Where manual hours go each week, by function</li>
-              <li>Which workflows are worth automating first</li>
-              <li>Integration gaps across Shopify, Meta and Klaviyo</li>
-              <li>What a build would take, in time and cost</li>
+              <li>Where buyers drop off across your funnel, by page and device</li>
+              <li>Which UX or layout changes are worth testing first</li>
+              <li>Checkout and mobile friction points costing you conversions</li>
+              <li>What a test program would take, in time and cost</li>
             </ul>
           </div>
         </div>
-
+ 
         <div class="contact-form-wrap">
-          <div class="form-title">Tell us about your brand</div>
-          <p class="form-intro">The more you share about your stack and your week, the more useful the first reply will be.</p>
+          <div class="form-title">Tell us about your funnel</div>
+          <p class="form-intro">The more you share about your traffic and where it drops off, the more useful the first reply will be.</p>
           <form id="contactForm">
             <div class="form-row">
               <div class="form-group">
@@ -838,10 +888,10 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="c-message">Where does the manual work pile up?</label>
-              <textarea id="c-message" name="message" placeholder="Creative production, support tickets, reporting, inventory admin — whatever eats the week." required></textarea>
+              <label for="c-message">Where do visitors seem to drop off?</label>
+              <textarea id="c-message" name="message" placeholder="Product pages, cart, checkout, mobile — whatever you've noticed." required></textarea>
             </div>
-            <button type="submit" class="form-submit">Request my AI audit &rarr;</button>
+            <button type="submit" class="form-submit">Request my UX audit &rarr;</button>
           </form>
           <div class="form-success" id="formSuccess">
             <div class="success-icon">
@@ -853,10 +903,10 @@
       </div>
     </div>
   </section>
-
+ 
 </div>
-
-
+ 
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -865,7 +915,7 @@
         <div class="logo">
           <span class="logo-main"><img src="https://i.ibb.co/4ZJL826Z/white-background.png" width="200" alt="Legion Pathways"></span>
         </div>
-        <p>Practical AI systems for DTC brands. We track what works, source the operators who can build it, and hand you the systems.</p>
+        <p>CRO and UX systems for DTC e-commerce brands. We audit the funnel, test the fix, and hand you the lift.</p>
       </div>
       <div class="footer-col">
         <h4>Quick links</h4>
@@ -873,7 +923,7 @@
           <li><a onclick="showPage('home')">Home</a></li>
           <li><a onclick="showPage('about')">About us</a></li>
           <li><a onclick="showPage('about')">Services</a></li>
-          <li><a onclick="showPage('contact')">Get an AI audit</a></li>
+          <li><a onclick="showPage('contact')">Get a UX audit</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -893,8 +943,8 @@
     </div>
   </div>
 </footer>
-
-
+ 
+ 
 <script>
   function showPage(page) {
     document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
@@ -907,7 +957,7 @@
     if (mobileMenu.classList.contains('open')) toggleMenu();
     if (page === 'home') fillLeakBars();
   }
-
+ 
   function toggleMenu() {
     var hamburger = document.getElementById('hamburger');
     var mobileMenu = document.getElementById('mobileMenu');
@@ -915,14 +965,14 @@
     mobileMenu.classList.toggle('open');
     hamburger.setAttribute('aria-expanded', hamburger.classList.contains('open'));
   }
-
+ 
   window.addEventListener('scroll', function () {
     var nav = document.getElementById('mainNav');
     if (window.scrollY > 10) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
   });
-
-  // Animate the leak report bars on load / return to home
+ 
+  // Animate the audit report bars on load / return to home
   function fillLeakBars() {
     var fills = document.querySelectorAll('.leak-fill');
     fills.forEach(function (el) { el.style.width = '0'; });
@@ -933,7 +983,7 @@
     }, 500);
   }
   fillLeakBars();
-
+ 
   // Contact form -> opens the visitor's email client, pre-filled
   document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault();
@@ -942,8 +992,8 @@
     var brand   = document.getElementById('c-brand').value.trim();
     var revenue = document.getElementById('c-revenue').value;
     var message = document.getElementById('c-message').value.trim();
-
-    var subject = encodeURIComponent('AI AUDIT request — ' + (brand || name));
+ 
+    var subject = encodeURIComponent('UX AUDIT request — ' + (brand || name));
     var body = encodeURIComponent(
       'Name: ' + name + '\n' +
       'Email: ' + email + '\n' +
@@ -951,9 +1001,9 @@
       (revenue ? 'Monthly revenue: ' + revenue + '\n' : '') +
       '\nWhere the manual work piles up:\n' + message
     );
-
+ 
     window.location.href = 'mailto:info@legionpathways.com?subject=' + subject + '&body=' + body;
-
+ 
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('formSuccess').classList.add('visible');
   });
