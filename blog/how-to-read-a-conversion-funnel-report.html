@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#26102B">
-<title>A/B Testing 101: How to Run Your First Test Without Wasting Traffic | Legion Pathways</title>
-<meta name="description" content="A beginner's guide to running a valid first A/B test on an e-commerce site — what to test, how long to run it, and how to read the result.">
-<link rel="canonical" href="https://legionpathways.com/blog/ab-testing-101-first-test.html">
+<title>How to Read a Conversion Funnel Report (Without a CRO Background) | Legion Pathways</title>
+<meta name="description" content="A plain-language guide to reading a conversion funnel report and spotting where your e-commerce site is actually losing revenue.">
+<link rel="canonical" href="https://legionpathways.com/blog/how-to-read-a-conversion-funnel-report.html">
 
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Legion Pathways">
-<meta property="og:title" content="A/B Testing 101: How to Run Your First Test Without Wasting Traffic">
-<meta property="og:description" content="A beginner's guide to running a valid first A/B test on an e-commerce site — what to test, how long to run it, and how to read the result.">
-<meta property="og:url" content="https://legionpathways.com/blog/ab-testing-101-first-test.html">
-<meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f&auto=format&fit=crop&w=1200&q=80">
+<meta property="og:title" content="How to Read a Conversion Funnel Report (Without a CRO Background)">
+<meta property="og:description" content="A plain-language guide to reading a conversion funnel report and spotting where your e-commerce site is actually losing revenue.">
+<meta property="og:url" content="https://legionpathways.com/blog/how-to-read-a-conversion-funnel-report.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71&auto=format&fit=crop&w=1200&q=80">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="A/B Testing 101: How to Run Your First Test Without Wasting Traffic">
-<meta name="twitter:description" content="A beginner's guide to running a valid first A/B test on an e-commerce site — what to test, how long to run it, and how to read the result.">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f&auto=format&fit=crop&w=1200&q=80">
+<meta name="twitter:title" content="How to Read a Conversion Funnel Report (Without a CRO Background)">
+<meta name="twitter:description" content="A plain-language guide to reading a conversion funnel report and spotting where your e-commerce site is actually losing revenue.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71&auto=format&fit=crop&w=1200&q=80">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2326102B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23FBA82C' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
 
@@ -26,11 +26,11 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "A/B Testing 101: How to Run Your First Test Without Wasting Traffic",
-  "description": "A beginner's guide to running a valid first A/B test on an e-commerce site — what to test, how long to run it, and how to read the result.",
+  "headline": "How to Read a Conversion Funnel Report (Without a CRO Background)",
+  "description": "A plain-language guide to reading a conversion funnel report and spotting where your e-commerce site is actually losing revenue.",
   "author": { "@type": "Person", "name": "Nitesh Poudel" },
   "publisher": { "@type": "Organization", "name": "Legion Pathways", "url": "https://legionpathways.com/" },
-  "mainEntityOfPage": "https://legionpathways.com/blog/ab-testing-101-first-test.html",
+  "mainEntityOfPage": "https://legionpathways.com/blog/how-to-read-a-conversion-funnel-report.html",
   "datePublished": "2026-08-30"
 }
 </script>
@@ -121,7 +121,7 @@
     <a class="logo" href="../index.html"><img src="https://i.ibb.co/xKhgkm2z/1.png" width="180" alt="Legion Pathways"></a>
     <ul class="nav-links">
       <li><a href="../index.html">Home</a></li>
-      <li><a href="index.html">Blog</a></li>
+      <li><a href="blog.html">Blog</a></li>
       <li><a href="../index.html#contact" class="nav-cta">Get a UX audit</a></li>
     </ul>
   </div>
@@ -129,50 +129,86 @@
 
 <header class="article-hero">
   <div class="article-hero-inner">
-    <div class="breadcrumb"><a href="index.html">Blog</a> / A/B testing</div>
-    <div class="eyebrow">A/B testing</div>
-    <h1>A/B Testing 101: How to Run Your First Test Without Wasting Traffic</h1>
-    <div class="article-meta">By Nitesh Poudel &middot; 7 min read</div>
+    <div class="breadcrumb"><a href="blog.html">Blog</a> / Funnel diagnostics</div>
+    <div class="eyebrow">Funnel diagnostics</div>
+    <h1>How to Read a Conversion Funnel Report (Without a CRO Background)</h1>
+    <div class="article-meta">By Nitesh Poudel &middot; 6 min read</div>
   </div>
 </header>
 
 <figure style="max-width:700px;margin:0 auto;padding:32px 32px 0;">
-  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f&auto=format&fit=crop&w=1400&q=80" alt="A laptop displaying a chart on a glass table" style="width:100%;height:340px;object-fit:cover;border-radius:16px;display:block;">
-  <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6E5B6B;margin-top:10px;">Photo by Carlos Muza on Unsplash</figcaption>
+  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71&auto=format&fit=crop&w=1400&q=80" alt="A laptop screen showing performance analytics graphs" style="width:100%;height:340px;object-fit:cover;border-radius:16px;display:block;">
+  <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6E5B6B;margin-top:10px;">Photo by Luke Chesser on Unsplash</figcaption>
 </figure>
 
 <article>
 
-  <p>Most first A/B tests fail for the same two reasons: they test something too small to matter, or they get called too early. Both are avoidable once you know the basic shape of a valid test.</p>
-  <h2>Pick a hypothesis, not just a change</h2>
-  <p>"Let's try a different button color" isn't a hypothesis. "Shoppers aren't clicking add-to-cart because the price feels uncertain without visible shipping cost" is &mdash; and it points to a specific, testable change with a reason attached. If you can't articulate why a change should help, it's a guess, not a test.</p>
-  <h2>Test high-traffic pages first</h2>
-  <p>A test on a page with low traffic can take months to reach a reliable result. Start with your highest-traffic landing page, product page, or the checkout flow itself &mdash; not because they're most important, but because they'll give you a usable answer fastest.</p>
-  <h2>Decide your sample size and stopping point before you start</h2>
-  <p>The single most common mistake is checking results daily and stopping the moment one version pulls ahead. Early leads reverse constantly. Set your minimum sample size and test duration before launch, and don't call the result until you hit it.</p>
-  <h2>A null result is still a result</h2>
-  <p>If a test shows no meaningful difference, that's valuable information &mdash; it tells you that particular lever isn't where your conversion problem lives, and you can move your attention elsewhere with more confidence.</p>
+  <p>Most funnel reports look like a wall of numbers until you know what to look for. You don't need a statistics background to read one well &mdash; you need to know which three or four numbers actually matter and in what order to check them.</p>
+  <h2>Start with the steepest drop, not the total</h2>
+  <p>The overall conversion rate tells you almost nothing about what to fix. What matters is the percentage drop between each stage: landing page to product page, product page to cart, cart to checkout, checkout to purchase. Whichever gap is steepest is where you start.</p>
+  
+  <div class="graphic-box">
+        <div style="margin-bottom:14px;">
+          <div style="display:flex;justify-content:space-between;font-size:13px;color:#26102B;font-weight:600;margin-bottom:6px;">
+            <span>Landing page &rarr; Product page</span><span style="font-family:'JetBrains Mono',monospace;color:#6E5B6B;">62%</span>
+          </div>
+          <div style="height:8px;border-radius:4px;background:rgba(38,16,43,0.08);overflow:hidden;">
+            <div style="height:100%;width:62%;border-radius:4px;background:linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F);"></div>
+          </div>
+        </div>
+        <div style="margin-bottom:14px;">
+          <div style="display:flex;justify-content:space-between;font-size:13px;color:#26102B;font-weight:600;margin-bottom:6px;">
+            <span>Product page &rarr; Add to cart</span><span style="font-family:'JetBrains Mono',monospace;color:#6E5B6B;">71%</span>
+          </div>
+          <div style="height:8px;border-radius:4px;background:rgba(38,16,43,0.08);overflow:hidden;">
+            <div style="height:100%;width:71%;border-radius:4px;background:linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F);"></div>
+          </div>
+        </div>
+        <div style="margin-bottom:14px;">
+          <div style="display:flex;justify-content:space-between;font-size:13px;color:#26102B;font-weight:600;margin-bottom:6px;">
+            <span>Cart &rarr; Checkout start</span><span style="font-family:'JetBrains Mono',monospace;color:#6E5B6B;">58%</span>
+          </div>
+          <div style="height:8px;border-radius:4px;background:rgba(38,16,43,0.08);overflow:hidden;">
+            <div style="height:100%;width:58%;border-radius:4px;background:linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F);"></div>
+          </div>
+        </div>
+        <div style="margin-bottom:14px;">
+          <div style="display:flex;justify-content:space-between;font-size:13px;color:#26102B;font-weight:600;margin-bottom:6px;">
+            <span>Checkout start &rarr; Purchase</span><span style="font-family:'JetBrains Mono',monospace;color:#6E5B6B;">44%</span>
+          </div>
+          <div style="height:8px;border-radius:4px;background:rgba(38,16,43,0.08);overflow:hidden;">
+            <div style="height:100%;width:44%;border-radius:4px;background:linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F);"></div>
+          </div>
+        </div>
+  </div>
+  <div class="graphic-caption">Illustrative funnel. Each stage shown as % of visitors who continue.</div>
+
+  <h2>Segment before you conclude anything</h2>
+  <p>A number that looks bad in aggregate can hide two very different stories &mdash; mobile might be dragging desktop down, or one traffic source might be converting far worse than the rest. Break every stage down by device and by channel before deciding what it means.</p>
+  <h2>Compare against your own history, not industry averages</h2>
+  <p>Industry benchmark numbers vary wildly by category, price point, and traffic source, which makes them a weak yardstick. Your own trend over time &mdash; is this stage getting better or worse month over month &mdash; is almost always more useful than comparing yourself to a number that may not describe a business like yours.</p>
   <div class="takeaways">
     <h4>Key takeaways</h4>
     <ul>
-      <li>Start from a specific hypothesis, not a random idea to try.</li>
-      <li>Test your highest-traffic pages first to get a readable result faster.</li>
-      <li>Set your sample size and duration before launch, and don't stop early.</li>
+      <li>Look at stage-to-stage drop-off, not the single overall conversion number.</li>
+      <li>Always segment by device and channel before drawing conclusions.</li>
+      <li>Track your own trend over time rather than chasing industry benchmarks.</li>
     </ul>
   </div>
+  <p>Once you know which stage is actually the problem, the fix usually becomes a lot more specific and a lot less guesswork.</p>
  
 </article>
 
 <div class="article-cta">
   <div class="cta-box">
-    <h3>Want help designing your first test?</h3>
-    <p>We'll help you pick the right hypothesis and read the result correctly — free.</p>
+    <h3>Want your funnel report translated into a plan?</h3>
+    <p>We'll walk through your numbers with you and point to exactly what's worth fixing first.</p>
     <a href="../index.html#contact" class="btn-primary">Get your free UX audit &rarr;</a>
   </div>
 </div>
 
 <footer>
-  <p>&copy; 2026 Legion Pathways &middot; <a href="index.html">More from the blog</a></p>
+  <p>&copy; 2026 Legion Pathways &middot; <a href="blog.html">More from the blog</a></p>
 </footer>
 
 </body>
