@@ -1131,8 +1131,9 @@
     document.getElementById('formSuccess').classList.add('visible');
   });
 
-  // ----- Free audit popup -----
+  // ----- Free audit popup (Fibonacci re-prompt schedule, cumulative across the whole visit) -----
   var auditModal = document.getElementById('auditModal');
+  var FIB_SEQUENCE = [3, 5, 8, 13, 21, 34];
 
   function openModal() {
     auditModal.classList.add('open');
@@ -1145,8 +1146,23 @@
     auditModal.classList.remove('open');
     document.body.style.overflow = '';
     if (remember) {
-      try { sessionStorage.setItem('lp_modal_dismissed', '1'); } catch (e) {}
+      advanceModalSchedule();
     }
+  }
+
+  function advanceModalSchedule() {
+    try {
+      var step = parseInt(sessionStorage.getItem('lp_modal_step') || '1', 10);
+      var delta = step < FIB_SEQUENCE.length ? FIB_SEQUENCE[step] : FIB_SEQUENCE[FIB_SEQUENCE.length - 1];
+      var prevThreshold = parseFloat(sessionStorage.getItem('lp_modal_next_threshold') || '0');
+      var nextThreshold = prevThreshold + delta;
+      sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
+      sessionStorage.setItem('lp_modal_step', String(step + 1));
+    } catch (e) {}
+  }
+
+  function stopModalScheduleForever() {
+    try { sessionStorage.setItem('lp_modal_submitted', '1'); } catch (e) {}
   }
 
   document.getElementById('modalClose').addEventListener('click', function () { closeModal(true); });
@@ -1180,17 +1196,48 @@
 
     document.getElementById('modalFormWrap').style.display = 'none';
     document.getElementById('modalSuccess').classList.add('visible');
-    try { sessionStorage.setItem('lp_modal_dismissed', '1'); } catch (e) {}
+    stopModalScheduleForever();
     setTimeout(function () { closeModal(false); }, 3500);
   });
 
-  // Show once per session, 3 seconds after the page finishes loading
+  // Schedule the next appearance based on cumulative time elapsed since the visit began,
+  // tracked in sessionStorage so it persists across page navigations (not just this page).
   (function () {
-    var alreadyDismissed = false;
-    try { alreadyDismissed = sessionStorage.getItem('lp_modal_dismissed') === '1'; } catch (e) {}
-    if (!alreadyDismissed) {
-      setTimeout(openModal, 3000);
+    var submitted = false;
+    try { submitted = sessionStorage.getItem('lp_modal_submitted') === '1'; } catch (e) {}
+    if (submitted) return;
+
+    var visitStart;
+    try {
+      visitStart = sessionStorage.getItem('lp_visit_start');
+      if (!visitStart) {
+        visitStart = Date.now();
+        sessionStorage.setItem('lp_visit_start', String(visitStart));
+      } else {
+        visitStart = parseFloat(visitStart);
+      }
+    } catch (e) {
+      visitStart = Date.now();
     }
+
+    var nextThreshold;
+    try {
+      var stored = sessionStorage.getItem('lp_modal_next_threshold');
+      if (stored === null) {
+        nextThreshold = FIB_SEQUENCE[0]; // 3 seconds — first appearance
+        sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
+        sessionStorage.setItem('lp_modal_step', '1'); // next delta to use after first dismiss is FIB_SEQUENCE[1]
+      } else {
+        nextThreshold = parseFloat(stored);
+      }
+    } catch (e) {
+      nextThreshold = FIB_SEQUENCE[0];
+    }
+
+    var elapsed = (Date.now() - visitStart) / 1000;
+    var remaining = Math.max(0, nextThreshold - elapsed);
+
+    setTimeout(openModal, remaining * 1000);
   })();
 </script>
 </body>

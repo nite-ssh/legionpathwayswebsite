@@ -13,12 +13,12 @@
 <meta property="og:title" content="Landing Page Design for Paid Ads: Matching the Promise to the Page">
 <meta property="og:description" content="How to design e-commerce landing pages for paid ads so the page delivers on exactly what the ad promised.">
 <meta property="og:url" content="https://legionpathways.com/blog/landing-page-design-for-paid-ads.html">
-<meta property="og:image" content="https://images.unsplash.com/photo-1585692614093-62dab82e9d08?auto=format&fit=crop&w=1200&q=80">
+<meta property="og:image" content="https://i.ibb.co/xKhgkm2z/1.png">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Landing Page Design for Paid Ads: Matching the Promise to the Page">
 <meta name="twitter:description" content="How to design e-commerce landing pages for paid ads so the page delivers on exactly what the ad promised.">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1585692614093-62dab82e9d08?auto=format&fit=crop&w=1200&q=80">
+<meta name="twitter:image" content="https://i.ibb.co/xKhgkm2z/1.png">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2326102B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23FBA82C' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
 
@@ -194,10 +194,40 @@
   </div>
 </header>
 
-<figure style="max-width:700px;margin:0 auto;padding:32px 32px 0;">
-  <img src="https://images.unsplash.com/photo-1585692614093-62dab82e9d08?auto=format&fit=crop&w=1400&q=80" alt="A person holding a phone" style="width:100%;height:340px;object-fit:cover;border-radius:16px;display:block;">
-  <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6E5B6B;margin-top:10px;">Photo by Nathan Dumlao on Unsplash</figcaption>
-</figure>
+<div style="max-width:700px;margin:0 auto;padding:32px 32px 0;">
+  <div style="border-radius:16px;overflow:hidden;">
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:340px;display:block;">
+  <defs>
+    <linearGradient id="lpGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FB85C6"/>
+      <stop offset="22%" stop-color="#F794AF"/>
+      <stop offset="42%" stop-color="#F99D87"/>
+      <stop offset="66%" stop-color="#FBA82C"/>
+      <stop offset="82%" stop-color="#FA871A"/>
+      <stop offset="100%" stop-color="#F9671F"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="340" fill="#26102B"/>
+  <rect x="60" y="60" width="220" height="200" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)"/>
+  <text x="170" y="85" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#FB85C6">THE AD</text>
+  <rect x="80" y="100" width="180" height="90" rx="8" fill="rgba(255,255,255,0.12)"/>
+  <rect x="80" y="200" width="120" height="12" rx="3" fill="rgba(255,255,255,0.25)"/>
+  <rect x="80" y="222" width="90" height="26" rx="6" fill="url(#lpGrad)"/>
+  <text x="125" y="240" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#26102B">Shop now</text>
+  <path d="M290 160 L350 160" stroke="#FBA82C" stroke-width="3" stroke-dasharray="6 5"/>
+  <polygon points="345,152 360,160 345,168" fill="#FBA82C"/>
+  <rect x="360" y="40" width="280" height="240" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(251,133,198,0.5)" stroke-width="2"/>
+  <text x="500" y="65" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#FBA82C">THE LANDING PAGE</text>
+  <rect x="385" y="80" width="230" height="110" rx="8" fill="rgba(255,255,255,0.12)"/>
+  <rect x="385" y="200" width="170" height="14" rx="3" fill="rgba(255,255,255,0.3)"/>
+  <rect x="385" y="222" width="130" height="10" rx="3" fill="rgba(255,255,255,0.18)"/>
+  <rect x="385" y="245" width="120" height="26" rx="6" fill="url(#lpGrad)"/>
+  <text x="445" y="263" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#26102B">Shop now</text>
+  <text x="350" y="320" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="rgba(255,255,255,0.4)">Same offer, same visual &mdash; no doubt they landed in the right place.</text>
+</svg>
+  </div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6E5B6B;margin-top:10px;">Illustration: Matching an ad to its landing page</div>
+</div>
 
 <article>
 
@@ -286,8 +316,9 @@
   </div>
 
 <script>
-  // ----- Free audit popup -----
+  // ----- Free audit popup (Fibonacci re-prompt schedule, cumulative across the whole visit) -----
   var auditModal = document.getElementById('auditModal');
+  var FIB_SEQUENCE = [3, 5, 8, 13, 21, 34];
 
   function openModal() {
     auditModal.classList.add('open');
@@ -300,8 +331,23 @@
     auditModal.classList.remove('open');
     document.body.style.overflow = '';
     if (remember) {
-      try { sessionStorage.setItem('lp_modal_dismissed', '1'); } catch (e) {}
+      advanceModalSchedule();
     }
+  }
+
+  function advanceModalSchedule() {
+    try {
+      var step = parseInt(sessionStorage.getItem('lp_modal_step') || '1', 10);
+      var delta = step < FIB_SEQUENCE.length ? FIB_SEQUENCE[step] : FIB_SEQUENCE[FIB_SEQUENCE.length - 1];
+      var prevThreshold = parseFloat(sessionStorage.getItem('lp_modal_next_threshold') || '0');
+      var nextThreshold = prevThreshold + delta;
+      sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
+      sessionStorage.setItem('lp_modal_step', String(step + 1));
+    } catch (e) {}
+  }
+
+  function stopModalScheduleForever() {
+    try { sessionStorage.setItem('lp_modal_submitted', '1'); } catch (e) {}
   }
 
   document.getElementById('modalClose').addEventListener('click', function () { closeModal(true); });
@@ -335,17 +381,48 @@
 
     document.getElementById('modalFormWrap').style.display = 'none';
     document.getElementById('modalSuccess').classList.add('visible');
-    try { sessionStorage.setItem('lp_modal_dismissed', '1'); } catch (e) {}
+    stopModalScheduleForever();
     setTimeout(function () { closeModal(false); }, 3500);
   });
 
-  // Show once per session, 3 seconds after the page finishes loading
+  // Schedule the next appearance based on cumulative time elapsed since the visit began,
+  // tracked in sessionStorage so it persists across page navigations (not just this page).
   (function () {
-    var alreadyDismissed = false;
-    try { alreadyDismissed = sessionStorage.getItem('lp_modal_dismissed') === '1'; } catch (e) {}
-    if (!alreadyDismissed) {
-      setTimeout(openModal, 3000);
+    var submitted = false;
+    try { submitted = sessionStorage.getItem('lp_modal_submitted') === '1'; } catch (e) {}
+    if (submitted) return;
+
+    var visitStart;
+    try {
+      visitStart = sessionStorage.getItem('lp_visit_start');
+      if (!visitStart) {
+        visitStart = Date.now();
+        sessionStorage.setItem('lp_visit_start', String(visitStart));
+      } else {
+        visitStart = parseFloat(visitStart);
+      }
+    } catch (e) {
+      visitStart = Date.now();
     }
+
+    var nextThreshold;
+    try {
+      var stored = sessionStorage.getItem('lp_modal_next_threshold');
+      if (stored === null) {
+        nextThreshold = FIB_SEQUENCE[0]; // 3 seconds — first appearance
+        sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
+        sessionStorage.setItem('lp_modal_step', '1'); // next delta to use after first dismiss is FIB_SEQUENCE[1]
+      } else {
+        nextThreshold = parseFloat(stored);
+      }
+    } catch (e) {
+      nextThreshold = FIB_SEQUENCE[0];
+    }
+
+    var elapsed = (Date.now() - visitStart) / 1000;
+    var remaining = Math.max(0, nextThreshold - elapsed);
+
+    setTimeout(openModal, remaining * 1000);
   })();
 </script>
 

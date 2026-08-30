@@ -170,6 +170,28 @@
   @media (prefers-reduced-motion: reduce) {
     .modal-card { animation: none; }
   }
+
+  /* INTERACTIVE STAT WIDGETS */
+  .lp-widget { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px 30px; margin: 32px 0; }
+  .lp-widget-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--flame-ink); margin-bottom: 18px; }
+  .lp-widget-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .lp-widget-tag { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .lp-widget-value { font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: var(--flame-ink); }
+  .lp-slider { width: 100%; -webkit-appearance: none; appearance: none; height: 8px; border-radius: 4px; background: rgba(38,16,43,0.1); outline: none; margin: 10px 0 22px; cursor: pointer; }
+  .lp-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F); border: 3px solid var(--white); box-shadow: 0 2px 8px rgba(38,16,43,0.3); cursor: grab; }
+  .lp-slider::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--flame); border: 3px solid var(--white); box-shadow: 0 2px 8px rgba(38,16,43,0.3); cursor: grab; }
+  .lp-widget-result { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; color: var(--body-text); margin-bottom: 10px; }
+  .lp-widget-result strong { font-size: 24px; color: var(--ink); font-family: var(--font-display); }
+  .lp-widget-bar { height: 10px; border-radius: 5px; background: rgba(38,16,43,0.08); overflow: hidden; }
+  .lp-widget-bar-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F); transition: width 0.35s ease; }
+  .lp-ab-row { display: flex; gap: 28px; margin-bottom: 22px; }
+  .lp-ab-col { flex: 1; }
+  .lp-ab-tag { font-size: 12px; font-weight: 700; color: var(--flame-ink); display: block; margin-bottom: 10px; }
+  .lp-ab-pct { font-family: var(--font-mono); font-size: 17px; font-weight: 700; color: var(--ink); display: block; margin-top: 8px; }
+  .lp-widget-btn { background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F); background-size: 200% 100%; color: var(--ink); border: none; padding: 12px 22px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: background-position 0.4s ease; }
+  .lp-widget-btn:hover { background-position: 100% 0; }
+  .lp-widget-note { font-size: 12px; color: var(--grey); margin-top: 14px; font-family: var(--font-mono); }
+  .lp-matrix-svg circle { touch-action: none; }
 </style>
 </head>
 <body>
@@ -230,6 +252,110 @@
 <article>
 
   <p>Most e-commerce teams don't have unlimited developer time for CRO work, which makes prioritization the actual skill &mdash; not knowing what could be tested, but knowing what's worth testing first.</p>
+
+  <div class="lp-widget" id="matrixWidget">
+    <div class="lp-widget-label">Try it &mdash; drag the dot to plot your own idea</div>
+    <svg viewBox="0 0 420 240" class="lp-matrix-svg" style="width:100%;height:220px;display:block;touch-action:none;">
+      <defs>
+        <linearGradient id="lpGradMatrixDot" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#FB85C6"/><stop offset="50%" stop-color="#FBA82C"/><stop offset="100%" stop-color="#F9671F"/>
+        </linearGradient>
+      </defs>
+      <line x1="50" y1="15" x2="50" y2="200" stroke="rgba(38,16,43,0.3)"/>
+      <line x1="50" y1="200" x2="400" y2="200" stroke="rgba(38,16,43,0.3)"/>
+      <line x1="225" y1="15" x2="225" y2="200" stroke="rgba(38,16,43,0.12)" stroke-dasharray="4 4"/>
+      <line x1="50" y1="107" x2="400" y2="107" stroke="rgba(38,16,43,0.12)" stroke-dasharray="4 4"/>
+      <text x="137" y="35" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#C22E6E">QUICK WIN</text>
+      <text x="312" y="35" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#6E5B6B">MAJOR PROJECT</text>
+      <text x="137" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#6E5B6B">LOW PRIORITY</text>
+      <text x="312" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#6E5B6B">THINK TWICE</text>
+      <text x="225" y="222" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#6E5B6B">Effort &rarr;</text>
+      <text x="18" y="107" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#6E5B6B" transform="rotate(-90 18 107)">Impact &rarr;</text>
+      <circle id="matrixDot" cx="137" cy="60" r="11" fill="url(#lpGradMatrixDot)" stroke="#26102B" stroke-width="1.5" style="cursor:grab;"/>
+    </svg>
+    <div class="lp-widget-result" style="justify-content:center; margin-top:8px;">
+      <strong id="matrixLabel">Quick win &mdash; do this first</strong>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var svg = document.querySelector('.lp-matrix-svg');
+    var dot = document.getElementById('matrixDot');
+    var label = document.getElementById('matrixLabel');
+    if (!svg || !dot) return;
+
+    var bounds = { minX: 50, maxX: 400, minY: 15, maxY: 200 };
+    var midX = 225, midY = 107;
+    var autoPlay = true;
+    var t = 0;
+
+    function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+    function setLabel(x, y) {
+      var highImpact = y < midY;
+      var lowEffort = x < midX;
+      var text;
+      if (highImpact && lowEffort) text = 'Quick win \u2014 do this first';
+      else if (highImpact && !lowEffort) text = 'Major project \u2014 plan it properly';
+      else if (!highImpact && lowEffort) text = 'Low priority \u2014 nice to have';
+      else text = 'Think twice \u2014 rarely worth it';
+      label.textContent = text;
+    }
+
+    function moveDot(x, y) {
+      x = clamp(x, bounds.minX, bounds.maxX);
+      y = clamp(y, bounds.minY, bounds.maxY);
+      dot.setAttribute('cx', x);
+      dot.setAttribute('cy', y);
+      setLabel(x, y);
+    }
+
+    function svgPoint(evt) {
+      var pt = svg.createSVGPoint();
+      pt.x = evt.clientX;
+      pt.y = evt.clientY;
+      var ctm = svg.getScreenCTM().inverse();
+      var loc = pt.matrixTransform(ctm);
+      return loc;
+    }
+
+    function autoLoop() {
+      if (!autoPlay) return;
+      t += 0.02;
+      var x = midX + 150 * Math.sin(t * 0.8);
+      var y = midY + 80 * Math.sin(t * 1.3 + 1.2);
+      moveDot(x, y);
+      requestAnimationFrame(autoLoop);
+    }
+    requestAnimationFrame(autoLoop);
+
+    function stopAutoAndDrag(evt) {
+      autoPlay = false;
+      evt.preventDefault();
+      dot.style.cursor = 'grabbing';
+
+      function onMove(e) {
+        var p = svgPoint(e.touches ? e.touches[0] : e);
+        moveDot(p.x, p.y);
+      }
+      function onUp() {
+        dot.style.cursor = 'grab';
+        window.removeEventListener('pointermove', onMove);
+        window.removeEventListener('pointerup', onUp);
+        window.removeEventListener('touchmove', onMove);
+        window.removeEventListener('touchend', onUp);
+      }
+      window.addEventListener('pointermove', onMove);
+      window.addEventListener('pointerup', onUp);
+      window.addEventListener('touchmove', onMove, { passive: false });
+      window.addEventListener('touchend', onUp);
+    }
+
+    dot.addEventListener('pointerdown', stopAutoAndDrag);
+    dot.addEventListener('touchstart', stopAutoAndDrag, { passive: false });
+  })();
+  </script>
+
   <h2>Score every idea on two axes</h2>
   <p>Rank potential changes by expected impact and by effort to build and test. The highest-value work sits in the high-impact, low-effort quadrant &mdash; copy changes, field removal, layout reordering &mdash; not the changes that require a platform migration to even attempt.</p>
   <h2>Batch changes by page, not by idea</h2>
@@ -316,8 +442,9 @@
   </div>
 
 <script>
-  // ----- Free audit popup -----
+  // ----- Free audit popup (Fibonacci re-prompt schedule, cumulative across the whole visit) -----
   var auditModal = document.getElementById('auditModal');
+  var FIB_SEQUENCE = [3, 5, 8, 13, 21, 34];
 
   function openModal() {
     auditModal.classList.add('open');
@@ -330,8 +457,23 @@
     auditModal.classList.remove('open');
     document.body.style.overflow = '';
     if (remember) {
-      try { sessionStorage.setItem('lp_modal_dismissed', '1'); } catch (e) {}
+      advanceModalSchedule();
     }
+  }
+
+  function advanceModalSchedule() {
+    try {
+      var step = parseInt(sessionStorage.getItem('lp_modal_step') || '1', 10);
+      var delta = step < FIB_SEQUENCE.length ? FIB_SEQUENCE[step] : FIB_SEQUENCE[FIB_SEQUENCE.length - 1];
+      var prevThreshold = parseFloat(sessionStorage.getItem('lp_modal_next_threshold') || '0');
+      var nextThreshold = prevThreshold + delta;
+      sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
+      sessionStorage.setItem('lp_modal_step', String(step + 1));
+    } catch (e) {}
+  }
+
+  function stopModalScheduleForever() {
+    try { sessionStorage.setItem('lp_modal_submitted', '1'); } catch (e) {}
   }
 
   document.getElementById('modalClose').addEventListener('click', function () { closeModal(true); });
@@ -365,17 +507,48 @@
 
     document.getElementById('modalFormWrap').style.display = 'none';
     document.getElementById('modalSuccess').classList.add('visible');
-    try { sessionStorage.setItem('lp_modal_dismissed', '1'); } catch (e) {}
+    stopModalScheduleForever();
     setTimeout(function () { closeModal(false); }, 3500);
   });
 
-  // Show once per session, 3 seconds after the page finishes loading
+  // Schedule the next appearance based on cumulative time elapsed since the visit began,
+  // tracked in sessionStorage so it persists across page navigations (not just this page).
   (function () {
-    var alreadyDismissed = false;
-    try { alreadyDismissed = sessionStorage.getItem('lp_modal_dismissed') === '1'; } catch (e) {}
-    if (!alreadyDismissed) {
-      setTimeout(openModal, 3000);
+    var submitted = false;
+    try { submitted = sessionStorage.getItem('lp_modal_submitted') === '1'; } catch (e) {}
+    if (submitted) return;
+
+    var visitStart;
+    try {
+      visitStart = sessionStorage.getItem('lp_visit_start');
+      if (!visitStart) {
+        visitStart = Date.now();
+        sessionStorage.setItem('lp_visit_start', String(visitStart));
+      } else {
+        visitStart = parseFloat(visitStart);
+      }
+    } catch (e) {
+      visitStart = Date.now();
     }
+
+    var nextThreshold;
+    try {
+      var stored = sessionStorage.getItem('lp_modal_next_threshold');
+      if (stored === null) {
+        nextThreshold = FIB_SEQUENCE[0]; // 3 seconds — first appearance
+        sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
+        sessionStorage.setItem('lp_modal_step', '1'); // next delta to use after first dismiss is FIB_SEQUENCE[1]
+      } else {
+        nextThreshold = parseFloat(stored);
+      }
+    } catch (e) {
+      nextThreshold = FIB_SEQUENCE[0];
+    }
+
+    var elapsed = (Date.now() - visitStart) / 1000;
+    var remaining = Math.max(0, nextThreshold - elapsed);
+
+    setTimeout(openModal, remaining * 1000);
   })();
 </script>
 

@@ -170,6 +170,28 @@
   @media (prefers-reduced-motion: reduce) {
     .modal-card { animation: none; }
   }
+
+  /* INTERACTIVE STAT WIDGETS */
+  .lp-widget { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px 30px; margin: 32px 0; }
+  .lp-widget-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--flame-ink); margin-bottom: 18px; }
+  .lp-widget-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .lp-widget-tag { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .lp-widget-value { font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: var(--flame-ink); }
+  .lp-slider { width: 100%; -webkit-appearance: none; appearance: none; height: 8px; border-radius: 4px; background: rgba(38,16,43,0.1); outline: none; margin: 10px 0 22px; cursor: pointer; }
+  .lp-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F); border: 3px solid var(--white); box-shadow: 0 2px 8px rgba(38,16,43,0.3); cursor: grab; }
+  .lp-slider::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--flame); border: 3px solid var(--white); box-shadow: 0 2px 8px rgba(38,16,43,0.3); cursor: grab; }
+  .lp-widget-result { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; color: var(--body-text); margin-bottom: 10px; }
+  .lp-widget-result strong { font-size: 24px; color: var(--ink); font-family: var(--font-display); }
+  .lp-widget-bar { height: 10px; border-radius: 5px; background: rgba(38,16,43,0.08); overflow: hidden; }
+  .lp-widget-bar-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F); transition: width 0.35s ease; }
+  .lp-ab-row { display: flex; gap: 28px; margin-bottom: 22px; }
+  .lp-ab-col { flex: 1; }
+  .lp-ab-tag { font-size: 12px; font-weight: 700; color: var(--flame-ink); display: block; margin-bottom: 10px; }
+  .lp-ab-pct { font-family: var(--font-mono); font-size: 17px; font-weight: 700; color: var(--ink); display: block; margin-top: 8px; }
+  .lp-widget-btn { background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F); background-size: 200% 100%; color: var(--ink); border: none; padding: 12px 22px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: background-position 0.4s ease; }
+  .lp-widget-btn:hover { background-position: 100% 0; }
+  .lp-widget-note { font-size: 12px; color: var(--grey); margin-top: 14px; font-family: var(--font-mono); }
+  .lp-matrix-svg circle { touch-action: none; }
 </style>
 </head>
 <body>
@@ -231,6 +253,75 @@
   <p>Most first A/B tests fail for the same two reasons: they test something too small to matter, or they get called too early. Both are avoidable once you know the basic shape of a valid test.</p>
   <h2>Pick a hypothesis, not just a change</h2>
   <p>"Let's try a different button color" isn't a hypothesis. "Shoppers aren't clicking add-to-cart because the price feels uncertain without visible shipping cost" is &mdash; and it points to a specific, testable change with a reason attached. If you can't articulate why a change should help, it's a guess, not a test.</p>
+
+  <div class="lp-widget" id="abWidget">
+    <div class="lp-widget-label">Try it &mdash; simulate more traffic</div>
+    <div class="lp-ab-row">
+      <div class="lp-ab-col">
+        <span class="lp-ab-tag">Version A</span>
+        <div class="lp-widget-bar"><div class="lp-widget-bar-fill" id="abBarA" style="width:0%"></div></div>
+        <span class="lp-ab-pct" id="abPctA">&mdash;</span>
+      </div>
+      <div class="lp-ab-col">
+        <span class="lp-ab-tag" style="color:#FA871A;">Version B</span>
+        <div class="lp-widget-bar"><div class="lp-widget-bar-fill" id="abBarB" style="width:0%"></div></div>
+        <span class="lp-ab-pct" id="abPctB">&mdash;</span>
+      </div>
+    </div>
+    <button type="button" class="lp-widget-btn" id="abSimulateBtn">Simulate 100 more visitors</button>
+    <div class="lp-widget-note" id="abNote">Click to start &mdash; watch how the early lead moves around before it settles.</div>
+  </div>
+  <script>
+  (function () {
+    var btn = document.getElementById('abSimulateBtn');
+    var barA = document.getElementById('abBarA');
+    var barB = document.getElementById('abBarB');
+    var pctA = document.getElementById('abPctA');
+    var pctB = document.getElementById('abPctB');
+    var note = document.getElementById('abNote');
+    if (!btn) return;
+
+    var RATE_A = 0.030;
+    var RATE_B = 0.036;
+    var visitorsA = 0, convA = 0, visitorsB = 0, convB = 0;
+
+    function simulate() {
+      var total = visitorsA + visitorsB;
+      if (total >= 6000) { visitorsA = convA = visitorsB = convB = 0; }
+
+      for (var i = 0; i < 100; i++) { if (Math.random() < RATE_A) convA++; }
+      for (var j = 0; j < 100; j++) { if (Math.random() < RATE_B) convB++; }
+      visitorsA += 100;
+      visitorsB += 100;
+
+      var rateA = (convA / visitorsA) * 100;
+      var rateB = (convB / visitorsB) * 100;
+      var maxScale = 6; // bar scale ceiling in %
+
+      barA.style.width = Math.min(100, (rateA / maxScale) * 100) + '%';
+      barB.style.width = Math.min(100, (rateB / maxScale) * 100) + '%';
+      pctA.textContent = rateA.toFixed(2) + '%';
+      pctB.textContent = rateB.toFixed(2) + '%';
+
+      var seen = visitorsA + visitorsB;
+      if (seen < 1000) {
+        note.textContent = seen + ' visitors so far \u2014 way too early to call this. Watch the lead move around.';
+      } else if (seen < 3000) {
+        note.textContent = seen + ' visitors so far \u2014 getting clearer, but keep going.';
+      } else {
+        note.textContent = seen + ' visitors so far \u2014 this is roughly when a real test would be safe to call.';
+      }
+    }
+
+    btn.addEventListener('click', function () {
+      simulate();
+      clearInterval(autoTimer);
+    });
+
+    var autoTimer = setInterval(simulate, 1300);
+  })();
+  </script>
+
   <h2>Test high-traffic pages first</h2>
   <p>A test on a page with low traffic can take months to reach a reliable result. Start with your highest-traffic landing page, product page, or the checkout flow itself &mdash; not because they're most important, but because they'll give you a usable answer fastest.</p>
   <h2>Decide your sample size and stopping point before you start</h2>
@@ -315,8 +406,9 @@
   </div>
 
 <script>
-  // ----- Free audit popup -----
+  // ----- Free audit popup (Fibonacci re-prompt schedule, cumulative across the whole visit) -----
   var auditModal = document.getElementById('auditModal');
+  var FIB_SEQUENCE = [3, 5, 8, 13, 21, 34];
 
   function openModal() {
     auditModal.classList.add('open');
@@ -329,8 +421,23 @@
     auditModal.classList.remove('open');
     document.body.style.overflow = '';
     if (remember) {
-      try { sessionStorage.setItem('lp_modal_dismissed', '1'); } catch (e) {}
+      advanceModalSchedule();
     }
+  }
+
+  function advanceModalSchedule() {
+    try {
+      var step = parseInt(sessionStorage.getItem('lp_modal_step') || '1', 10);
+      var delta = step < FIB_SEQUENCE.length ? FIB_SEQUENCE[step] : FIB_SEQUENCE[FIB_SEQUENCE.length - 1];
+      var prevThreshold = parseFloat(sessionStorage.getItem('lp_modal_next_threshold') || '0');
+      var nextThreshold = prevThreshold + delta;
+      sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
+      sessionStorage.setItem('lp_modal_step', String(step + 1));
+    } catch (e) {}
+  }
+
+  function stopModalScheduleForever() {
+    try { sessionStorage.setItem('lp_modal_submitted', '1'); } catch (e) {}
   }
 
   document.getElementById('modalClose').addEventListener('click', function () { closeModal(true); });
@@ -364,17 +471,48 @@
 
     document.getElementById('modalFormWrap').style.display = 'none';
     document.getElementById('modalSuccess').classList.add('visible');
-    try { sessionStorage.setItem('lp_modal_dismissed', '1'); } catch (e) {}
+    stopModalScheduleForever();
     setTimeout(function () { closeModal(false); }, 3500);
   });
 
-  // Show once per session, 3 seconds after the page finishes loading
+  // Schedule the next appearance based on cumulative time elapsed since the visit began,
+  // tracked in sessionStorage so it persists across page navigations (not just this page).
   (function () {
-    var alreadyDismissed = false;
-    try { alreadyDismissed = sessionStorage.getItem('lp_modal_dismissed') === '1'; } catch (e) {}
-    if (!alreadyDismissed) {
-      setTimeout(openModal, 3000);
+    var submitted = false;
+    try { submitted = sessionStorage.getItem('lp_modal_submitted') === '1'; } catch (e) {}
+    if (submitted) return;
+
+    var visitStart;
+    try {
+      visitStart = sessionStorage.getItem('lp_visit_start');
+      if (!visitStart) {
+        visitStart = Date.now();
+        sessionStorage.setItem('lp_visit_start', String(visitStart));
+      } else {
+        visitStart = parseFloat(visitStart);
+      }
+    } catch (e) {
+      visitStart = Date.now();
     }
+
+    var nextThreshold;
+    try {
+      var stored = sessionStorage.getItem('lp_modal_next_threshold');
+      if (stored === null) {
+        nextThreshold = FIB_SEQUENCE[0]; // 3 seconds — first appearance
+        sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
+        sessionStorage.setItem('lp_modal_step', '1'); // next delta to use after first dismiss is FIB_SEQUENCE[1]
+      } else {
+        nextThreshold = parseFloat(stored);
+      }
+    } catch (e) {
+      nextThreshold = FIB_SEQUENCE[0];
+    }
+
+    var elapsed = (Date.now() - visitStart) / 1000;
+    var remaining = Math.max(0, nextThreshold - elapsed);
+
+    setTimeout(openModal, remaining * 1000);
   })();
 </script>
 

@@ -170,6 +170,28 @@
   @media (prefers-reduced-motion: reduce) {
     .modal-card { animation: none; }
   }
+
+  /* INTERACTIVE STAT WIDGETS */
+  .lp-widget { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px 30px; margin: 32px 0; }
+  .lp-widget-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--flame-ink); margin-bottom: 18px; }
+  .lp-widget-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .lp-widget-tag { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .lp-widget-value { font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: var(--flame-ink); }
+  .lp-slider { width: 100%; -webkit-appearance: none; appearance: none; height: 8px; border-radius: 4px; background: rgba(38,16,43,0.1); outline: none; margin: 10px 0 22px; cursor: pointer; }
+  .lp-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F); border: 3px solid var(--white); box-shadow: 0 2px 8px rgba(38,16,43,0.3); cursor: grab; }
+  .lp-slider::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--flame); border: 3px solid var(--white); box-shadow: 0 2px 8px rgba(38,16,43,0.3); cursor: grab; }
+  .lp-widget-result { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; color: var(--body-text); margin-bottom: 10px; }
+  .lp-widget-result strong { font-size: 24px; color: var(--ink); font-family: var(--font-display); }
+  .lp-widget-bar { height: 10px; border-radius: 5px; background: rgba(38,16,43,0.08); overflow: hidden; }
+  .lp-widget-bar-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F); transition: width 0.35s ease; }
+  .lp-ab-row { display: flex; gap: 28px; margin-bottom: 22px; }
+  .lp-ab-col { flex: 1; }
+  .lp-ab-tag { font-size: 12px; font-weight: 700; color: var(--flame-ink); display: block; margin-bottom: 10px; }
+  .lp-ab-pct { font-family: var(--font-mono); font-size: 17px; font-weight: 700; color: var(--ink); display: block; margin-top: 8px; }
+  .lp-widget-btn { background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F); background-size: 200% 100%; color: var(--ink); border: none; padding: 12px 22px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: background-position 0.4s ease; }
+  .lp-widget-btn:hover { background-position: 100% 0; }
+  .lp-widget-note { font-size: 12px; color: var(--grey); margin-top: 14px; font-family: var(--font-mono); }
+  .lp-matrix-svg circle { touch-action: none; }
 </style>
 </head>
 <body>
@@ -225,6 +247,63 @@
 <article>
 
   <p>A free shipping threshold is one of the few pricing levers that can lift both conversion and average order value at the same time &mdash; but only if it's set with actual order data, not a round number that felt right.</p>
+
+  <div class="lp-widget" id="shippingWidget">
+    <div class="lp-widget-label">Try it &mdash; drag the slider</div>
+    <div class="lp-widget-row">
+      <span class="lp-widget-tag">Free shipping threshold</span>
+      <span class="lp-widget-value">$<span id="thresholdValue">50</span></span>
+    </div>
+    <input type="range" min="20" max="140" step="5" value="50" id="thresholdSlider" class="lp-slider" aria-label="Free shipping threshold in dollars">
+    <div class="lp-widget-result">
+      <span>Orders that qualify</span>
+      <strong id="qualifyValue">78%</strong>
+    </div>
+    <div class="lp-widget-bar"><div class="lp-widget-bar-fill" id="qualifyBar" style="width:78%"></div></div>
+    <div class="lp-widget-result" style="margin-top:16px;">
+      <span>Estimated AOV lift</span>
+      <strong id="aovValue">+5%</strong>
+    </div>
+    <div class="lp-widget-note">Illustrative model &mdash; set your real threshold from your own order data, not a round number.</div>
+  </div>
+  <script>
+  (function () {
+    var slider = document.getElementById('thresholdSlider');
+    var thresholdValue = document.getElementById('thresholdValue');
+    var qualifyValue = document.getElementById('qualifyValue');
+    var qualifyBar = document.getElementById('qualifyBar');
+    var aovValue = document.getElementById('aovValue');
+    if (!slider) return;
+
+    function update(threshold) {
+      var qualify = Math.max(12, Math.min(96, 96 - (threshold - 20) * 0.7));
+      var aov = Math.max(0, (threshold - 20) * 0.13);
+      qualify = Math.round(qualify);
+      aov = Math.round(aov);
+      thresholdValue.textContent = threshold;
+      qualifyValue.textContent = qualify + '%';
+      qualifyBar.style.width = qualify + '%';
+      aovValue.textContent = '+' + aov + '%';
+    }
+    update(parseInt(slider.value, 10));
+
+    slider.addEventListener('input', function () { update(parseInt(slider.value, 10)); });
+
+    var dir = 5;
+    var autoTimer = setInterval(function () {
+      var v = parseInt(slider.value, 10) + dir;
+      if (v >= 140) { v = 140; dir = -5; }
+      if (v <= 20) { v = 20; dir = 5; }
+      slider.value = v;
+      update(v);
+    }, 450);
+
+    function stopAuto() { clearInterval(autoTimer); }
+    slider.addEventListener('pointerdown', stopAuto);
+    slider.addEventListener('touchstart', stopAuto);
+  })();
+  </script>
+
   <h2>Set the threshold from your own data</h2>
   <p>Look at your current average order value and set the threshold slightly above it &mdash; typically 20-30% higher &mdash; so it's achievable but still nudges people to add one more item rather than feeling out of reach.</p>
   <h2>Show progress toward the threshold</h2>
@@ -309,8 +388,9 @@
   </div>
 
 <script>
-  // ----- Free audit popup -----
+  // ----- Free audit popup (Fibonacci re-prompt schedule, cumulative across the whole visit) -----
   var auditModal = document.getElementById('auditModal');
+  var FIB_SEQUENCE = [3, 5, 8, 13, 21, 34];
 
   function openModal() {
     auditModal.classList.add('open');
@@ -323,8 +403,23 @@
     auditModal.classList.remove('open');
     document.body.style.overflow = '';
     if (remember) {
-      try { sessionStorage.setItem('lp_modal_dismissed', '1'); } catch (e) {}
+      advanceModalSchedule();
     }
+  }
+
+  function advanceModalSchedule() {
+    try {
+      var step = parseInt(sessionStorage.getItem('lp_modal_step') || '1', 10);
+      var delta = step < FIB_SEQUENCE.length ? FIB_SEQUENCE[step] : FIB_SEQUENCE[FIB_SEQUENCE.length - 1];
+      var prevThreshold = parseFloat(sessionStorage.getItem('lp_modal_next_threshold') || '0');
+      var nextThreshold = prevThreshold + delta;
+      sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
+      sessionStorage.setItem('lp_modal_step', String(step + 1));
+    } catch (e) {}
+  }
+
+  function stopModalScheduleForever() {
+    try { sessionStorage.setItem('lp_modal_submitted', '1'); } catch (e) {}
   }
 
   document.getElementById('modalClose').addEventListener('click', function () { closeModal(true); });
@@ -358,17 +453,48 @@
 
     document.getElementById('modalFormWrap').style.display = 'none';
     document.getElementById('modalSuccess').classList.add('visible');
-    try { sessionStorage.setItem('lp_modal_dismissed', '1'); } catch (e) {}
+    stopModalScheduleForever();
     setTimeout(function () { closeModal(false); }, 3500);
   });
 
-  // Show once per session, 3 seconds after the page finishes loading
+  // Schedule the next appearance based on cumulative time elapsed since the visit began,
+  // tracked in sessionStorage so it persists across page navigations (not just this page).
   (function () {
-    var alreadyDismissed = false;
-    try { alreadyDismissed = sessionStorage.getItem('lp_modal_dismissed') === '1'; } catch (e) {}
-    if (!alreadyDismissed) {
-      setTimeout(openModal, 3000);
+    var submitted = false;
+    try { submitted = sessionStorage.getItem('lp_modal_submitted') === '1'; } catch (e) {}
+    if (submitted) return;
+
+    var visitStart;
+    try {
+      visitStart = sessionStorage.getItem('lp_visit_start');
+      if (!visitStart) {
+        visitStart = Date.now();
+        sessionStorage.setItem('lp_visit_start', String(visitStart));
+      } else {
+        visitStart = parseFloat(visitStart);
+      }
+    } catch (e) {
+      visitStart = Date.now();
     }
+
+    var nextThreshold;
+    try {
+      var stored = sessionStorage.getItem('lp_modal_next_threshold');
+      if (stored === null) {
+        nextThreshold = FIB_SEQUENCE[0]; // 3 seconds — first appearance
+        sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
+        sessionStorage.setItem('lp_modal_step', '1'); // next delta to use after first dismiss is FIB_SEQUENCE[1]
+      } else {
+        nextThreshold = parseFloat(stored);
+      }
+    } catch (e) {
+      nextThreshold = FIB_SEQUENCE[0];
+    }
+
+    var elapsed = (Date.now() - visitStart) / 1000;
+    var remaining = Math.max(0, nextThreshold - elapsed);
+
+    setTimeout(openModal, remaining * 1000);
   })();
 </script>
 

@@ -13,12 +13,12 @@
 <meta property="og:title" content="Email Capture Popups: Best Practices That Don't Hurt Conversion">
 <meta property="og:description" content="How to design an email capture popup that grows your list without pushing shoppers away from the products they came to browse.">
 <meta property="og:url" content="https://legionpathways.com/blog/email-capture-popups-best-practices.html">
-<meta property="og:image" content="https://images.unsplash.com/photo-1543428390-52250776dd46?auto=format&fit=crop&w=1200&q=80">
+<meta property="og:image" content="https://i.ibb.co/xKhgkm2z/1.png">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Email Capture Popups: Best Practices That Don't Hurt Conversion">
 <meta name="twitter:description" content="How to design an email capture popup that grows your list without pushing shoppers away from the products they came to browse.">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1543428390-52250776dd46?auto=format&fit=crop&w=1200&q=80">
+<meta name="twitter:image" content="https://i.ibb.co/xKhgkm2z/1.png">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2326102B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23FBA82C' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
 
@@ -194,10 +194,40 @@
   </div>
 </header>
 
-<figure style="max-width:700px;margin:0 auto;padding:32px 32px 0;">
-  <img src="https://images.unsplash.com/photo-1543428390-52250776dd46?auto=format&fit=crop&w=1400&q=80" alt="A person browsing a website on their phone" style="width:100%;height:340px;object-fit:cover;border-radius:16px;display:block;">
-  <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6E5B6B;margin-top:10px;">Photo by charlesdeluvio on Unsplash</figcaption>
-</figure>
+<div style="max-width:700px;margin:0 auto;padding:32px 32px 0;">
+  <div style="border-radius:16px;overflow:hidden;">
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:340px;display:block;">
+  <defs>
+    <linearGradient id="lpGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FB85C6"/>
+      <stop offset="22%" stop-color="#F794AF"/>
+      <stop offset="42%" stop-color="#F99D87"/>
+      <stop offset="66%" stop-color="#FBA82C"/>
+      <stop offset="82%" stop-color="#FA871A"/>
+      <stop offset="100%" stop-color="#F9671F"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="340" fill="#26102B"/>
+  <rect x="60" y="30" width="580" height="220" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)"/>
+  <rect x="80" y="50" width="160" height="12" rx="3" fill="rgba(255,255,255,0.15)"/>
+  <rect x="80" y="75" width="220" height="10" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <rect x="80" y="95" width="180" height="10" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <rect x="380" y="50" width="180" height="130" rx="8" fill="rgba(255,255,255,0.08)"/>
+  <rect x="190" y="110" width="320" height="150" rx="14" fill="#FDF4EC" stroke="rgba(0,0,0,0.1)"/>
+  <circle cx="480" cy="130" r="12" fill="rgba(38,16,43,0.08)"/>
+  <line x1="475" y1="125" x2="485" y2="135" stroke="#26102B" stroke-width="2"/>
+  <line x1="485" y1="125" x2="475" y2="135" stroke="#26102B" stroke-width="2"/>
+  <text x="350" y="150" text-anchor="middle" font-family="Playfair Display, serif" font-weight="900" font-size="16" fill="#26102B">Get 10% off</text>
+  <text x="350" y="170" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#5A4A58">your first order</text>
+  <rect x="215" y="190" width="180" height="26" rx="6" fill="#ffffff" stroke="rgba(38,16,43,0.2)"/>
+  <text x="225" y="207" font-family="DM Sans, sans-serif" font-size="9" fill="#6E5B6B">you@email.com</text>
+  <rect x="405" y="190" width="85" height="26" rx="6" fill="url(#lpGrad)"/>
+  <text x="447" y="207" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#26102B">Get code</text>
+  <text x="350" y="300" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="rgba(255,255,255,0.4)">A specific offer, an obvious close button, no ambush timing.</text>
+</svg>
+  </div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6E5B6B;margin-top:10px;">Illustration: A well-designed email capture popup</div>
+</div>
 
 <article>
 
@@ -288,8 +318,9 @@
   </div>
 
 <script>
-  // ----- Free audit popup -----
+  // ----- Free audit popup (Fibonacci re-prompt schedule, cumulative across the whole visit) -----
   var auditModal = document.getElementById('auditModal');
+  var FIB_SEQUENCE = [3, 5, 8, 13, 21, 34];
 
   function openModal() {
     auditModal.classList.add('open');
@@ -302,8 +333,23 @@
     auditModal.classList.remove('open');
     document.body.style.overflow = '';
     if (remember) {
-      try { sessionStorage.setItem('lp_modal_dismissed', '1'); } catch (e) {}
+      advanceModalSchedule();
     }
+  }
+
+  function advanceModalSchedule() {
+    try {
+      var step = parseInt(sessionStorage.getItem('lp_modal_step') || '1', 10);
+      var delta = step < FIB_SEQUENCE.length ? FIB_SEQUENCE[step] : FIB_SEQUENCE[FIB_SEQUENCE.length - 1];
+      var prevThreshold = parseFloat(sessionStorage.getItem('lp_modal_next_threshold') || '0');
+      var nextThreshold = prevThreshold + delta;
+      sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
+      sessionStorage.setItem('lp_modal_step', String(step + 1));
+    } catch (e) {}
+  }
+
+  function stopModalScheduleForever() {
+    try { sessionStorage.setItem('lp_modal_submitted', '1'); } catch (e) {}
   }
 
   document.getElementById('modalClose').addEventListener('click', function () { closeModal(true); });
@@ -337,17 +383,48 @@
 
     document.getElementById('modalFormWrap').style.display = 'none';
     document.getElementById('modalSuccess').classList.add('visible');
-    try { sessionStorage.setItem('lp_modal_dismissed', '1'); } catch (e) {}
+    stopModalScheduleForever();
     setTimeout(function () { closeModal(false); }, 3500);
   });
 
-  // Show once per session, 3 seconds after the page finishes loading
+  // Schedule the next appearance based on cumulative time elapsed since the visit began,
+  // tracked in sessionStorage so it persists across page navigations (not just this page).
   (function () {
-    var alreadyDismissed = false;
-    try { alreadyDismissed = sessionStorage.getItem('lp_modal_dismissed') === '1'; } catch (e) {}
-    if (!alreadyDismissed) {
-      setTimeout(openModal, 3000);
+    var submitted = false;
+    try { submitted = sessionStorage.getItem('lp_modal_submitted') === '1'; } catch (e) {}
+    if (submitted) return;
+
+    var visitStart;
+    try {
+      visitStart = sessionStorage.getItem('lp_visit_start');
+      if (!visitStart) {
+        visitStart = Date.now();
+        sessionStorage.setItem('lp_visit_start', String(visitStart));
+      } else {
+        visitStart = parseFloat(visitStart);
+      }
+    } catch (e) {
+      visitStart = Date.now();
     }
+
+    var nextThreshold;
+    try {
+      var stored = sessionStorage.getItem('lp_modal_next_threshold');
+      if (stored === null) {
+        nextThreshold = FIB_SEQUENCE[0]; // 3 seconds — first appearance
+        sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
+        sessionStorage.setItem('lp_modal_step', '1'); // next delta to use after first dismiss is FIB_SEQUENCE[1]
+      } else {
+        nextThreshold = parseFloat(stored);
+      }
+    } catch (e) {
+      nextThreshold = FIB_SEQUENCE[0];
+    }
+
+    var elapsed = (Date.now() - visitStart) / 1000;
+    var remaining = Math.max(0, nextThreshold - elapsed);
+
+    setTimeout(openModal, remaining * 1000);
   })();
 </script>
 
