@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#26102B">
+<title>Why Mobile Traffic Converts Worse Than Desktop | Legion Pathways</title>
+<meta name="description" content="Most e-commerce stores get more mobile sessions and less mobile revenue. Here's where that gap actually comes from, and how to close it.">
+<link rel="canonical" href="https://legionpathways.com/blog/mobile-ux-ecommerce-conversion.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Legion Pathways">
+<meta property="og:title" content="Why Mobile Traffic Converts Worse Than Desktop (And How to Close the Gap)">
+<meta property="og:description" content="Most e-commerce stores get more mobile sessions and less mobile revenue. Here's where that gap actually comes from, and how to close it.">
+<meta property="og:url" content="https://legionpathways.com/blog/mobile-ux-ecommerce-conversion.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1543428390-52250776dd46?auto=format&fit=crop&w=1200&q=80">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why Mobile Traffic Converts Worse Than Desktop (And How to Close the Gap)">
+<meta name="twitter:description" content="Most e-commerce stores get more mobile sessions and less mobile revenue. Here's where that gap actually comes from, and how to close it.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1543428390-52250776dd46?auto=format&fit=crop&w=1200&q=80">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2326102B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23FBA82C' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Why Mobile Traffic Converts Worse Than Desktop (And How to Close the Gap)",
+  "description": "Most e-commerce stores get more mobile sessions and less mobile revenue. Here's where that gap actually comes from.",
+  "author": { "@type": "Person", "name": "Nitesh Poudel" },
+  "publisher": { "@type": "Organization", "name": "Legion Pathways", "url": "https://legionpathways.com/" },
+  "mainEntityOfPage": "https://legionpathways.com/blog/mobile-ux-ecommerce-conversion.html",
+  "datePublished": "2026-08-30"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="30128e53-3d4b-4d13-b169-b03a432cb5a5"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --pink: #FB85C6; --amber: #FBA82C; --flame: #F9671F; --flame-ink: #C22E6E;
+    --ink: #26102B; --ink-deep: #1A0A1E; --cream: #FDF4EC; --white: #ffffff;
+    --grey: #6E5B6B; --body-text: #5A4a58; --border: rgba(38,16,43,0.1);
+    --grad: linear-gradient(90deg, #FB85C6 0%, #F794AF 22%, #F99D87 42%, #FBA82C 66%, #FA871A 82%, #F9671F 100%);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  body { font-family: var(--font-body); background: var(--cream); color: var(--ink); line-height: 1.6; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--flame-ink); outline-offset: 3px; }
+
+  nav { position: sticky; top: 0; z-index: 999; background: rgba(253,244,236,0.97); backdrop-filter: blur(12px); }
+  nav::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--grad); opacity: 0.9; }
+  .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; position: relative; }
+  .logo img { display: block; }
+  .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; padding: 8px 16px; border-radius: 6px; }
+  .nav-links a:hover { background: var(--ink); color: var(--white); }
+  .nav-cta { background: var(--grad) !important; color: var(--ink) !important; font-weight: 700 !important; border-radius: 6px !important; }
+
+  .article-hero { background: var(--ink); padding: 70px 32px 60px; position: relative; overflow: hidden; }
+  .article-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; }
+  .article-hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+  .breadcrumb { font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 24px; }
+  .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--white); }
+  .eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--pink); margin-bottom: 16px; }
+  .article-hero h1 { font-family: var(--font-display); font-size: clamp(30px, 4.2vw, 46px); font-weight: 900; color: var(--white); line-height: 1.15; letter-spacing: -1px; margin-bottom: 18px; }
+  .article-meta { font-family: var(--font-mono); font-size: 12px; color: rgba(255,255,255,0.45); }
+
+  article { max-width: 700px; margin: 0 auto; padding: 60px 32px 40px; }
+  article h2 { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--ink); margin: 44px 0 16px; letter-spacing: -0.5px; }
+  article h3 { font-size: 18px; font-weight: 700; color: var(--ink); margin: 28px 0 8px; }
+  article p { font-size: 16px; font-weight: 300; color: var(--body-text); line-height: 1.85; margin-bottom: 18px; }
+  article p strong { color: var(--ink); font-weight: 600; }
+  article ul { margin: 0 0 20px 22px; }
+  article li { font-size: 16px; font-weight: 300; color: var(--body-text); line-height: 1.8; margin-bottom: 10px; }
+  article li strong { color: var(--ink); font-weight: 600; }
+
+  .takeaways { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px 32px; margin: 32px 0; }
+  .takeaways h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--flame-ink); margin-bottom: 14px; }
+  .takeaways ul { margin: 0 0 0 20px; }
+  .takeaways li { font-size: 14px; color: var(--ink); margin-bottom: 8px; }
+
+  .article-cta { max-width: 700px; margin: 40px auto 0; padding: 0 32px 80px; }
+  .cta-box { background: var(--grad); border-radius: 16px; padding: 40px; text-align: center; }
+  .cta-box h3 { font-family: var(--font-display); font-size: 24px; font-weight: 900; color: var(--ink); margin-bottom: 10px; }
+  .cta-box p { font-size: 15px; color: rgba(38,16,43,0.75); margin-bottom: 22px; }
+  .btn-primary { background: var(--ink); color: var(--cream); padding: 14px 28px; border-radius: 6px; font-size: 14px; font-weight: 700; text-decoration: none; display: inline-block; }
+
+  footer { background: var(--ink-deep); padding: 48px 32px; text-align: center; }
+  footer p { font-size: 13px; color: rgba(255,255,255,0.35); }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+
+  @media (max-width: 600px) {
+    .nav-links a { padding: 8px 10px; font-size: 13px; }
+    article, .article-cta { padding-left: 24px; padding-right: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="../index.html"><img src="https://images.unsplash.com/photo-1543428390-52250776dd46?auto=format&fit=crop&w=1200&q=80" width="180" alt="Legion Pathways"></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta">Get a UX audit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Blog</a> / Mobile UX</div>
+    <div class="eyebrow">Mobile UX</div>
+    <h1>Why Mobile Traffic Converts Worse Than Desktop (And How to Close the Gap)</h1>
+    <div class="article-meta">By Nitesh Poudel &middot; 7 min read</div>
+  </div>
+</header>
+
+<figure style="max-width:700px;margin:0 auto;padding:32px 32px 0;">
+  <img src="https://images.unsplash.com/photo-1543428390-52250776dd46?auto=format&fit=crop&w=1400&q=80" alt="A person browsing an online store on their phone" style="width:100%;height:340px;object-fit:cover;border-radius:16px;display:block;">
+  <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6E5B6B;margin-top:10px;">Photo by charlesdeluvio on Unsplash</figcaption>
+</figure>
+
+<article>
+
+  <p>Look at almost any e-commerce analytics dashboard and you'll see the same shape: mobile carries most of the sessions and a noticeably smaller share of the revenue. It's easy to explain this away as "mobile shoppers are just browsing" — but a lot of that gap is a UX gap, not a behavior gap, and UX gaps are the ones you can actually close.</p>
+
+  <h2>Why the desktop-to-mobile drop is so consistent</h2>
+  <p>Mobile shopping asks more of the person than desktop does, even when the site looks the same on both. Screens are smaller, so trust signals and product detail get pushed below the fold. Typing is slower, so long forms cost more. Thumbs, not cursors, are doing the navigating, so anything sized for a mouse becomes a small target. None of this means mobile shoppers are less serious buyers — it means the interface is quietly making the job harder.</p>
+
+  <h2>Where to look first</h2>
+
+  <h3>The add-to-cart button isn't always visible</h3>
+  <p>On a long product page, scrolling past the fold often means the buy button disappears entirely. A sticky add-to-cart bar keeps the single most important action on screen no matter how far someone scrolls to read reviews or specs.</p>
+
+  <h3>Tap targets are sized for a cursor, not a thumb</h3>
+  <p>Quantity selectors, size and color swatches, and filter chips are common places where mobile tap targets are too small or too close together, leading to mis-taps that quietly frustrate people before they even notice why.</p>
+
+  <h3>Navigation hides too much behind a hamburger menu</h3>
+  <p>Collapsing everything into a hamburger icon is standard, but it also hides your best-selling categories behind an extra tap. For high-intent categories, a bottom nav bar or a visible horizontal scroll of top categories keeps the path shorter.</p>
+
+  <h3>Product pages lead with information instead of images</h3>
+  <p>On mobile, screen space is scarce enough that specs and shipping details often push the product image out of the first view. Image-first layouts, with detail available on scroll, tend to match how people actually browse on a phone.</p>
+
+  <h3>Checkout asks for more typing than mobile makes comfortable</h3>
+  <p>Everything from our <a href="checkout-optimization-checklist.html">checkout fixes list</a> matters more on mobile, where typing is slower and mistakes are more likely. Digital wallets (Apple Pay, Google Pay, Shop Pay) matter even more here — they remove typing almost entirely.</p>
+
+  <h3>Page speed problems show up worse on mobile connections</h3>
+  <p>A page that loads acceptably on a fast office wifi connection can feel sluggish on a phone on cellular data. Image weight and third-party scripts tend to hit mobile performance disproportionately hard.</p>
+
+  <h2>Test mobile and desktop separately</h2>
+  <p>One of the most common mistakes in CRO is running a single test and reading the blended result. A layout change can lift desktop conversion while doing nothing — or actively hurting — mobile, and a blended average will hide that completely. Segment every test by device before deciding whether it worked.</p>
+
+  <div class="takeaways">
+    <h4>Key takeaways</h4>
+    <ul>
+      <li>The mobile-desktop conversion gap is mostly a UX gap, not a difference in buyer intent.</li>
+      <li>Sticky add-to-cart bars, larger tap targets, and image-first product pages address the most common friction points.</li>
+      <li>Digital wallets remove the typing burden that hurts mobile checkout the most.</li>
+      <li>Always read A/B test results by device — a blended average can hide a real mobile-specific problem.</li>
+    </ul>
+  </div>
+
+  <p>If most of your traffic is already mobile, treating mobile as the default experience — and desktop as the variant — is usually the more accurate way to think about your site.</p>
+
+</article>
+
+<div class="article-cta">
+  <div class="cta-box">
+    <h3>Not sure how your mobile conversion compares?</h3>
+    <p>We'll pull your device-level numbers and show you exactly where the gap is coming from — free, no obligation.</p>
+    <a href="../index.html#contact" class="btn-primary">Get your free UX audit &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Legion Pathways &middot; <a href="index.html">More from the blog</a></p>
+</footer>
+
+</body>
+</html>

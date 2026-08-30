@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#26102B">
+<title>Navigation Design for E-Commerce: Making the Path to Purchase Obvious | Legion Pathways</title>
+<meta name="description" content="How to design e-commerce navigation that gets shoppers to the right product faster, with fewer dead ends.">
+<link rel="canonical" href="https://legionpathways.com/blog/navigation-design-for-ecommerce.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Legion Pathways">
+<meta property="og:title" content="Navigation Design for E-Commerce: Making the Path to Purchase Obvious">
+<meta property="og:description" content="How to design e-commerce navigation that gets shoppers to the right product faster, with fewer dead ends.">
+<meta property="og:url" content="https://legionpathways.com/blog/navigation-design-for-ecommerce.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1585692614093-62dab82e9d08&auto=format&fit=crop&w=1200&q=80">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Navigation Design for E-Commerce: Making the Path to Purchase Obvious">
+<meta name="twitter:description" content="How to design e-commerce navigation that gets shoppers to the right product faster, with fewer dead ends.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1585692614093-62dab82e9d08&auto=format&fit=crop&w=1200&q=80">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2326102B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23FBA82C' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Navigation Design for E-Commerce: Making the Path to Purchase Obvious",
+  "description": "How to design e-commerce navigation that gets shoppers to the right product faster, with fewer dead ends.",
+  "author": { "@type": "Person", "name": "Nitesh Poudel" },
+  "publisher": { "@type": "Organization", "name": "Legion Pathways", "url": "https://legionpathways.com/" },
+  "mainEntityOfPage": "https://legionpathways.com/blog/navigation-design-for-ecommerce.html",
+  "datePublished": "2026-08-30"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="30128e53-3d4b-4d13-b169-b03a432cb5a5"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --pink: #FB85C6; --amber: #FBA82C; --flame: #F9671F; --flame-ink: #C22E6E;
+    --ink: #26102B; --ink-deep: #1A0A1E; --cream: #FDF4EC; --white: #ffffff;
+    --grey: #6E5B6B; --body-text: #5A4a58; --border: rgba(38,16,43,0.1);
+    --grad: linear-gradient(90deg, #FB85C6 0%, #F794AF 22%, #F99D87 42%, #FBA82C 66%, #FA871A 82%, #F9671F 100%);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  body { font-family: var(--font-body); background: var(--cream); color: var(--ink); line-height: 1.6; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--flame-ink); outline-offset: 3px; }
+
+  nav { position: sticky; top: 0; z-index: 999; background: rgba(253,244,236,0.97); backdrop-filter: blur(12px); }
+  nav::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--grad); opacity: 0.9; }
+  .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; position: relative; }
+  .logo img { display: block; }
+  .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; padding: 8px 16px; border-radius: 6px; }
+  .nav-links a:hover { background: var(--ink); color: var(--white); }
+  .nav-cta { background: var(--grad) !important; color: var(--ink) !important; font-weight: 700 !important; border-radius: 6px !important; }
+
+  .article-hero { background: var(--ink); padding: 70px 32px 60px; position: relative; overflow: hidden; }
+  .article-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; }
+  .article-hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+  .breadcrumb { font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 24px; }
+  .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--white); }
+  .eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--pink); margin-bottom: 16px; }
+  .article-hero h1 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: var(--white); line-height: 1.18; letter-spacing: -1px; margin-bottom: 18px; }
+  .article-meta { font-family: var(--font-mono); font-size: 12px; color: rgba(255,255,255,0.45); }
+
+  article { max-width: 700px; margin: 0 auto; padding: 60px 32px 40px; }
+  article h2 { font-family: var(--font-display); font-size: 26px; font-weight: 700; color: var(--ink); margin: 40px 0 14px; letter-spacing: -0.5px; }
+  article p { font-size: 16px; font-weight: 300; color: var(--body-text); line-height: 1.85; margin-bottom: 18px; }
+  article p strong { color: var(--ink); font-weight: 600; }
+  article ul, article ol { margin: 0 0 20px 22px; }
+  article li { font-size: 16px; font-weight: 300; color: var(--body-text); line-height: 1.8; margin-bottom: 10px; }
+  article li strong { color: var(--ink); font-weight: 600; }
+  article a { color: var(--flame-ink); }
+
+  .takeaways { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 26px 30px; margin: 30px 0; }
+  .takeaways h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--flame-ink); margin-bottom: 14px; }
+  .takeaways ul { margin: 0 0 0 20px; }
+  .takeaways li { font-size: 14px; color: var(--ink); margin-bottom: 8px; }
+
+  .graphic-box { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin: 30px 0; }
+  .graphic-caption { font-family: var(--font-mono); font-size: 11px; color: var(--grey); text-align: center; margin-top: 10px; }
+
+  .article-cta { max-width: 700px; margin: 40px auto 0; padding: 0 32px 80px; }
+  .cta-box { background: var(--grad); border-radius: 16px; padding: 40px; text-align: center; }
+  .cta-box h3 { font-family: var(--font-display); font-size: 24px; font-weight: 900; color: var(--ink); margin-bottom: 10px; }
+  .cta-box p { font-size: 15px; color: rgba(38,16,43,0.75); margin-bottom: 22px; }
+  .btn-primary { background: var(--ink); color: var(--cream); padding: 14px 28px; border-radius: 6px; font-size: 14px; font-weight: 700; text-decoration: none; display: inline-block; }
+
+  footer { background: var(--ink-deep); padding: 48px 32px; text-align: center; }
+  footer p { font-size: 13px; color: rgba(255,255,255,0.35); }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+
+  @media (max-width: 600px) {
+    .nav-links a { padding: 8px 10px; font-size: 13px; }
+    article, .article-cta { padding-left: 24px; padding-right: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="../index.html"><img src="https://i.ibb.co/xKhgkm2z/1.png" width="180" alt="Legion Pathways"></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta">Get a UX audit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Blog</a> / Navigation &amp; layout</div>
+    <div class="eyebrow">Navigation &amp; layout</div>
+    <h1>Navigation Design for E-Commerce: Making the Path to Purchase Obvious</h1>
+    <div class="article-meta">By Nitesh Poudel &middot; 6 min read</div>
+  </div>
+</header>
+
+<figure style="max-width:700px;margin:0 auto;padding:32px 32px 0;">
+  <img src="https://images.unsplash.com/photo-1585692614093-62dab82e9d08&auto=format&fit=crop&w=1400&q=80" alt="A person holding a smartphone" style="width:100%;height:340px;object-fit:cover;border-radius:16px;display:block;">
+  <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6E5B6B;margin-top:10px;">Photo by Nathan Dumlao on Unsplash</figcaption>
+</figure>
+
+<article>
+
+  <p>Good navigation is invisible &mdash; nobody notices it when it works. Bad navigation is the reason someone leaves your site convinced you don't sell what they're looking for, even when you do.</p>
+  <h2>Common navigation problems</h2>
+  <ul>
+    <li>Category names that make sense internally but not to a first-time shopper</li>
+    <li>Too many top-level categories, forcing people to guess where to look</li>
+    <li>No visible way to filter by the attribute shoppers actually care about (size, price, use case)</li>
+    <li>A search bar that doesn't handle typos or partial matches well</li>
+  </ul>
+  <h2>Design navigation around how people search, not how you organize inventory</h2>
+  <p>Internal category structures are often built around supply chain or merchandising logic, not around how a shopper actually thinks about what they want. Watching real search queries and support questions usually reveals the language shoppers use, which is often different from the language on the menu.</p>
+  <h2>Test with real tasks, not general feedback</h2>
+  <p>Asking "does this navigation make sense" gets polite but unreliable answers. Asking someone to actually find a specific product and watching where they hesitate reveals the real gaps far faster.</p>
+  <div class="takeaways">
+    <h4>Key takeaways</h4>
+    <ul>
+      <li>Navigation should match how shoppers search, not how inventory is organized internally.</li>
+      <li>Filters for the attributes shoppers actually care about reduce dead ends.</li>
+      <li>Task-based testing reveals real navigation gaps better than general feedback.</li>
+    </ul>
+  </div>
+ 
+</article>
+
+<div class="article-cta">
+  <div class="cta-box">
+    <h3>Want to see where shoppers get stuck in your nav?</h3>
+    <p>We'll run a quick task-based test and show you exactly where people hesitate.</p>
+    <a href="../index.html#contact" class="btn-primary">Get your free UX audit &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Legion Pathways &middot; <a href="index.html">More from the blog</a></p>
+</footer>
+
+</body>
+</html>

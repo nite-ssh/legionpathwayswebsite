@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#26102B">
+<title>CRO &amp; UX Insights for E-Commerce Brands | Legion Pathways</title>
+<meta name="description" content="Practical CRO and UX guidance for DTC e-commerce brands — checkout fixes, mobile UX, and funnel diagnostics you can act on this week.">
+<link rel="canonical" href="https://legionpathways.com/blog/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Legion Pathways">
+<meta property="og:title" content="CRO &amp; UX Insights for E-Commerce Brands | Legion Pathways">
+<meta property="og:description" content="Practical CRO and UX guidance for DTC e-commerce brands — checkout fixes, mobile UX, and funnel diagnostics you can act on this week.">
+<meta property="og:url" content="https://legionpathways.com/blog/">
+<meta property="og:image" content="https://i.ibb.co/xKhgkm2z/1.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CRO &amp; UX Insights for E-Commerce Brands | Legion Pathways">
+<meta name="twitter:description" content="Practical CRO and UX guidance for DTC e-commerce brands — checkout fixes, mobile UX, and funnel diagnostics you can act on this week.">
+<meta name="twitter:image" content="https://i.ibb.co/xKhgkm2z/1.png">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2326102B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23FBA82C' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Legion Pathways Blog",
+  "url": "https://legionpathways.com/blog/",
+  "description": "CRO and UX guidance for DTC e-commerce brands.",
+  "publisher": { "@type": "Organization", "name": "Legion Pathways", "url": "https://legionpathways.com/" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="30128e53-3d4b-4d13-b169-b03a432cb5a5"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --pink: #FB85C6; --amber: #FBA82C; --flame: #F9671F; --flame-ink: #C22E6E;
+    --ink: #26102B; --ink-deep: #1A0A1E; --cream: #FDF4EC; --white: #ffffff;
+    --grey: #6E5B6B; --body-text: #5A4a58; --border: rgba(38,16,43,0.1);
+    --grad: linear-gradient(90deg, #FB85C6 0%, #F794AF 22%, #F99D87 42%, #FBA82C 66%, #FA871A 82%, #F9671F 100%);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  body { font-family: var(--font-body); background: var(--cream); color: var(--ink); line-height: 1.6; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--flame-ink); outline-offset: 3px; }
+
+  nav { position: sticky; top: 0; z-index: 999; background: rgba(253,244,236,0.97); backdrop-filter: blur(12px); }
+  nav::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--grad); opacity: 0.9; }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; position: relative; }
+  .logo img { display: block; }
+  .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; padding: 8px 16px; border-radius: 6px; transition: background 0.2s, color 0.2s; }
+  .nav-links a:hover { background: var(--ink); color: var(--white); }
+  .nav-links a.active { color: var(--flame-ink); }
+  .nav-cta { background: var(--grad) !important; color: var(--ink) !important; font-weight: 700 !important; border-radius: 6px !important; }
+
+  .blog-hero { background: var(--ink); padding: 90px 32px 70px; position: relative; overflow: hidden; }
+  .blog-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; }
+  .blog-hero-inner { position: relative; max-width: 1100px; margin: 0 auto; }
+  .eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--pink); margin-bottom: 16px; }
+  .blog-hero h1 { font-family: var(--font-display); font-size: clamp(32px, 4.5vw, 52px); font-weight: 900; color: var(--white); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 16px; }
+  .blog-hero p { font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.6); max-width: 560px; line-height: 1.7; }
+
+  .post-grid { max-width: 1100px; margin: 0 auto; padding: 70px 32px 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .post-card { background: var(--white); border-radius: 14px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.25s ease; border: 1px solid var(--border); }
+  .post-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(38,16,43,0.12); }
+  .post-thumb { width: 100%; height: 160px; object-fit: cover; display: block; background: var(--border); }
+  .post-card-body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+  .post-tag { display: inline-block; font-family: var(--font-mono); font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--flame-ink); border: 1px solid rgba(194,46,110,0.25); border-radius: 4px; padding: 3px 8px; margin-bottom: 12px; width: fit-content; }
+  .post-title { font-family: var(--font-display); font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.3px; line-height: 1.3; }
+  .post-excerpt { font-size: 13px; font-weight: 300; color: var(--grey); line-height: 1.6; flex: 1; margin-bottom: 14px; }
+  .post-meta { font-family: var(--font-mono); font-size: 10px; color: var(--grey); }
+
+  footer { background: var(--ink-deep); padding: 48px 32px; text-align: center; }
+  footer p { font-size: 13px; color: rgba(255,255,255,0.35); }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+
+  @media (max-width: 900px) {
+    .post-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .nav-links { gap: 2px; }
+    .nav-links a { padding: 8px 10px; font-size: 13px; }
+    .post-grid { grid-template-columns: 1fr; padding: 50px 20px 70px; gap: 20px; }
+    .blog-hero { padding: 70px 20px 50px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="../index.html"><img src="https://i.ibb.co/xKhgkm2z/1.png" width="180" alt="Legion Pathways"></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#about">About Us</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta">Get a UX audit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="eyebrow">The Legion Pathways blog</div>
+    <h1>CRO &amp; UX, written for people who run e-commerce stores.</h1>
+    <p>Checkout fixes, mobile UX, and funnel diagnostics — no fluff, no vague "best practices" lists. Just what to look at first and why.</p>
+  </div>
+</header>
+
+<main class="post-grid">
+
+  <a class="post-card" href="checkout-optimization-checklist.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1726137569938-f080c8d9904e?auto=format&fit=crop&w=600&q=70" alt="Customer completing a card payment">
+    <div class="post-card-body">
+      <div class="post-tag">Checkout</div>
+      <div class="post-title">10 Checkout Fixes That Cut Cart Abandonment (Without a Redesign)</div>
+      <p class="post-excerpt">The ranked list of fixes worth testing before you touch anything else.</p>
+      <div class="post-meta">8 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="mobile-ux-ecommerce-conversion.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1543428390-52250776dd46?auto=format&fit=crop&w=600&q=70" alt="Person browsing on their phone">
+    <div class="post-card-body">
+      <div class="post-tag">Mobile UX</div>
+      <div class="post-title">Why Mobile Traffic Converts Worse Than Desktop</div>
+      <p class="post-excerpt">Where the mobile-desktop conversion gap actually comes from.</p>
+      <div class="post-meta">7 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="high-traffic-low-conversion-shopify.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=70" alt="Laptop showing analytics charts">
+    <div class="post-card-body">
+      <div class="post-tag">Diagnostics</div>
+      <div class="post-title">You Have Traffic. You Don't Have Conversions.</div>
+      <p class="post-excerpt">A framework for finding which stage of your funnel is losing money.</p>
+      <div class="post-meta">7 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="how-to-read-a-conversion-funnel-report.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=70" alt="Performance analytics on a laptop screen">
+    <div class="post-card-body">
+      <div class="post-tag">Funnel diagnostics</div>
+      <div class="post-title">How to Read a Conversion Funnel Report</div>
+      <p class="post-excerpt">A plain-language guide for people without a CRO background.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="anatomy-of-high-converting-product-page.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1727407209320-1fa6ae60ee05?auto=format&fit=crop&w=600&q=70" alt="Shopper browsing with shopping bags">
+    <div class="post-card-body">
+      <div class="post-tag">Product pages</div>
+      <div class="post-title">The Anatomy of a High-Converting Product Page</div>
+      <p class="post-excerpt">Seven elements every strong product page gets right.</p>
+      <div class="post-meta">7 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="ab-testing-101-first-test.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=70" alt="Laptop displaying a chart">
+    <div class="post-card-body">
+      <div class="post-tag">A/B testing</div>
+      <div class="post-title">A/B Testing 101: Your First Test, Done Right</div>
+      <p class="post-excerpt">How to run a valid first test without wasting traffic.</p>
+      <div class="post-meta">7 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="why-bounce-rate-is-high.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=600&q=70" alt="Monitoring screen with data">
+    <div class="post-card-body">
+      <div class="post-tag">Diagnostics</div>
+      <div class="post-title">Why Your Bounce Rate Is High</div>
+      <p class="post-excerpt">The causes that matter, and the fixes that actually work.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="site-speed-and-conversion.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=600&q=70" alt="Chart displayed on a laptop screen">
+    <div class="post-card-body">
+      <div class="post-tag">Site performance</div>
+      <div class="post-title">Site Speed and Conversion</div>
+      <p class="post-excerpt">How much page load time really matters, and where.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="trust-signals-that-move-the-needle.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1768987439370-bd60d3d0b28b?auto=format&fit=crop&w=600&q=70" alt="Person scrolling an online store on their phone">
+    <div class="post-card-body">
+      <div class="post-tag">Trust &amp; credibility</div>
+      <div class="post-title">Trust Signals That Actually Move the Needle</div>
+      <p class="post-excerpt">Which badges help, and which ones are just clutter.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="psychology-behind-cart-abandonment.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1726137569938-f080c8d9904e?auto=format&fit=crop&w=600&q=70" alt="Customer holding a credit card at checkout">
+    <div class="post-card-body">
+      <div class="post-tag">Checkout</div>
+      <div class="post-title">The Psychology Behind Cart Abandonment</div>
+      <p class="post-excerpt">What's really happening before someone closes the tab.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="navigation-design-for-ecommerce.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1585692614093-62dab82e9d08?auto=format&fit=crop&w=600&q=70" alt="Person holding a smartphone">
+    <div class="post-card-body">
+      <div class="post-tag">Navigation &amp; layout</div>
+      <div class="post-title">Navigation Design for E-Commerce</div>
+      <p class="post-excerpt">Making the path to purchase obvious, not clever.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="heatmaps-and-session-recordings-setup.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=70" alt="Analytics displayed on a laptop">
+    <div class="post-card-body">
+      <div class="post-tag">Research tools</div>
+      <div class="post-title">How to Set Up Heatmaps and Session Recordings</div>
+      <p class="post-excerpt">The right way, so they actually produce insight.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="email-capture-popups-best-practices.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1543428390-52250776dd46?auto=format&fit=crop&w=600&q=70" alt="Person browsing a website on their phone">
+    <div class="post-card-body">
+      <div class="post-tag">Lead capture</div>
+      <div class="post-title">Email Capture Popups: Best Practices</div>
+      <p class="post-excerpt">Grow your list without pushing shoppers away.</p>
+      <div class="post-meta">5 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="product-photography-video-add-to-cart.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1727407209320-1fa6ae60ee05?auto=format&fit=crop&w=600&q=70" alt="Shopper carrying bags looking at a tablet">
+    <div class="post-card-body">
+      <div class="post-tag">Product pages</div>
+      <div class="post-title">Photography and Video That Drive Add-to-Carts</div>
+      <p class="post-excerpt">What shoppers actually respond to before buying.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="free-shipping-thresholds.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=70" alt="Laptop showing charts on a glass table">
+    <div class="post-card-body">
+      <div class="post-tag">Pricing &amp; offers</div>
+      <div class="post-title">Free Shipping Thresholds, Set Right</div>
+      <p class="post-excerpt">Lift average order value without losing margin.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="returning-customer-experience.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1768987439370-bd60d3d0b28b?auto=format&fit=crop&w=600&q=70" alt="Person scrolling an online store on a phone">
+    <div class="post-card-body">
+      <div class="post-tag">Retention &amp; UX</div>
+      <div class="post-title">Why Repeat Buyers Convert Differently</div>
+      <p class="post-excerpt">The friction that stops returning customers isn't the same.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="guest-checkout-vs-account-creation.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1726137569938-f080c8d9904e?auto=format&fit=crop&w=600&q=70" alt="Person holding a credit card during checkout">
+    <div class="post-card-body">
+      <div class="post-tag">Checkout</div>
+      <div class="post-title">Guest Checkout vs. Account Creation</div>
+      <p class="post-excerpt">What the data actually shows about forcing accounts.</p>
+      <div class="post-meta">5 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="cro-roadmap-limited-dev-resources.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=600&q=70" alt="Monitoring screen showing performance data">
+    <div class="post-card-body">
+      <div class="post-tag">Strategy</div>
+      <div class="post-title">Prioritizing CRO With Limited Dev Time</div>
+      <p class="post-excerpt">A framework for teams without unlimited engineering hours.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="landing-page-design-for-paid-ads.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1585692614093-62dab82e9d08?auto=format&fit=crop&w=600&q=70" alt="Person holding a phone">
+    <div class="post-card-body">
+      <div class="post-tag">Paid traffic</div>
+      <div class="post-title">Landing Pages for Paid Ads</div>
+      <p class="post-excerpt">Matching the promise of the ad to the page it lands on.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+  <a class="post-card" href="search-filter-ux-ecommerce.html">
+    <img class="post-thumb" src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=600&q=70" alt="Chart displayed on a laptop screen">
+    <div class="post-card-body">
+      <div class="post-tag">Navigation &amp; layout</div>
+      <div class="post-title">Search and Filter UX</div>
+      <p class="post-excerpt">Helping shoppers find what they want, faster.</p>
+      <div class="post-meta">6 min read</div>
+    </div>
+  </a>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Legion Pathways &middot; <a href="../index.html#contact">Get a free UX audit</a></p>
+</footer>
+
+</body>
+</html>
