@@ -13,12 +13,12 @@
 <meta property="og:title" content="Guest Checkout vs. Account Creation: What the Data Actually Shows">
 <meta property="og:description" content="Whether forcing account creation before checkout helps or hurts e-commerce conversion, and how to structure the choice.">
 <meta property="og:url" content="https://legionpathways.com/blog/guest-checkout-vs-account-creation.html">
-<meta property="og:image" content="https://images.unsplash.com/photo-1726137569938-f080c8d9904e?auto=format&fit=crop&w=1200&q=80">
+<meta property="og:image" content="https://i.ibb.co/xKhgkm2z/1.png">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Guest Checkout vs. Account Creation: What the Data Actually Shows">
 <meta name="twitter:description" content="Whether forcing account creation before checkout helps or hurts e-commerce conversion, and how to structure the choice.">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1726137569938-f080c8d9904e?auto=format&fit=crop&w=1200&q=80">
+<meta name="twitter:image" content="https://i.ibb.co/xKhgkm2z/1.png">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2326102B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23FBA82C' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
 
@@ -170,6 +170,44 @@
   @media (prefers-reduced-motion: reduce) {
     .modal-card { animation: none; }
   }
+
+  /* LINKEDIN WIDGET */
+  .li-widget { position: fixed; bottom: 24px; right: 24px; z-index: 9997; font-family: 'DM Sans', sans-serif; }
+  .li-bubble {
+    width: 56px; height: 56px; border-radius: 50%; background: #26102B; border: 2px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;
+    box-shadow: 0 8px 24px rgba(38,16,43,0.35); transition: transform 0.25s ease;
+  }
+  .li-bubble:hover { transform: scale(1.06); }
+  .li-bubble svg { width: 24px; height: 24px; fill: #ffffff; }
+  .li-dot {
+    position: absolute; top: -2px; right: -2px; width: 14px; height: 14px; border-radius: 50%;
+    background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F); border: 2px solid #FDF4EC;
+  }
+  .li-card {
+    position: absolute; bottom: 68px; right: 0; width: 270px;
+    background: #FDF4EC; border-radius: 16px; box-shadow: 0 20px 50px rgba(38,16,43,0.3);
+    padding: 20px; opacity: 0; transform: translateY(8px) scale(0.96); pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease; border: 1px solid rgba(38,16,43,0.1);
+  }
+  .li-widget.open .li-card, .li-widget:hover .li-card { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+  .li-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .li-avatar {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-weight: 900; color: #26102B; font-size: 13px;
+  }
+  .li-name { font-size: 13px; font-weight: 700; color: #26102B; line-height: 1.3; }
+  .li-role { font-size: 11px; color: #6E5B6B; }
+  .li-excerpt { font-size: 13px; color: #5A4a58; line-height: 1.55; margin-bottom: 14px; font-weight: 300; }
+  .li-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: #C22E6E; text-decoration: none; }
+  .li-link:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    .li-widget { bottom: 16px; right: 16px; }
+    .li-card { width: calc(100vw - 48px); right: -8px; }
+  }
 </style>
 </head>
 <body>
@@ -194,16 +232,48 @@
   </div>
 </header>
 
-<figure style="max-width:700px;margin:0 auto;padding:32px 32px 0;">
-  <img src="https://images.unsplash.com/photo-1726137569938-f080c8d9904e?auto=format&fit=crop&w=1400&q=80" alt="A person holding a credit card during checkout" style="width:100%;height:340px;object-fit:cover;border-radius:16px;display:block;">
-  <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6E5B6B;margin-top:10px;">Photo by SumUp on Unsplash</figcaption>
-</figure>
+<div style="max-width:700px;margin:0 auto;padding:32px 32px 0;">
+  <div style="border-radius:16px;overflow:hidden;">
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:340px;display:block;">
+  <defs>
+    <linearGradient id="lpGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FB85C6"/>
+      <stop offset="22%" stop-color="#F794AF"/>
+      <stop offset="42%" stop-color="#F99D87"/>
+      <stop offset="66%" stop-color="#FBA82C"/>
+      <stop offset="82%" stop-color="#FA871A"/>
+      <stop offset="100%" stop-color="#F9671F"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="340" fill="#26102B"/>
+  <rect x="60" y="50" width="260" height="200" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)"/>
+  <text x="190" y="80" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#FBA82C">GUEST CHECKOUT</text>
+  <circle cx="190" cy="120" r="16" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  <path d="M175 135 q15 -12 30 0" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="none"/>
+  <path d="M190 148 L190 175" stroke="#FBA82C" stroke-width="2" stroke-dasharray="4 3"/>
+  <polygon points="184,172 190,182 196,172" fill="#FBA82C"/>
+  <rect x="130" y="190" width="120" height="34" rx="8" fill="url(#lpGrad)"/>
+  <text x="190" y="212" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" font-weight="700" fill="#26102B">Order placed</text>
+  <rect x="380" y="50" width="260" height="200" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)"/>
+  <text x="510" y="80" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="rgba(255,255,255,0.4)">MANDATORY ACCOUNT</text>
+  <circle cx="510" cy="120" r="16" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  <path d="M495 135 q15 -12 30 0" stroke="rgba(255,255,255,0.25)" stroke-width="2" fill="none"/>
+  <rect x="450" y="155" width="120" height="16" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <rect x="450" y="178" width="120" height="16" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="510" y="215" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="rgba(255,255,255,0.35)">One more form before they can buy</text>
+  <text x="510" y="235" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="16" fill="rgba(249,103,31,0.6)">&#10007; drop-off risk</text>
+  <text x="350" y="300" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="rgba(255,255,255,0.4)">Offer the account after the order, not before it.</text>
+</svg>
+  </div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6E5B6B;margin-top:10px;">Illustration: Guest checkout vs. mandatory account creation</div>
+</div>
 
 <article>
 
-  <p>Forcing account creation before purchase is one of the most consistently tested checkout decisions in e-commerce, and the pattern is remarkably stable: making it mandatory tends to cost more orders than it gains in accounts.</p>
+  <p>Forcing account creation before purchase is one of the most consistently tested checkout decisions in e-commerce, and the pattern holds stable: making it mandatory tends to cost more orders than it gains in accounts.</p>
+  <p>Usability research names this pattern directly. <a href="https://baymard.com/blog/ecommerce-checkout-usability-report-and-benchmark" target="_blank" rel="noopener">Baymard Institute's checkout studies</a> list forced account creation among the most commonly cited reasons shoppers abandon an order in progress.</p>
   <h2>Why mandatory accounts backfire</h2>
-  <p>At the exact moment someone has decided to buy, an account creation form introduces a new decision point &mdash; a password to remember, a commitment they didn't plan to make &mdash; that has nothing to do with completing the purchase they already wanted.</p>
+  <p>At the exact moment someone has decided to buy, an account creation form introduces a new decision point, a password to remember, a commitment they didn't plan to make, that has nothing to do with completing the purchase they already wanted.</p>
   <h2>The better structure: guest checkout, account after</h2>
   <p>Letting people check out as a guest and offering account creation immediately after the order confirms captures a real share of accounts anyway, because the incentive to save details is much stronger once someone has already committed to the purchase.</p>
   <h2>When accounts genuinely help</h2>
@@ -242,7 +312,7 @@
       <div id="modalFormWrap">
         <div class="modal-eyebrow">Free, no obligation</div>
         <h2 class="modal-title" id="modalTitle">See where your funnel is leaking.</h2>
-        <p class="modal-sub">Tell us where to send it and we'll map your site's biggest drop-off points &mdash; free.</p>
+        <p class="modal-sub">Tell us where to send it and we'll map your site's biggest drop-off points, free.</p>
         <form class="modal-form" id="modalForm">
           <div class="form-group">
             <label for="m-name">Full name</label>
@@ -268,7 +338,7 @@
           </div>
           <div class="form-group">
             <label for="m-issue">Biggest UX issue right now</label>
-            <textarea id="m-issue" name="issue" placeholder="Checkout drop-off, mobile conversion, something else — whatever's on your mind."></textarea>
+            <textarea id="m-issue" name="issue" placeholder="Checkout drop-off, mobile conversion, something else, whatever's on your mind."></textarea>
           </div>
           <button type="submit" class="modal-submit">Get my free UX audit &rarr;</button>
         </form>
@@ -288,7 +358,7 @@
 <script>
   // ----- Free audit popup (Fibonacci re-prompt schedule, cumulative across the whole visit) -----
   var auditModal = document.getElementById('auditModal');
-  var FIB_SEQUENCE = [3, 5, 8, 13, 21, 34];
+  var FIB_SEQUENCE = [5, 10, 20];
 
   function openModal() {
     auditModal.classList.add('open');
@@ -339,7 +409,7 @@
     var revenue = document.getElementById('m-revenue').value;
     var issue   = document.getElementById('m-issue').value.trim();
 
-    var subject = encodeURIComponent('UX AUDIT request — ' + (brand || name));
+    var subject = encodeURIComponent('UX AUDIT request, ' + (brand || name));
     var body = encodeURIComponent(
       'Name: ' + name + '\n' +
       'Email: ' + email + '\n' +
@@ -379,7 +449,7 @@
     try {
       var stored = sessionStorage.getItem('lp_modal_next_threshold');
       if (stored === null) {
-        nextThreshold = FIB_SEQUENCE[0]; // 3 seconds — first appearance
+        nextThreshold = FIB_SEQUENCE[0]; // 3 seconds, first appearance
         sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
         sessionStorage.setItem('lp_modal_step', '1'); // next delta to use after first dismiss is FIB_SEQUENCE[1]
       } else {
@@ -394,6 +464,41 @@
 
     setTimeout(openModal, remaining * 1000);
   })();
+</script>
+
+
+<!-- LINKEDIN WIDGET, edit li-excerpt below whenever there's a new post to feature -->
+<div class="li-widget" id="liWidget">
+  <div class="li-card" id="liCard">
+    <div class="li-card-head">
+      <div class="li-avatar">NP</div>
+      <div>
+        <div class="li-name">Nitesh Poudel</div>
+        <div class="li-role">Conversion Rate Optimization</div>
+      </div>
+    </div>
+    <div class="li-excerpt">Sharing what's actually moving the needle in CRO right now, new post up on LinkedIn.</div>
+    <a class="li-link" href="https://www.linkedin.com/in/nitesh-poudel/recent-activity/all/" target="_blank" rel="noopener">View latest post &rarr;</a>
+  </div>
+  <button class="li-bubble" id="liBubble" aria-label="View latest LinkedIn post" type="button">
+    <span class="li-dot"></span>
+    <svg viewBox="0 0 24 24"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5v-9h3v9zM6.5 8.25A1.75 1.75 0 1 1 6.5 4.75a1.75 1.75 0 0 1 0 3.5zM20 19h-3v-4.5c0-1.07-.02-2.45-1.5-2.45-1.5 0-1.73 1.17-1.73 2.37V19h-3v-9h2.88v1.23h.04c.4-.75 1.38-1.5 2.85-1.5 3.05 0 3.46 2.01 3.46 4.62V19z"/></svg>
+  </button>
+</div>
+
+<script>
+(function () {
+  var widget = document.getElementById('liWidget');
+  var bubble = document.getElementById('liBubble');
+  if (!widget || !bubble) return;
+  bubble.addEventListener('click', function (e) {
+    e.stopPropagation();
+    widget.classList.toggle('open');
+  });
+  document.addEventListener('click', function (e) {
+    if (!widget.contains(e.target)) widget.classList.remove('open');
+  });
+})();
 </script>
 
 </body>

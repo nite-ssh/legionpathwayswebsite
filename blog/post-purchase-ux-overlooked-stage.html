@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#26102B">
 <title>Post-Purchase UX: The Overlooked Stage That Builds Repeat Buyers | Legion Pathways</title>
-<meta name="description" content="Why the post-purchase experience — confirmation, shipping updates, review requests — is an overlooked lever for e-commerce retention.">
+<meta name="description" content="Why the post-purchase experience, confirmation, shipping updates, review requests, is an overlooked lever for e-commerce retention.">
 <link rel="canonical" href="https://legionpathways.com/blog/post-purchase-ux-overlooked-stage.html">
 
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Legion Pathways">
 <meta property="og:title" content="Post-Purchase UX: The Overlooked Stage That Builds Repeat Buyers">
-<meta property="og:description" content="Why the post-purchase experience — confirmation, shipping updates, review requests — is an overlooked lever for e-commerce retention.">
+<meta property="og:description" content="Why the post-purchase experience, confirmation, shipping updates, review requests, is an overlooked lever for e-commerce retention.">
 <meta property="og:url" content="https://legionpathways.com/blog/post-purchase-ux-overlooked-stage.html">
 <meta property="og:image" content="https://i.ibb.co/xKhgkm2z/1.png">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Post-Purchase UX: The Overlooked Stage That Builds Repeat Buyers">
-<meta name="twitter:description" content="Why the post-purchase experience — confirmation, shipping updates, review requests — is an overlooked lever for e-commerce retention.">
+<meta name="twitter:description" content="Why the post-purchase experience, confirmation, shipping updates, review requests, is an overlooked lever for e-commerce retention.">
 <meta name="twitter:image" content="https://i.ibb.co/xKhgkm2z/1.png">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2326102B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23FBA82C' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "Post-Purchase UX: The Overlooked Stage That Builds Repeat Buyers",
-  "description": "Why the post-purchase experience — confirmation, shipping updates, review requests — is an overlooked lever for e-commerce retention.",
+  "description": "Why the post-purchase experience, confirmation, shipping updates, review requests, is an overlooked lever for e-commerce retention.",
   "author": { "@type": "Person", "name": "Nitesh Poudel" },
   "publisher": { "@type": "Organization", "name": "Legion Pathways", "url": "https://legionpathways.com/" },
   "mainEntityOfPage": "https://legionpathways.com/blog/post-purchase-ux-overlooked-stage.html",
@@ -168,6 +168,44 @@
     .modal-card { animation: none; }
   }
 
+
+  /* LINKEDIN WIDGET */
+  .li-widget { position: fixed; bottom: 24px; right: 24px; z-index: 9997; font-family: 'DM Sans', sans-serif; }
+  .li-bubble {
+    width: 56px; height: 56px; border-radius: 50%; background: #26102B; border: 2px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;
+    box-shadow: 0 8px 24px rgba(38,16,43,0.35); transition: transform 0.25s ease;
+  }
+  .li-bubble:hover { transform: scale(1.06); }
+  .li-bubble svg { width: 24px; height: 24px; fill: #ffffff; }
+  .li-dot {
+    position: absolute; top: -2px; right: -2px; width: 14px; height: 14px; border-radius: 50%;
+    background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F); border: 2px solid #FDF4EC;
+  }
+  .li-card {
+    position: absolute; bottom: 68px; right: 0; width: 270px;
+    background: #FDF4EC; border-radius: 16px; box-shadow: 0 20px 50px rgba(38,16,43,0.3);
+    padding: 20px; opacity: 0; transform: translateY(8px) scale(0.96); pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease; border: 1px solid rgba(38,16,43,0.1);
+  }
+  .li-widget.open .li-card, .li-widget:hover .li-card { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+  .li-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .li-avatar {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-weight: 900; color: #26102B; font-size: 13px;
+  }
+  .li-name { font-size: 13px; font-weight: 700; color: #26102B; line-height: 1.3; }
+  .li-role { font-size: 11px; color: #6E5B6B; }
+  .li-excerpt { font-size: 13px; color: #5A4a58; line-height: 1.55; margin-bottom: 14px; font-weight: 300; }
+  .li-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: #C22E6E; text-decoration: none; }
+  .li-link:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    .li-widget { bottom: 16px; right: 16px; }
+    .li-card { width: calc(100vw - 48px); right: -8px; }
+  }
 </style>
 </head>
 <body>
@@ -226,8 +264,9 @@
 <article>
 
   <p>Most e-commerce optimization stops at the order confirmation page, treating the sale as the finish line. But the experience after purchase is exactly what determines whether someone becomes a repeat buyer or a one-time customer.</p>
+  <p>The financial argument for investing here traces back decades. <a href="https://hbr.org/2014/10/the-value-of-keeping-the-right-customers" target="_blank" rel="noopener">Harvard Business Review's analysis of Bain &amp; Company research</a> found that a 5% increase in retention lifts profits by 25% to 95%, and post-purchase experience is one of the more controllable levers on that number.</p>
   <h2>The confirmation page is prime real estate, wasted</h2>
-  <p>A generic "thank you for your order" misses a genuinely receptive moment. This is when a shopper is most positive about the brand &mdash; a good time to set expectations clearly, not just close the loop.</p>
+  <p>A generic "thank you for your order" misses a genuinely receptive moment. This is when a shopper is most positive about the brand, a good time to set expectations clearly, not just close the loop.</p>
   <h2>Shipping updates are a trust-building opportunity</h2>
   <p>Proactive, accurate updates reduce "where is my order" support tickets and reinforce that the brand follows through on what it promised, which matters more for a first-time buyer's decision to return than most on-site elements do.</p>
   <h2>Review requests, timed to actual delivery</h2>
@@ -268,7 +307,7 @@
       <div id="modalFormWrap">
         <div class="modal-eyebrow">Free, no obligation</div>
         <h2 class="modal-title" id="modalTitle">See where your funnel is leaking.</h2>
-        <p class="modal-sub">Tell us where to send it and we'll map your site's biggest drop-off points &mdash; free.</p>
+        <p class="modal-sub">Tell us where to send it and we'll map your site's biggest drop-off points, free.</p>
         <form class="modal-form" id="modalForm">
           <div class="form-group">
             <label for="m-name">Full name</label>
@@ -294,7 +333,7 @@
           </div>
           <div class="form-group">
             <label for="m-issue">Biggest UX issue right now</label>
-            <textarea id="m-issue" name="issue" placeholder="Checkout drop-off, mobile conversion, something else — whatever's on your mind."></textarea>
+            <textarea id="m-issue" name="issue" placeholder="Checkout drop-off, mobile conversion, something else, whatever's on your mind."></textarea>
           </div>
           <button type="submit" class="modal-submit">Get my free UX audit &rarr;</button>
         </form>
@@ -314,7 +353,7 @@
 <script>
   // ----- Free audit popup (Fibonacci re-prompt schedule, cumulative across the whole visit) -----
   var auditModal = document.getElementById('auditModal');
-  var FIB_SEQUENCE = [3, 5, 8, 13, 21, 34];
+  var FIB_SEQUENCE = [5, 10, 20];
 
   function openModal() {
     auditModal.classList.add('open');
@@ -365,7 +404,7 @@
     var revenue = document.getElementById('m-revenue').value;
     var issue   = document.getElementById('m-issue').value.trim();
 
-    var subject = encodeURIComponent('UX AUDIT request — ' + (brand || name));
+    var subject = encodeURIComponent('UX AUDIT request, ' + (brand || name));
     var body = encodeURIComponent(
       'Name: ' + name + '\n' +
       'Email: ' + email + '\n' +
@@ -405,7 +444,7 @@
     try {
       var stored = sessionStorage.getItem('lp_modal_next_threshold');
       if (stored === null) {
-        nextThreshold = FIB_SEQUENCE[0]; // 3 seconds — first appearance
+        nextThreshold = FIB_SEQUENCE[0]; // 3 seconds, first appearance
         sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
         sessionStorage.setItem('lp_modal_step', '1'); // next delta to use after first dismiss is FIB_SEQUENCE[1]
       } else {
@@ -420,6 +459,41 @@
 
     setTimeout(openModal, remaining * 1000);
   })();
+</script>
+
+
+<!-- LINKEDIN WIDGET, edit li-excerpt below whenever there's a new post to feature -->
+<div class="li-widget" id="liWidget">
+  <div class="li-card" id="liCard">
+    <div class="li-card-head">
+      <div class="li-avatar">NP</div>
+      <div>
+        <div class="li-name">Nitesh Poudel</div>
+        <div class="li-role">Conversion Rate Optimization</div>
+      </div>
+    </div>
+    <div class="li-excerpt">Sharing what's actually moving the needle in CRO right now, new post up on LinkedIn.</div>
+    <a class="li-link" href="https://www.linkedin.com/in/nitesh-poudel/recent-activity/all/" target="_blank" rel="noopener">View latest post &rarr;</a>
+  </div>
+  <button class="li-bubble" id="liBubble" aria-label="View latest LinkedIn post" type="button">
+    <span class="li-dot"></span>
+    <svg viewBox="0 0 24 24"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5v-9h3v9zM6.5 8.25A1.75 1.75 0 1 1 6.5 4.75a1.75 1.75 0 0 1 0 3.5zM20 19h-3v-4.5c0-1.07-.02-2.45-1.5-2.45-1.5 0-1.73 1.17-1.73 2.37V19h-3v-9h2.88v1.23h.04c.4-.75 1.38-1.5 2.85-1.5 3.05 0 3.46 2.01 3.46 4.62V19z"/></svg>
+  </button>
+</div>
+
+<script>
+(function () {
+  var widget = document.getElementById('liWidget');
+  var bubble = document.getElementById('liBubble');
+  if (!widget || !bubble) return;
+  bubble.addEventListener('click', function (e) {
+    e.stopPropagation();
+    widget.classList.toggle('open');
+  });
+  document.addEventListener('click', function (e) {
+    if (!widget.contains(e.target)) widget.classList.remove('open');
+  });
+})();
 </script>
 
 </body>

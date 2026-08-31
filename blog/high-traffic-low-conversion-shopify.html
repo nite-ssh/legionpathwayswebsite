@@ -88,6 +88,7 @@
   article ul, article ol { margin: 0 0 20px 22px; }
   article li { font-size: 16px; font-weight: 300; color: var(--body-text); line-height: 1.8; margin-bottom: 10px; }
   article li strong { color: var(--ink); font-weight: 600; }
+  article a { color: var(--flame-ink); }
 
   .takeaways { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px 32px; margin: 32px 0; }
   .takeaways h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--flame-ink); margin-bottom: 14px; }
@@ -167,6 +168,44 @@
   @media (prefers-reduced-motion: reduce) {
     .modal-card { animation: none; }
   }
+
+  /* LINKEDIN WIDGET */
+  .li-widget { position: fixed; bottom: 24px; right: 24px; z-index: 9997; font-family: 'DM Sans', sans-serif; }
+  .li-bubble {
+    width: 56px; height: 56px; border-radius: 50%; background: #26102B; border: 2px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;
+    box-shadow: 0 8px 24px rgba(38,16,43,0.35); transition: transform 0.25s ease;
+  }
+  .li-bubble:hover { transform: scale(1.06); }
+  .li-bubble svg { width: 24px; height: 24px; fill: #ffffff; }
+  .li-dot {
+    position: absolute; top: -2px; right: -2px; width: 14px; height: 14px; border-radius: 50%;
+    background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F); border: 2px solid #FDF4EC;
+  }
+  .li-card {
+    position: absolute; bottom: 68px; right: 0; width: 270px;
+    background: #FDF4EC; border-radius: 16px; box-shadow: 0 20px 50px rgba(38,16,43,0.3);
+    padding: 20px; opacity: 0; transform: translateY(8px) scale(0.96); pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease; border: 1px solid rgba(38,16,43,0.1);
+  }
+  .li-widget.open .li-card, .li-widget:hover .li-card { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+  .li-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .li-avatar {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-weight: 900; color: #26102B; font-size: 13px;
+  }
+  .li-name { font-size: 13px; font-weight: 700; color: #26102B; line-height: 1.3; }
+  .li-role { font-size: 11px; color: #6E5B6B; }
+  .li-excerpt { font-size: 13px; color: #5A4a58; line-height: 1.55; margin-bottom: 14px; font-weight: 300; }
+  .li-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: #C22E6E; text-decoration: none; }
+  .li-link:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    .li-widget { bottom: 16px; right: 16px; }
+    .li-card { width: calc(100vw - 48px); right: -8px; }
+  }
 </style>
 </head>
 <body>
@@ -223,41 +262,42 @@
 
 <article>
 
-  <p>"We have plenty of traffic, it's just not converting" is one of the most common things a founder says right before spending more money on ads to fix a problem ads can't fix. Traffic gets people to your site. What happens after that is a completely separate problem, with its own set of causes — and its own set of fixes that don't cost a dollar in ad spend.</p>
+  <p>"We have plenty of traffic, it's just not converting" is one of the most common things a founder says right before spending more money on ads to fix a problem ads can't fix. Traffic gets people to your site. What happens after that is a completely separate problem, with its own set of causes, and its own set of fixes that don't cost a dollar in ad spend.</p>
+  <p>The scale of this gap is well documented. <a href="https://baymard.com/blog/ecommerce-checkout-usability-report-and-benchmark" target="_blank" rel="noopener">Baymard Institute's meta-analysis of checkout research</a> puts average cart abandonment at roughly 70% across the studies it tracks, a rate that has held steady for over a decade despite improvements in payment technology.</p>
 
   <h2>Traffic and revenue are two different systems</h2>
-  <p>It helps to think of your funnel as a series of separate handoffs, each with its own conversion rate: ad to landing page, landing page to product page, product page to cart, cart to checkout, checkout to completed order. A traffic problem shows up as low volume at the very top. A conversion problem shows up as a steep drop at one specific handoff further down — and it's easy to confuse the two if you're only looking at the final number.</p>
+  <p>It helps to think of your funnel as a series of separate handoffs, each with its own conversion rate: ad to landing page, landing page to product page, product page to cart, cart to checkout, checkout to completed order. A traffic problem shows up as low volume at the very top. A conversion problem shows up as a steep drop at one specific handoff further down, and it's easy to confuse the two if you're only looking at the final number.</p>
 
   <h2>The four places drop-off usually hides</h2>
 
   <h3>1. The landing page doesn't match the ad</h3>
-  <p>If someone clicks an ad promising 30% off and lands on a generic homepage with no sign of that offer, they bounce immediately — not because the offer wasn't compelling, but because the page broke the promise that got them there. Landing page mismatch is one of the highest-drop-off, easiest-to-fix problems in the entire funnel.</p>
+  <p>If someone clicks an ad promising 30% off and lands on a generic homepage with no sign of that offer, they bounce immediately, not because the offer wasn't compelling, but because the page broke the promise that got them there. Landing page mismatch is one of the highest-drop-off, easiest-to-fix problems in the entire funnel.</p>
 
   <h3>2. The product page doesn't answer the objection that's actually stopping the sale</h3>
-  <p>Missing size guides, no visible return policy, thin or absent reviews, unclear shipping timelines — each of these leaves a specific doubt unanswered at the exact moment someone is deciding whether to trust you with their money. Session recordings and on-page surveys are usually the fastest way to find out which doubt is actually costing you the sale on a given product.</p>
+  <p>Missing size guides, no visible return policy, thin or absent reviews, unclear shipping timelines, each of these leaves a specific doubt unanswered at the exact moment someone is deciding whether to trust you with their money. Session recordings and on-page surveys are usually the fastest way to find out which doubt is actually costing you the sale on a given product.</p>
 
   <h3>3. The cart creates friction before checkout even starts</h3>
   <p>Confusing quantity controls, no visible way to apply a discount code, or shipping costs that only appear after clicking through to checkout all create hesitation before someone even reaches the point of entering payment details.</p>
 
   <h3>4. Checkout itself asks for too much</h3>
-  <p>This is the stage covered in detail in our <a href="checkout-optimization-checklist.html">checkout optimization checklist</a> — and it's usually the stage with the steepest, most consistent drop-off of any point in the funnel.</p>
+  <p>This is the stage covered in detail in our <a href="checkout-optimization-checklist.html">checkout optimization checklist</a>, and it's usually the stage with the steepest, most consistent drop-off of any point in the funnel.</p>
 
   <h2>How to find out which one is actually yours</h2>
   <p>You don't need to guess. A short diagnostic process usually surfaces the answer within a week:</p>
   <ul>
-    <li><strong>Pull your funnel analytics</strong> stage by stage — landing, product, cart, checkout, purchase — and find the single steepest drop, not just the overall conversion rate.</li>
+    <li><strong>Pull your funnel analytics</strong> stage by stage, landing, product, cart, checkout, purchase, and find the single steepest drop, not just the overall conversion rate.</li>
     <li><strong>Watch session recordings</strong> at that specific stage. Ten to fifteen sessions usually reveals a pattern much faster than staring at a dashboard.</li>
     <li><strong>Check heatmaps</strong> on the page where the drop happens to see whether people are engaging with the content that's supposed to move them forward, or ignoring it entirely.</li>
-    <li><strong>Prioritize by volume, not intuition</strong> — a small percentage improvement at your highest-traffic drop-off point usually beats a large improvement somewhere few people ever reach.</li>
+    <li><strong>Prioritize by volume, not intuition</strong>, a small percentage improvement at your highest-traffic drop-off point usually beats a large improvement somewhere few people ever reach.</li>
   </ul>
 
   <div class="takeaways">
     <h4>Key takeaways</h4>
     <ul>
-      <li>Traffic and conversion are separate problems with separate causes — more ad spend doesn't fix a broken product page or a confusing checkout.</li>
+      <li>Traffic and conversion are separate problems with separate causes, more ad spend doesn't fix a broken product page or a confusing checkout.</li>
       <li>Drop-off tends to concentrate at four points: landing page mismatch, unanswered product-page objections, cart friction, and checkout friction.</li>
       <li>Session recordings and heatmaps, read alongside stage-by-stage funnel data, usually identify the real cause faster than assumptions do.</li>
-      <li>Fix the highest-traffic drop-off point first — that's where a small improvement returns the most revenue.</li>
+      <li>Fix the highest-traffic drop-off point first, that's where a small improvement returns the most revenue.</li>
     </ul>
   </div>
 
@@ -268,7 +308,7 @@
 <div class="article-cta">
   <div class="cta-box">
     <h3>Want a second pair of eyes on your funnel?</h3>
-    <p>We'll map exactly where your traffic is dropping off and what it would take to fix it — free, no obligation.</p>
+    <p>We'll map exactly where your traffic is dropping off and what it would take to fix it, free, no obligation.</p>
     <a href="../index.html#contact" class="btn-primary">Get your free UX audit &rarr;</a>
   </div>
 </div>
@@ -288,7 +328,7 @@
       <div id="modalFormWrap">
         <div class="modal-eyebrow">Free, no obligation</div>
         <h2 class="modal-title" id="modalTitle">See where your funnel is leaking.</h2>
-        <p class="modal-sub">Tell us where to send it and we'll map your site's biggest drop-off points &mdash; free.</p>
+        <p class="modal-sub">Tell us where to send it and we'll map your site's biggest drop-off points, free.</p>
         <form class="modal-form" id="modalForm">
           <div class="form-group">
             <label for="m-name">Full name</label>
@@ -314,7 +354,7 @@
           </div>
           <div class="form-group">
             <label for="m-issue">Biggest UX issue right now</label>
-            <textarea id="m-issue" name="issue" placeholder="Checkout drop-off, mobile conversion, something else — whatever's on your mind."></textarea>
+            <textarea id="m-issue" name="issue" placeholder="Checkout drop-off, mobile conversion, something else, whatever's on your mind."></textarea>
           </div>
           <button type="submit" class="modal-submit">Get my free UX audit &rarr;</button>
         </form>
@@ -334,7 +374,7 @@
 <script>
   // ----- Free audit popup (Fibonacci re-prompt schedule, cumulative across the whole visit) -----
   var auditModal = document.getElementById('auditModal');
-  var FIB_SEQUENCE = [3, 5, 8, 13, 21, 34];
+  var FIB_SEQUENCE = [5, 10, 20];
 
   function openModal() {
     auditModal.classList.add('open');
@@ -385,7 +425,7 @@
     var revenue = document.getElementById('m-revenue').value;
     var issue   = document.getElementById('m-issue').value.trim();
 
-    var subject = encodeURIComponent('UX AUDIT request — ' + (brand || name));
+    var subject = encodeURIComponent('UX AUDIT request, ' + (brand || name));
     var body = encodeURIComponent(
       'Name: ' + name + '\n' +
       'Email: ' + email + '\n' +
@@ -425,7 +465,7 @@
     try {
       var stored = sessionStorage.getItem('lp_modal_next_threshold');
       if (stored === null) {
-        nextThreshold = FIB_SEQUENCE[0]; // 3 seconds — first appearance
+        nextThreshold = FIB_SEQUENCE[0]; // 3 seconds, first appearance
         sessionStorage.setItem('lp_modal_next_threshold', String(nextThreshold));
         sessionStorage.setItem('lp_modal_step', '1'); // next delta to use after first dismiss is FIB_SEQUENCE[1]
       } else {
@@ -440,6 +480,41 @@
 
     setTimeout(openModal, remaining * 1000);
   })();
+</script>
+
+
+<!-- LINKEDIN WIDGET, edit li-excerpt below whenever there's a new post to feature -->
+<div class="li-widget" id="liWidget">
+  <div class="li-card" id="liCard">
+    <div class="li-card-head">
+      <div class="li-avatar">NP</div>
+      <div>
+        <div class="li-name">Nitesh Poudel</div>
+        <div class="li-role">Conversion Rate Optimization</div>
+      </div>
+    </div>
+    <div class="li-excerpt">Sharing what's actually moving the needle in CRO right now, new post up on LinkedIn.</div>
+    <a class="li-link" href="https://www.linkedin.com/in/nitesh-poudel/recent-activity/all/" target="_blank" rel="noopener">View latest post &rarr;</a>
+  </div>
+  <button class="li-bubble" id="liBubble" aria-label="View latest LinkedIn post" type="button">
+    <span class="li-dot"></span>
+    <svg viewBox="0 0 24 24"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5v-9h3v9zM6.5 8.25A1.75 1.75 0 1 1 6.5 4.75a1.75 1.75 0 0 1 0 3.5zM20 19h-3v-4.5c0-1.07-.02-2.45-1.5-2.45-1.5 0-1.73 1.17-1.73 2.37V19h-3v-9h2.88v1.23h.04c.4-.75 1.38-1.5 2.85-1.5 3.05 0 3.46 2.01 3.46 4.62V19z"/></svg>
+  </button>
+</div>
+
+<script>
+(function () {
+  var widget = document.getElementById('liWidget');
+  var bubble = document.getElementById('liBubble');
+  if (!widget || !bubble) return;
+  bubble.addEventListener('click', function (e) {
+    e.stopPropagation();
+    widget.classList.toggle('open');
+  });
+  document.addEventListener('click', function (e) {
+    if (!widget.contains(e.target)) widget.classList.remove('open');
+  });
+})();
 </script>
 
 </body>
