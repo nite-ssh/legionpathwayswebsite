@@ -307,7 +307,7 @@
         <div class="modal-eyebrow">Free, no obligation</div>
         <h2 class="modal-title" id="modalTitle">See where your funnel is leaking.</h2>
         <p class="modal-sub">Tell us where to send it and we'll map your site's biggest drop-off points, free.</p>
-        <form class="modal-form" id="modalForm">
+        <form class="modal-form" id="modalForm" action="https://formspree.io/f/mvkozzlw" method="POST">
           <div class="form-group">
             <label for="m-name">Full name</label>
             <input type="text" id="m-name" name="name" placeholder="Your name" required>
@@ -344,7 +344,7 @@
       </div>
       <div class="modal-success" id="modalSuccess">
         <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        <p><strong>Your email client should now be open.</strong><br>Send it and we'll come back within 24&ndash;48 hours.</p>
+        <p><strong>Your request has been sent.</strong><br>We'll come back within 24&ndash;48 hours.</p>
       </div>
     </div>
   </div>
@@ -397,26 +397,29 @@
 
   document.getElementById('modalForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    var name    = document.getElementById('m-name').value.trim();
-    var email   = document.getElementById('m-email').value.trim();
-    var brand   = document.getElementById('m-brand').value.trim();
-    var revenue = document.getElementById('m-revenue').value;
-    var issue   = document.getElementById('m-issue').value.trim();
+    var form = this;
+    var submitButton = form.querySelector('button[type="submit"]');
+    var originalLabel = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
 
-    var subject = encodeURIComponent('UX AUDIT request, ' + (brand || name));
-    var body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      (brand ? 'Brand: ' + brand + '\n' : '') +
-      (revenue ? 'Monthly revenue: ' + revenue + '\n' : '') +
-      (issue ? '\nBiggest UX issue:\n' + issue : '')
-    );
-    window.location.href = 'mailto:info@legionpathways.com?subject=' + subject + '&body=' + body;
-
-    document.getElementById('modalFormWrap').style.display = 'none';
-    document.getElementById('modalSuccess').classList.add('visible');
-    stopModalScheduleForever();
-    setTimeout(function () { closeModal(false); }, 3500);
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function (response) {
+      if (!response.ok) throw new Error('Form submission failed');
+      document.getElementById('modalFormWrap').style.display = 'none';
+      document.getElementById('modalSuccess').classList.add('visible');
+      stopModalScheduleForever();
+      setTimeout(function () { closeModal(false); }, 3500);
+    })
+    .catch(function () {
+      submitButton.disabled = false;
+      submitButton.textContent = originalLabel;
+      alert('There was a problem sending your request. Please try again.');
+    });
   });
 
   // Schedule the next appearance based on cumulative time elapsed since the visit began,
