@@ -405,28 +405,37 @@
     if (event.key === 'Escape' && auditModal.classList.contains('open')) closeModal(true);
   });
 
+  // Formspree endpoint — submissions land in your Formspree dashboard
+  var FORM_ENDPOINT = 'https://formspree.io/f/mvkozzlw';
+
   document.getElementById('modalForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    var name    = document.getElementById('m-name').value.trim();
-    var email   = document.getElementById('m-email').value.trim();
-    var brand   = document.getElementById('m-brand').value.trim();
-    var revenue = document.getElementById('m-revenue').value;
-    var issue   = document.getElementById('m-issue').value.trim();
+    var form = document.getElementById('modalForm');
+    var submitBtn = form.querySelector('.modal-submit');
+    var originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
 
-    var subject = encodeURIComponent('UX AUDIT request, ' + (brand || name));
-    var body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      (brand ? 'Brand: ' + brand + '\n' : '') +
-      (revenue ? 'Monthly revenue: ' + revenue + '\n' : '') +
-      (issue ? '\nBiggest UX issue:\n' + issue : '')
-    );
-    window.location.href = 'mailto:info@legionpathways.com?subject=' + subject + '&body=' + body;
-
-    document.getElementById('modalFormWrap').style.display = 'none';
-    document.getElementById('modalSuccess').classList.add('visible');
-    stopModalScheduleForever();
-    setTimeout(function () { closeModal(false); }, 3500);
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    }).then(function (response) {
+      if (response.ok) {
+        document.getElementById('modalFormWrap').style.display = 'none';
+        document.getElementById('modalSuccess').classList.add('visible');
+        stopModalScheduleForever();
+        setTimeout(function () { closeModal(false); }, 3500);
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+        alert('Something went wrong sending that. Please try again or email info@legionpathways.com directly.');
+      }
+    }).catch(function () {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+      alert('Something went wrong sending that. Please try again or email info@legionpathways.com directly.');
+    });
   });
 
   // Schedule the next appearance based on cumulative time elapsed since the visit began,

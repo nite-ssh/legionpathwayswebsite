@@ -601,57 +601,92 @@
       </div>
 
       <div class="hero-visual fade-up delay-4">
-        <div class="leak-card" id="leakCard">
-          <div class="leak-card-head">
-            <div class="leak-card-title">Conversion audit</div>
-            <div class="leak-live">Sample</div>
-          </div>
+        <svg viewBox="0 0 440 460" style="width:100%;max-width:440px;height:auto;display:block;" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="heroFlowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#FB85C6"/>
+              <stop offset="22%" stop-color="#F794AF"/>
+              <stop offset="42%" stop-color="#F99D87"/>
+              <stop offset="66%" stop-color="#FBA82C"/>
+              <stop offset="82%" stop-color="#FA871A"/>
+              <stop offset="100%" stop-color="#F9671F"/>
+            </linearGradient>
+          </defs>
 
-          <div class="leak-row done">
-            <div class="leak-row-top">
-              <span class="leak-name">Product page &rarr; Add to cart</span>
-              <span class="leak-status">Fixed</span>
+          <text x="10" y="14" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="rgba(255,255,255,0.4)">YOUR STACK</text>
+          <text x="430" y="14" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="rgba(255,255,255,0.4)">WHAT YOU GET</text>
+
+          <!-- connector lines: stack -> engine -->
+          <path d="M150,38 C185,38 185,140 195,155" fill="none" stroke="url(#heroFlowGrad)" stroke-width="1.5" opacity="0.5"/>
+          <path d="M150,102 C185,102 185,160 195,170" fill="none" stroke="url(#heroFlowGrad)" stroke-width="1.5" opacity="0.5"/>
+          <path d="M150,166 C185,166 185,190 195,195" fill="none" stroke="url(#heroFlowGrad)" stroke-width="1.5" opacity="0.5"/>
+          <path d="M150,230 C185,230 185,235 195,238" fill="none" stroke="url(#heroFlowGrad)" stroke-width="1.5" opacity="0.5"/>
+          <path d="M150,294 C185,294 185,270 195,262" fill="none" stroke="url(#heroFlowGrad)" stroke-width="1.5" opacity="0.5"/>
+          <path d="M150,358 C185,358 185,295 195,282" fill="none" stroke="url(#heroFlowGrad)" stroke-width="1.5" opacity="0.5"/>
+
+          <!-- connector lines: engine -> outcomes -->
+          <path d="M245,155 C265,155 260,38 290,38" fill="none" stroke="url(#heroFlowGrad)" stroke-width="1.5" opacity="0.5"/>
+          <path d="M245,170 C265,170 260,102 290,102" fill="none" stroke="url(#heroFlowGrad)" stroke-width="1.5" opacity="0.5"/>
+          <path d="M245,195 C265,195 260,166 290,166" fill="none" stroke="url(#heroFlowGrad)" stroke-width="1.5" opacity="0.5"/>
+          <path d="M245,238 C265,238 260,230 290,230" fill="none" stroke="url(#heroFlowGrad)" stroke-width="1.5" opacity="0.5"/>
+          <path d="M245,262 C265,262 260,294 290,294" fill="none" stroke="url(#heroFlowGrad)" stroke-width="1.5" opacity="0.5"/>
+          <path d="M245,282 C265,282 260,358 290,358" fill="none" stroke="url(#heroFlowGrad)" stroke-width="1.5" opacity="0.5"/>
+
+          <!-- stack pills -->
+          <foreignObject x="10" y="24" width="140" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;padding:0 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:#ffffff;">Shopify</div>
+          </foreignObject>
+          <foreignObject x="10" y="88" width="140" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;padding:0 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:#ffffff;">GA4</div>
+          </foreignObject>
+          <foreignObject x="10" y="152" width="140" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;padding:0 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:#ffffff;">Hotjar</div>
+          </foreignObject>
+          <foreignObject x="10" y="216" width="140" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;padding:0 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:#ffffff;">Optimizely</div>
+          </foreignObject>
+          <foreignObject x="10" y="280" width="140" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;padding:0 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:#ffffff;">Klaviyo</div>
+          </foreignObject>
+          <foreignObject x="10" y="344" width="140" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;padding:0 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:#ffffff;">Figma</div>
+          </foreignObject>
+
+          <!-- center engine -->
+          <rect x="195" y="155" width="50" height="130" rx="18" fill="rgba(26,10,30,0.9)" stroke="url(#heroFlowGrad)" stroke-width="2"/>
+          <foreignObject x="195" y="155" width="50" height="130">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:6px;text-align:center;">
+              <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(90deg,#FB85C6,#F99D87,#FBA82C,#F9671F);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:11px;color:#26102B;">LP</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;color:#ffffff;line-height:1.3;">CRO<br>Engine</div>
             </div>
-            <div class="leak-bar"><span class="leak-fill" data-fill="100%"></span></div>
-          </div>
+          </foreignObject>
 
-          <div class="leak-row done">
-            <div class="leak-row-top">
-              <span class="leak-name">Cart &rarr; Checkout start</span>
-              <span class="leak-status">Fixed</span>
-            </div>
-            <div class="leak-bar"><span class="leak-fill" data-fill="100%"></span></div>
-          </div>
+          <!-- outcome pills -->
+          <foreignObject x="290" y="24" width="140" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;padding:0 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:#ffffff;">Higher conversion rate</div>
+          </foreignObject>
+          <foreignObject x="290" y="88" width="140" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;padding:0 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:#ffffff;">Increased AOV</div>
+          </foreignObject>
+          <foreignObject x="290" y="152" width="140" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;padding:0 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:#ffffff;">Less checkout friction</div>
+          </foreignObject>
+          <foreignObject x="290" y="216" width="140" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;padding:0 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:#ffffff;">Data-backed UX</div>
+          </foreignObject>
+          <foreignObject x="290" y="280" width="140" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;padding:0 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:#ffffff;">Less discount reliance</div>
+          </foreignObject>
+          <foreignObject x="290" y="344" width="140" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%;display:flex;align-items:center;padding:0 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:#ffffff;">Less ad-spend reliance</div>
+          </foreignObject>
 
-          <div class="leak-row">
-            <div class="leak-row-top">
-              <span class="leak-name">Checkout form fields</span>
-              <span class="leak-status">Testing</span>
-            </div>
-            <div class="leak-bar"><span class="leak-fill" data-fill="58%"></span></div>
-          </div>
-
-          <div class="leak-row">
-            <div class="leak-row-top">
-              <span class="leak-name">Mobile checkout flow</span>
-              <span class="leak-status">Testing</span>
-            </div>
-            <div class="leak-bar"><span class="leak-fill" data-fill="40%"></span></div>
-          </div>
-
-          <div class="leak-row">
-            <div class="leak-row-top">
-              <span class="leak-name">Shipping &amp; payment step</span>
-              <span class="leak-status">Mapped</span>
-            </div>
-            <div class="leak-bar"><span class="leak-fill" data-fill="18%"></span></div>
-          </div>
-
-          <div class="leak-foot">Illustrative audit board. <strong>Your audit maps your own funnel.</strong></div>
-        </div>
+          <text x="10" y="418" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.35)">Illustrative. Your stack, your outcomes.</text>
+        </svg>
       </div>
     </div>
   </section>
+
 
   <section class="what-we-do">
     <div class="container">
@@ -995,7 +1030,7 @@
             <div class="success-icon">
               <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-            <div class="success-text">Your email client should now be open with the details filled in. Send it and we'll come back within 24&ndash;48 hours.</div>
+            <div class="success-text">Got it, thanks. We'll come back within 24&ndash;48 hours.</div>
           </div>
         </div>
       </div>
@@ -1093,7 +1128,7 @@
       </div>
       <div class="modal-success" id="modalSuccess">
         <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        <p><strong>Your email client should now be open.</strong><br>Send it and we'll come back within 24&ndash;48 hours.</p>
+        <p><strong>Got it, thanks.</strong><br>We'll come back within 24&ndash;48 hours.</p>
       </div>
     </div>
   </div>
@@ -1146,27 +1181,35 @@
   fillLeakBars();
 
   // Contact form -> opens the visitor's email client, pre-filled
+  // Formspree endpoint — submissions land in your Formspree dashboard
+  var FORM_ENDPOINT = 'https://formspree.io/f/mvkozzlw';
+
   document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    var name    = document.getElementById('c-name').value.trim();
-    var email   = document.getElementById('c-email').value.trim();
-    var brand   = document.getElementById('c-brand').value.trim();
-    var revenue = document.getElementById('c-revenue').value;
-    var message = document.getElementById('c-message').value.trim();
+    var form = document.getElementById('contactForm');
+    var submitBtn = form.querySelector('.form-submit');
+    var originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
 
-    var subject = encodeURIComponent('UX AUDIT request, ' + (brand || name));
-    var body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      (brand ? 'Brand: ' + brand + '\n' : '') +
-      (revenue ? 'Monthly revenue: ' + revenue + '\n' : '') +
-      '\nWhere the manual work piles up:\n' + message
-    );
-
-    window.location.href = 'mailto:info@legionpathways.com?subject=' + subject + '&body=' + body;
-
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').classList.add('visible');
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    }).then(function (response) {
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+        alert('Something went wrong sending that. Please try again or email info@legionpathways.com directly.');
+      }
+    }).catch(function () {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+      alert('Something went wrong sending that. Please try again or email info@legionpathways.com directly.');
+    });
   });
 
   // ----- Free audit popup (Fibonacci re-prompt schedule, cumulative across the whole visit) -----
@@ -1216,26 +1259,32 @@
 
   document.getElementById('modalForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    var name    = document.getElementById('m-name').value.trim();
-    var email   = document.getElementById('m-email').value.trim();
-    var brand   = document.getElementById('m-brand').value.trim();
-    var revenue = document.getElementById('m-revenue').value;
-    var issue   = document.getElementById('m-issue').value.trim();
+    var form = document.getElementById('modalForm');
+    var submitBtn = form.querySelector('.modal-submit');
+    var originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
 
-    var subject = encodeURIComponent('UX AUDIT request, ' + (brand || name));
-    var body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      (brand ? 'Brand: ' + brand + '\n' : '') +
-      (revenue ? 'Monthly revenue: ' + revenue + '\n' : '') +
-      (issue ? '\nBiggest UX issue:\n' + issue : '')
-    );
-    window.location.href = 'mailto:info@legionpathways.com?subject=' + subject + '&body=' + body;
-
-    document.getElementById('modalFormWrap').style.display = 'none';
-    document.getElementById('modalSuccess').classList.add('visible');
-    stopModalScheduleForever();
-    setTimeout(function () { closeModal(false); }, 3500);
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    }).then(function (response) {
+      if (response.ok) {
+        document.getElementById('modalFormWrap').style.display = 'none';
+        document.getElementById('modalSuccess').classList.add('visible');
+        stopModalScheduleForever();
+        setTimeout(function () { closeModal(false); }, 3500);
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+        alert('Something went wrong sending that. Please try again or email info@legionpathways.com directly.');
+      }
+    }).catch(function () {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+      alert('Something went wrong sending that. Please try again or email info@legionpathways.com directly.');
+    });
   });
 
   // Schedule the next appearance based on cumulative time elapsed since the visit began,
