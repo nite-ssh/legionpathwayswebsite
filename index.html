@@ -1180,8 +1180,7 @@
   }
   fillLeakBars();
 
-  // Contact form -> opens the visitor's email client, pre-filled
-  // Formspree endpoint — submissions land in your Formspree dashboard
+  // Contact form, submits to Formspree so entries are saved and viewable in your dashboard
   var FORM_ENDPOINT = 'https://formspree.io/f/mvkozzlw';
 
   document.getElementById('contactForm').addEventListener('submit', function (event) {
