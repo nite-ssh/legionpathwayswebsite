@@ -684,45 +684,42 @@
     position:relative;
     background:#fff;
     border-radius:var(--radius-lg);
-    box-shadow:0 30px 70px rgba(0,0,0,0.4), 0 0 0 1px rgba(183,58,51,0.08);
-    padding:36px 32px 30px;
+    box-shadow:0 30px 70px rgba(0,0,0,0.4);
+    padding:26px 28px 22px;
     color:var(--text);
     overflow:hidden;
   }
-  .hero-form-accent{
-    position:absolute;
-    top:0;left:0;right:0;
-    height:5px;
-    background:linear-gradient(90deg, var(--primary), #E3897F, var(--secondary));
-  }
-  .hero-form-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    background:#FBEBEA;
-    color:var(--primary);
-    font-size:11.5px;
+  .hero-form-eyebrow{
+    font-size:12px;
     font-weight:700;
-    letter-spacing:0.04em;
+    letter-spacing:0.1em;
     text-transform:uppercase;
-    padding:6px 12px;
-    border-radius:20px;
-    margin-bottom:16px;
+    color:var(--primary);
+    margin-bottom:6px;
   }
-  .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--primary);animation:pulseDot 1.8s ease-in-out infinite;}
-  @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.75);}}
-  .hero-form-title{font-size:23px;font-weight:800;color:var(--secondary);margin-bottom:8px;}
-  .hero-form-sub{font-size:14px;color:var(--text-muted);margin-bottom:22px;}
-  .form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  .form-row{margin-bottom:16px;}
-  .form-row label{display:block;font-size:12.5px;font-weight:700;color:var(--secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.03em;}
+  .hero-form-title{font-size:19px;font-weight:800;color:var(--secondary);margin-bottom:4px;}
+  .hero-form-sub{font-size:13px;color:var(--text-muted);margin-bottom:16px;}
+
+  .form-progress{margin-bottom:16px;}
+  .form-progress-bar{height:5px;background:var(--surface-2);border-radius:4px;overflow:hidden;margin-bottom:8px;}
+  .form-progress-fill{height:100%;width:33.33%;background:linear-gradient(90deg,var(--primary),#E3897F);border-radius:4px;transition:width 300ms ease;}
+  .form-progress-label{font-size:11.5px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.03em;}
+
+  .form-step{display:none;}
+  .form-step.is-active{display:block;animation:formStepIn 260ms ease;}
+  @keyframes formStepIn{from{opacity:0;transform:translateX(8px);}to{opacity:1;transform:translateX(0);}}
+
+  .form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .form-row{margin-bottom:12px;}
+  .form-row:last-child{margin-bottom:0;}
+  .form-row label{display:block;font-size:11.5px;font-weight:700;color:var(--secondary);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.03em;}
   .form-row input,.form-row textarea,.form-row select{
     width:100%;
-    padding:12px 14px;
+    padding:10px 12px;
     border:1.5px solid var(--border);
     border-radius:var(--radius-sm);
     font-family:inherit;
-    font-size:14.5px;
+    font-size:14px;
     color:var(--text);
     background:#fff;
     transition:border-color var(--transition), box-shadow var(--transition);
@@ -734,7 +731,7 @@
     background-repeat:no-repeat;
     background-position:right 12px center;
     background-size:16px;
-    padding-right:36px;
+    padding-right:34px;
     cursor:pointer;
   }
   .form-row input:focus,.form-row textarea:focus,.form-row select:focus{
@@ -743,10 +740,12 @@
     box-shadow:0 0 0 4px rgba(183,58,51,0.12);
   }
   .form-row textarea{resize:vertical;}
-  .hero-form-card .btn{margin-top:6px;}
-  .hero-form-card .btn svg{transition:transform var(--transition);}
-  .hero-form-card .btn:hover svg{transform:translateX(3px);}
-  .hero-form-note{font-size:12px;color:var(--text-muted);text-align:center;margin-top:14px;}
+
+  .form-nav{display:flex;gap:10px;margin-top:6px;}
+  .form-nav .btn{flex:1;padding:11px 20px;font-size:14px;}
+  .form-nav .btn svg{transition:transform var(--transition);}
+  .form-nav .btn:hover svg{transform:translateX(3px);}
+  .hero-form-note{font-size:11.5px;color:var(--text-muted);text-align:center;margin-top:12px;}
   @media(max-width:480px){.form-grid-2{grid-template-columns:1fr;}}
 
   /* Reveal animation */
@@ -833,72 +832,93 @@
 
       <div class="reveal">
         <div class="hero-form-card" id="hero-form">
-          <div class="hero-form-accent"></div>
-          <div class="hero-form-badge">
-            <span class="badge-dot"></span> Free Retail Fit Assessment
+          <p class="hero-form-eyebrow">Get Into Retail</p>
+          <h2 class="hero-form-title">Tell Us About Your Brand</h2>
+          <p class="hero-form-sub">A few quick questions so we can follow up with the right next step.</p>
+
+          <div class="form-progress">
+            <div class="form-progress-bar"><div class="form-progress-fill" id="formProgressFill"></div></div>
+            <span class="form-progress-label" id="formStepLabel">Step 1 of 3</span>
           </div>
-          <h2 class="hero-form-title">Get Into Retail</h2>
-          <p class="hero-form-sub">Tell us about your brand and we'll follow up to map out your retail growth path.</p>
-          <form id="leadForm">
-            <div class="form-grid-2">
-              <div class="form-row">
-                <label for="lf-name">Full Name</label>
-                <input type="text" id="lf-name" name="name" autocomplete="name" placeholder="Jordan Smith" required>
-              </div>
-              <div class="form-row">
-                <label for="lf-email">Work Email</label>
-                <input type="email" id="lf-email" name="email" autocomplete="email" placeholder="you@brand.com" required>
+
+          <form id="leadForm" action="https://formsubmit.co/nitesh@trylegionpathways.com" method="POST">
+            <input type="hidden" name="_subject" value="New Discovery Call Request - Legion Pathways">
+            <input type="hidden" name="_template" value="table">
+            <div class="form-step is-active" data-step="1">
+              <div class="form-grid-2">
+                <div class="form-row">
+                  <label for="lf-name">Full Name</label>
+                  <input type="text" id="lf-name" name="name" autocomplete="name" placeholder="Jordan Smith" required>
+                </div>
+                <div class="form-row">
+                  <label for="lf-email">Work Email</label>
+                  <input type="email" id="lf-email" name="email" autocomplete="email" placeholder="you@brand.com" required>
+                </div>
               </div>
             </div>
-            <div class="form-row">
-              <label for="lf-brand">Brand Name</label>
-              <input type="text" id="lf-brand" name="brand" autocomplete="organization" placeholder="Your brand name" required>
-            </div>
-            <div class="form-grid-2">
+
+            <div class="form-step" data-step="2">
               <div class="form-row">
-                <label for="lf-category">Product Category</label>
-                <select id="lf-category" name="category" required>
-                  <option value="" disabled selected>Select category</option>
-                  <option>Supplements</option>
-                  <option>Nutraceuticals</option>
-                  <option>Wellness Products</option>
-                  <option>Functional Foods</option>
-                  <option>Functional Beverages</option>
-                  <option>Health Products</option>
-                  <option>Lifestyle Brand</option>
-                  <option>Other CPG</option>
+                <label for="lf-brand">Brand Name</label>
+                <input type="text" id="lf-brand" name="brand" autocomplete="organization" placeholder="Your brand name" required>
+              </div>
+              <div class="form-grid-2">
+                <div class="form-row">
+                  <label for="lf-category">Product Category</label>
+                  <select id="lf-category" name="category" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option>Supplements</option>
+                    <option>Nutraceuticals</option>
+                    <option>Wellness Products</option>
+                    <option>Functional Foods</option>
+                    <option>Functional Beverages</option>
+                    <option>Health Products</option>
+                    <option>Lifestyle Brand</option>
+                    <option>Other CPG</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="lf-revenue">Annual Revenue</label>
+                  <select id="lf-revenue" name="revenue" required>
+                    <option value="" disabled selected>Select range</option>
+                    <option>Under $100K</option>
+                    <option>$100K–$500K</option>
+                    <option>$500K–$1M</option>
+                    <option>$1M–$5M</option>
+                    <option>$5M+</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="3">
+              <div class="form-row">
+                <label for="lf-distribution">Current Retail Distribution</label>
+                <select id="lf-distribution" name="distribution">
+                  <option value="" disabled selected>Select current stage</option>
+                  <option>DTC only — no retail yet</option>
+                  <option>1–10 retail doors</option>
+                  <option>10–50 retail doors</option>
+                  <option>50+ retail doors</option>
                 </select>
               </div>
               <div class="form-row">
-                <label for="lf-revenue">Annual Revenue</label>
-                <select id="lf-revenue" name="revenue" required>
-                  <option value="" disabled selected>Select range</option>
-                  <option>Under $100K</option>
-                  <option>$100K–$500K</option>
-                  <option>$500K–$1M</option>
-                  <option>$1M–$5M</option>
-                  <option>$5M+</option>
-                </select>
+                <label for="lf-goals">Retail Growth Goals</label>
+                <textarea id="lf-goals" name="goals" rows="2" placeholder="What are you hoping to achieve in the next 6–12 months?"></textarea>
               </div>
             </div>
-            <div class="form-row">
-              <label for="lf-distribution">Current Retail Distribution</label>
-              <select id="lf-distribution" name="distribution">
-                <option value="" disabled selected>Select current stage</option>
-                <option>DTC only — no retail yet</option>
-                <option>1–10 retail doors</option>
-                <option>10–50 retail doors</option>
-                <option>50+ retail doors</option>
-              </select>
+
+            <div class="form-nav">
+              <button type="button" class="btn btn-secondary form-back" style="display:none;">Back</button>
+              <button type="button" class="btn btn-primary form-next">
+                Next
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+              <button type="submit" class="btn btn-primary form-submit" style="display:none;">
+                Get into Retail
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
             </div>
-            <div class="form-row">
-              <label for="lf-goals">Retail Growth Goals</label>
-              <textarea id="lf-goals" name="goals" rows="3" placeholder="What are you hoping to achieve in the next 6–12 months?"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">
-              Get into Retail
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
             <p class="hero-form-note">No spam. Used only to follow up on your retail goals.</p>
           </form>
         </div>
@@ -1355,31 +1375,50 @@
     });
   });
 
-  // Lead form -> mailto
+  // Multi-step lead form
   var leadForm = document.getElementById('leadForm');
   if(leadForm){
-    leadForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      var name = document.getElementById('lf-name').value.trim();
-      var email = document.getElementById('lf-email').value.trim();
-      var brand = document.getElementById('lf-brand').value.trim();
-      var category = document.getElementById('lf-category').value.trim();
-      var revenue = document.getElementById('lf-revenue').value.trim();
-      var distribution = document.getElementById('lf-distribution').value.trim();
-      var goals = document.getElementById('lf-goals').value.trim();
-      var subject = encodeURIComponent('Discovery Call Request - ' + brand);
-      var bodyLines = [
-        'Name: ' + name,
-        'Email: ' + email,
-        'Brand: ' + brand,
-        'Product Category: ' + (category || 'N/A'),
-        'Annual Revenue: ' + (revenue || 'N/A'),
-        'Current Retail Distribution: ' + (distribution || 'N/A'),
-        'Retail Growth Goals: ' + (goals || 'N/A')
-      ];
-      var body = encodeURIComponent(bodyLines.join('\n'));
-      window.location.href = 'mailto:nitesh@trylegionpathways.com?subject=' + subject + '&body=' + body;
+    var steps = Array.prototype.slice.call(leadForm.querySelectorAll('.form-step'));
+    var totalSteps = steps.length;
+    var currentStep = 1;
+    var progressFill = document.getElementById('formProgressFill');
+    var stepLabel = document.getElementById('formStepLabel');
+    var backBtn = leadForm.querySelector('.form-back');
+    var nextBtn = leadForm.querySelector('.form-next');
+    var submitBtn = leadForm.querySelector('.form-submit');
+
+    function renderStep(){
+      steps.forEach(function(stepEl){
+        stepEl.classList.toggle('is-active', parseInt(stepEl.getAttribute('data-step'), 10) === currentStep);
+      });
+      progressFill.style.width = (currentStep / totalSteps * 100) + '%';
+      stepLabel.textContent = 'Step ' + currentStep + ' of ' + totalSteps;
+      backBtn.style.display = currentStep === 1 ? 'none' : 'inline-flex';
+      nextBtn.style.display = currentStep === totalSteps ? 'none' : 'inline-flex';
+      submitBtn.style.display = currentStep === totalSteps ? 'inline-flex' : 'none';
+    }
+
+    function currentStepValid(){
+      var activeStep = leadForm.querySelector('.form-step.is-active');
+      var fields = activeStep.querySelectorAll('input[required], select[required], textarea[required]');
+      var valid = true;
+      fields.forEach(function(field){
+        if(!field.reportValidity()) valid = false;
+      });
+      return valid;
+    }
+
+    nextBtn.addEventListener('click', function(){
+      if(!currentStepValid()) return;
+      if(currentStep < totalSteps){ currentStep++; renderStep(); }
     });
+    backBtn.addEventListener('click', function(){
+      if(currentStep > 1){ currentStep--; renderStep(); }
+    });
+
+    renderStep();
+    // Final submit is a native form POST to FormSubmit.co (see form action above),
+    // so no JS interception is needed here.
   }
 
   // Focus the lead form when a "Get into Retail" link points to it
